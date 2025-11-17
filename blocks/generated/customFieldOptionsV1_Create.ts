@@ -1,0 +1,112 @@
+import { AppBlock, events } from "@slflows/sdk/v1";
+
+const customFieldOptionsV1_Create: AppBlock = {
+  name: "Create Custom Field Options V1",
+  description: `Create a custom field option. If the sort key is not supplied, it'll default to 1000, so the option appears near the end of the list.`,
+  category: "API",
+
+  inputs: {
+    default: {
+      config: {
+      "custom_field_id": {
+            "name": "Custom Field Id",
+            "description": "ID of the custom field this option belongs to",
+            "type": "string",
+            "required": false
+      },
+      "sort_key": {
+            "name": "Sort Key",
+            "description": "Sort key used to order the custom field options correctly",
+            "type": "number",
+            "required": false
+      },
+      "value": {
+            "name": "Value",
+            "description": "Human readable name for the custom field option",
+            "type": "string",
+            "required": false
+      }
+},
+      onEvent: async (input) => {
+        const apiKey = input.app.config.apiKey;
+
+        let url = "https://api.incident.io/v1/custom_field_options";
+        const body: Record<string, any> = {};
+        if (input.event.inputConfig.custom_field_id !== undefined) {
+          body.custom_field_id = input.event.inputConfig.custom_field_id;
+        }
+        if (input.event.inputConfig.sort_key !== undefined) {
+          body.sort_key = input.event.inputConfig.sort_key;
+        }
+        if (input.event.inputConfig.value !== undefined) {
+          body.value = input.event.inputConfig.value;
+        }
+        const headers: Record<string, string> = {};
+
+        const response = await fetch(url, {
+          method: "POST",
+          headers: {
+            "Authorization": `Bearer ${apiKey}`,
+            "Content-Type": "application/json",
+            ...headers,
+          },
+          body: body ? JSON.stringify(body) : undefined,
+        });
+
+        if (!response.ok) {
+          const errorText = await response.text();
+          throw new Error(`incident.io API error: ${response.status} ${response.statusText} - ${errorText}`);
+        }
+
+        const result = response.status === 204 ? {} : await response.json();
+        await events.emit(result);
+      },
+    },
+  },
+
+  outputs: {
+    default: {
+      name: "Result",
+      description: "API response",
+      default: true,
+      possiblePrimaryParents: ["default"],
+      type: {
+      "type": "object",
+      "properties": {
+            "custom_field_option": {
+                  "type": "object",
+                  "properties": {
+                        "custom_field_id": {
+                              "type": "object",
+                              "additionalProperties": true
+                        },
+                        "id": {
+                              "type": "object",
+                              "additionalProperties": true
+                        },
+                        "sort_key": {
+                              "type": "object",
+                              "additionalProperties": true
+                        },
+                        "value": {
+                              "type": "object",
+                              "additionalProperties": true
+                        }
+                  },
+                  "required": [
+                        "id",
+                        "custom_field_id",
+                        "value",
+                        "sort_key"
+                  ]
+            }
+      },
+      "required": [
+            "custom_field_option"
+      ]
+},
+    },
+  },
+};
+
+export default customFieldOptionsV1_Create;

@@ -1,32 +1,20 @@
 /**
- * Block Registry for {{APP_NAME}}
+ * Block Registry for incident.io
  *
  * This file exports all blocks as a dictionary for easy registration.
- *
- * Usage in main.ts:
- *   import { blocks } from "./blocks/index.ts";
- *   export const app: App = {
- *     blocks: Object.values(blocks)
- *   };
- *
- * Adding new blocks:
- * 1. Create your block file (e.g., myBlock.ts)
- * 2. Import and add it to the blocks dictionary below
- * 3. Export it for type safety and external use
  */
 
-import { exampleBlock } from "./exampleBlock";
+import { generatedBlocks } from "./generated/index";
+import { webhookSubscriptions } from "./webhooks/index";
 
 /**
  * Dictionary of all available blocks
- * Key: block identifier (for programmatic access)
- * Value: block definition
+ * Includes both auto-generated API blocks and webhook subscription blocks
  */
 export const blocks = {
-  example: exampleBlock,
-  // Add more blocks here:
-  // myNewBlock: myNewBlock,
-} as const;
+  // Auto-generated API blocks (129 blocks)
+  ...generatedBlocks,
 
-// Named exports for individual blocks (optional, for external imports)
-export { exampleBlock };
+  // Auto-generated webhook subscription blocks (130 blocks)
+  ...webhookSubscriptions,
+} as const;

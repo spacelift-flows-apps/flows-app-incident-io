@@ -1,0 +1,41 @@
+import privateIncidentActionCreatedV1Subscription from "./privateIncidentActionCreatedV1Subscription";
+import privateIncidentActionUpdatedV1Subscription from "./privateIncidentActionUpdatedV1Subscription";
+import privateIncidentFollowUpCreatedV1Subscription from "./privateIncidentFollowUpCreatedV1Subscription";
+import privateIncidentFollowUpCreatedV2Subscription from "./privateIncidentFollowUpCreatedV2Subscription";
+import privateIncidentFollowUpUpdatedV1Subscription from "./privateIncidentFollowUpUpdatedV1Subscription";
+import privateIncidentFollowUpUpdatedV2Subscription from "./privateIncidentFollowUpUpdatedV2Subscription";
+import privateIncidentIncidentCreatedV2Subscription from "./privateIncidentIncidentCreatedV2Subscription";
+import privateIncidentIncidentUpdatedV2Subscription from "./privateIncidentIncidentUpdatedV2Subscription";
+import privateIncidentMembershipGrantedV1Subscription from "./privateIncidentMembershipGrantedV1Subscription";
+import privateIncidentMembershipRevokedV1Subscription from "./privateIncidentMembershipRevokedV1Subscription";
+import publicIncidentActionCreatedV1Subscription from "./publicIncidentActionCreatedV1Subscription";
+import publicIncidentActionUpdatedV1Subscription from "./publicIncidentActionUpdatedV1Subscription";
+import publicIncidentFollowUpCreatedV1Subscription from "./publicIncidentFollowUpCreatedV1Subscription";
+import publicIncidentFollowUpCreatedV2Subscription from "./publicIncidentFollowUpCreatedV2Subscription";
+import publicIncidentFollowUpUpdatedV1Subscription from "./publicIncidentFollowUpUpdatedV1Subscription";
+import publicIncidentFollowUpUpdatedV2Subscription from "./publicIncidentFollowUpUpdatedV2Subscription";
+import publicIncidentIncidentCreatedV2Subscription from "./publicIncidentIncidentCreatedV2Subscription";
+import publicIncidentIncidentStatusUpdatedV2Subscription from "./publicIncidentIncidentStatusUpdatedV2Subscription";
+import publicIncidentIncidentUpdatedV2Subscription from "./publicIncidentIncidentUpdatedV2Subscription";
+
+export const webhookSubscriptions = {
+  privateIncidentActionCreatedV1Subscription,
+  privateIncidentActionUpdatedV1Subscription,
+  privateIncidentFollowUpCreatedV1Subscription,
+  privateIncidentFollowUpCreatedV2Subscription,
+  privateIncidentFollowUpUpdatedV1Subscription,
+  privateIncidentFollowUpUpdatedV2Subscription,
+  privateIncidentIncidentCreatedV2Subscription,
+  privateIncidentIncidentUpdatedV2Subscription,
+  privateIncidentMembershipGrantedV1Subscription,
+  privateIncidentMembershipRevokedV1Subscription,
+  publicIncidentActionCreatedV1Subscription,
+  publicIncidentActionUpdatedV1Subscription,
+  publicIncidentFollowUpCreatedV1Subscription,
+  publicIncidentFollowUpCreatedV2Subscription,
+  publicIncidentFollowUpUpdatedV1Subscription,
+  publicIncidentFollowUpUpdatedV2Subscription,
+  publicIncidentIncidentCreatedV2Subscription,
+  publicIncidentIncidentStatusUpdatedV2Subscription,
+  publicIncidentIncidentUpdatedV2Subscription,
+};
