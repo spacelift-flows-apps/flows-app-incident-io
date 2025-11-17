@@ -78,12 +78,10 @@ const schedulesV2_ListScheduleEntries: AppBlock = {
                   "type": "object",
                   "properties": {
                         "after": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "after_url": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         }
                   },
                   "required": [
@@ -95,16 +93,205 @@ const schedulesV2_ListScheduleEntries: AppBlock = {
                   "type": "object",
                   "properties": {
                         "final": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "array",
+                              "items": {
+                                    "type": "object",
+                                    "properties": {
+                                          "end_at": {
+                                                "type": "string"
+                                          },
+                                          "entry_id": {
+                                                "type": "string"
+                                          },
+                                          "fingerprint": {
+                                                "type": "string"
+                                          },
+                                          "layer_id": {
+                                                "type": "string"
+                                          },
+                                          "rotation_id": {
+                                                "type": "string"
+                                          },
+                                          "start_at": {
+                                                "type": "string"
+                                          },
+                                          "user": {
+                                                "type": "object",
+                                                "properties": {
+                                                      "email": {
+                                                            "type": "string"
+                                                      },
+                                                      "id": {
+                                                            "type": "string"
+                                                      },
+                                                      "name": {
+                                                            "type": "string"
+                                                      },
+                                                      "role": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                  "viewer",
+                                                                  "responder",
+                                                                  "administrator",
+                                                                  "owner",
+                                                                  "unset"
+                                                            ]
+                                                      },
+                                                      "slack_user_id": {
+                                                            "type": "string"
+                                                      }
+                                                },
+                                                "required": [
+                                                      "role",
+                                                      "id",
+                                                      "slack_role",
+                                                      "name",
+                                                      "deprecated_base_role",
+                                                      "organisation_id"
+                                                ]
+                                          }
+                                    },
+                                    "required": [
+                                          "user_id",
+                                          "external_user_id",
+                                          "start_at",
+                                          "end_at"
+                                    ]
+                              }
                         },
                         "overrides": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "array",
+                              "items": {
+                                    "type": "object",
+                                    "properties": {
+                                          "end_at": {
+                                                "type": "string"
+                                          },
+                                          "entry_id": {
+                                                "type": "string"
+                                          },
+                                          "fingerprint": {
+                                                "type": "string"
+                                          },
+                                          "layer_id": {
+                                                "type": "string"
+                                          },
+                                          "rotation_id": {
+                                                "type": "string"
+                                          },
+                                          "start_at": {
+                                                "type": "string"
+                                          },
+                                          "user": {
+                                                "type": "object",
+                                                "properties": {
+                                                      "email": {
+                                                            "type": "string"
+                                                      },
+                                                      "id": {
+                                                            "type": "string"
+                                                      },
+                                                      "name": {
+                                                            "type": "string"
+                                                      },
+                                                      "role": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                  "viewer",
+                                                                  "responder",
+                                                                  "administrator",
+                                                                  "owner",
+                                                                  "unset"
+                                                            ]
+                                                      },
+                                                      "slack_user_id": {
+                                                            "type": "string"
+                                                      }
+                                                },
+                                                "required": [
+                                                      "role",
+                                                      "id",
+                                                      "slack_role",
+                                                      "name",
+                                                      "deprecated_base_role",
+                                                      "organisation_id"
+                                                ]
+                                          }
+                                    },
+                                    "required": [
+                                          "user_id",
+                                          "external_user_id",
+                                          "start_at",
+                                          "end_at"
+                                    ]
+                              }
                         },
                         "scheduled": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "array",
+                              "items": {
+                                    "type": "object",
+                                    "properties": {
+                                          "end_at": {
+                                                "type": "string"
+                                          },
+                                          "entry_id": {
+                                                "type": "string"
+                                          },
+                                          "fingerprint": {
+                                                "type": "string"
+                                          },
+                                          "layer_id": {
+                                                "type": "string"
+                                          },
+                                          "rotation_id": {
+                                                "type": "string"
+                                          },
+                                          "start_at": {
+                                                "type": "string"
+                                          },
+                                          "user": {
+                                                "type": "object",
+                                                "properties": {
+                                                      "email": {
+                                                            "type": "string"
+                                                      },
+                                                      "id": {
+                                                            "type": "string"
+                                                      },
+                                                      "name": {
+                                                            "type": "string"
+                                                      },
+                                                      "role": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                  "viewer",
+                                                                  "responder",
+                                                                  "administrator",
+                                                                  "owner",
+                                                                  "unset"
+                                                            ]
+                                                      },
+                                                      "slack_user_id": {
+                                                            "type": "string"
+                                                      }
+                                                },
+                                                "required": [
+                                                      "role",
+                                                      "id",
+                                                      "slack_role",
+                                                      "name",
+                                                      "deprecated_base_role",
+                                                      "organisation_id"
+                                                ]
+                                          }
+                                    },
+                                    "required": [
+                                          "user_id",
+                                          "external_user_id",
+                                          "start_at",
+                                          "end_at"
+                                    ]
+                              }
                         }
                   },
                   "required": [

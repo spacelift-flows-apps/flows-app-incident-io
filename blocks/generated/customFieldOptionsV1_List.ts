@@ -78,19 +78,36 @@ const customFieldOptionsV1_List: AppBlock = {
                   "type": "array",
                   "items": {
                         "type": "object",
-                        "additionalProperties": true
+                        "properties": {
+                              "custom_field_id": {
+                                    "type": "string"
+                              },
+                              "id": {
+                                    "type": "string"
+                              },
+                              "sort_key": {
+                                    "type": "number"
+                              },
+                              "value": {
+                                    "type": "string"
+                              }
+                        },
+                        "required": [
+                              "id",
+                              "custom_field_id",
+                              "value",
+                              "sort_key"
+                        ]
                   }
             },
             "pagination_meta": {
                   "type": "object",
                   "properties": {
                         "after": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "page_size": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "number"
                         }
                   },
                   "required": [

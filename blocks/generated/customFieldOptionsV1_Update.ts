@@ -75,20 +75,16 @@ const customFieldOptionsV1_Update: AppBlock = {
                   "type": "object",
                   "properties": {
                         "custom_field_id": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "id": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "sort_key": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "number"
                         },
                         "value": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         }
                   },
                   "required": [

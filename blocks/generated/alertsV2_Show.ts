@@ -56,48 +56,151 @@ const alertsV2_Show: AppBlock = {
                   "type": "object",
                   "properties": {
                         "alert_source_id": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "attributes": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "array",
+                              "items": {
+                                    "type": "object",
+                                    "properties": {
+                                          "array_value": {
+                                                "type": "array",
+                                                "items": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                            "catalog_entry": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                        "catalog_type_id": {
+                                                                              "type": "string"
+                                                                        },
+                                                                        "id": {
+                                                                              "type": "string"
+                                                                        },
+                                                                        "name": {
+                                                                              "type": "string"
+                                                                        }
+                                                                  },
+                                                                  "required": [
+                                                                        "id",
+                                                                        "catalog_type_id",
+                                                                        "name",
+                                                                        "aliases",
+                                                                        "rank",
+                                                                        "attribute_values",
+                                                                        "created_at",
+                                                                        "updated_at"
+                                                                  ]
+                                                            },
+                                                            "label": {
+                                                                  "type": "string"
+                                                            },
+                                                            "literal": {
+                                                                  "type": "string"
+                                                            }
+                                                      },
+                                                      "additionalProperties": true
+                                                }
+                                          },
+                                          "attribute": {
+                                                "type": "object",
+                                                "properties": {
+                                                      "array": {
+                                                            "type": "boolean"
+                                                      },
+                                                      "id": {
+                                                            "type": "string"
+                                                      },
+                                                      "name": {
+                                                            "type": "string"
+                                                      },
+                                                      "required": {
+                                                            "type": "boolean"
+                                                      },
+                                                      "type": {
+                                                            "type": "string"
+                                                      }
+                                                },
+                                                "required": [
+                                                      "id",
+                                                      "name",
+                                                      "type",
+                                                      "array",
+                                                      "required"
+                                                ]
+                                          },
+                                          "value": {
+                                                "type": "object",
+                                                "properties": {
+                                                      "catalog_entry": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                  "catalog_type_id": {
+                                                                        "type": "string"
+                                                                  },
+                                                                  "id": {
+                                                                        "type": "string"
+                                                                  },
+                                                                  "name": {
+                                                                        "type": "string"
+                                                                  }
+                                                            },
+                                                            "required": [
+                                                                  "id",
+                                                                  "catalog_type_id",
+                                                                  "name",
+                                                                  "aliases",
+                                                                  "rank",
+                                                                  "attribute_values",
+                                                                  "created_at",
+                                                                  "updated_at"
+                                                            ]
+                                                      },
+                                                      "label": {
+                                                            "type": "string"
+                                                      },
+                                                      "literal": {
+                                                            "type": "string"
+                                                      }
+                                                },
+                                                "additionalProperties": true
+                                          }
+                                    },
+                                    "required": [
+                                          "attribute"
+                                    ]
+                              }
                         },
                         "created_at": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "deduplication_key": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "description": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "id": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "resolved_at": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "source_url": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "status": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string",
+                              "enum": [
+                                    "firing",
+                                    "resolved"
+                              ]
                         },
                         "title": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "updated_at": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         }
                   },
                   "required": [

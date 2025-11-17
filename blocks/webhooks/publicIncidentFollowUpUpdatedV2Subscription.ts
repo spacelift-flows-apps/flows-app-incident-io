@@ -57,55 +57,233 @@ const publicIncidentFollowUpUpdatedV2Subscription: AppBlock = {
                   "properties": {
                         "assignee": {
                               "type": "object",
-                              "additionalProperties": true
+                              "properties": {
+                                    "email": {
+                                          "type": "string"
+                                    },
+                                    "id": {
+                                          "type": "string"
+                                    },
+                                    "name": {
+                                          "type": "string"
+                                    },
+                                    "role": {
+                                          "type": "string",
+                                          "enum": [
+                                                "viewer",
+                                                "responder",
+                                                "administrator",
+                                                "owner",
+                                                "unset"
+                                          ]
+                                    },
+                                    "slack_user_id": {
+                                          "type": "string"
+                                    }
+                              },
+                              "required": [
+                                    "role",
+                                    "id",
+                                    "slack_role",
+                                    "name",
+                                    "deprecated_base_role",
+                                    "organisation_id"
+                              ]
                         },
                         "completed_at": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "created_at": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "creator": {
                               "type": "object",
+                              "properties": {
+                                    "alert": {
+                                          "type": "object",
+                                          "properties": {
+                                                "id": {
+                                                      "type": "string"
+                                                },
+                                                "title": {
+                                                      "type": "string"
+                                                }
+                                          },
+                                          "required": [
+                                                "id",
+                                                "title",
+                                                "deduplication_key",
+                                                "alert_source_id",
+                                                "source_type",
+                                                "status",
+                                                "created_at",
+                                                "updated_at"
+                                          ]
+                                    },
+                                    "api_key": {
+                                          "type": "object",
+                                          "properties": {
+                                                "id": {
+                                                      "type": "string"
+                                                },
+                                                "name": {
+                                                      "type": "string"
+                                                }
+                                          },
+                                          "required": [
+                                                "id",
+                                                "name",
+                                                "roles",
+                                                "created_by"
+                                          ]
+                                    },
+                                    "user": {
+                                          "type": "object",
+                                          "properties": {
+                                                "email": {
+                                                      "type": "string"
+                                                },
+                                                "id": {
+                                                      "type": "string"
+                                                },
+                                                "name": {
+                                                      "type": "string"
+                                                },
+                                                "role": {
+                                                      "type": "string",
+                                                      "enum": [
+                                                            "viewer",
+                                                            "responder",
+                                                            "administrator",
+                                                            "owner",
+                                                            "unset"
+                                                      ]
+                                                },
+                                                "slack_user_id": {
+                                                      "type": "string"
+                                                }
+                                          },
+                                          "required": [
+                                                "role",
+                                                "id",
+                                                "slack_role",
+                                                "name",
+                                                "deprecated_base_role",
+                                                "organisation_id"
+                                          ]
+                                    },
+                                    "workflow": {
+                                          "type": "object",
+                                          "properties": {
+                                                "id": {
+                                                      "type": "string"
+                                                },
+                                                "name": {
+                                                      "type": "string"
+                                                }
+                                          },
+                                          "required": [
+                                                "id",
+                                                "name",
+                                                "organisation_id",
+                                                "trigger",
+                                                "once_for",
+                                                "version",
+                                                "expressions",
+                                                "condition_groups",
+                                                "steps",
+                                                "include_private_incidents",
+                                                "runs_on_incident_modes",
+                                                "continue_on_step_error",
+                                                "runs_on_incidents",
+                                                "state"
+                                          ]
+                                    }
+                              },
                               "additionalProperties": true
                         },
                         "description": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "external_issue_reference": {
                               "type": "object",
-                              "additionalProperties": true
+                              "properties": {
+                                    "issue_name": {
+                                          "type": "string"
+                                    },
+                                    "issue_permalink": {
+                                          "type": "string"
+                                    },
+                                    "provider": {
+                                          "type": "string",
+                                          "enum": [
+                                                "asana",
+                                                "azure_devops",
+                                                "click_up",
+                                                "linear",
+                                                "jira",
+                                                "jira_server",
+                                                "github",
+                                                "gitlab",
+                                                "service_now",
+                                                "shortcut"
+                                          ]
+                                    }
+                              },
+                              "required": [
+                                    "provider",
+                                    "issue_name",
+                                    "issue_permalink"
+                              ]
                         },
                         "id": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "incident_id": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "labels": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "array",
+                              "items": {
+                                    "type": "string"
+                              }
                         },
                         "priority": {
                               "type": "object",
-                              "additionalProperties": true
+                              "properties": {
+                                    "description": {
+                                          "type": "string"
+                                    },
+                                    "id": {
+                                          "type": "string"
+                                    },
+                                    "name": {
+                                          "type": "string"
+                                    },
+                                    "rank": {
+                                          "type": "number"
+                                    }
+                              },
+                              "required": [
+                                    "id",
+                                    "name",
+                                    "rank"
+                              ]
                         },
                         "status": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string",
+                              "enum": [
+                                    "outstanding",
+                                    "completed",
+                                    "deleted",
+                                    "not_doing"
+                              ]
                         },
                         "title": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "updated_at": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         }
                   },
                   "required": [

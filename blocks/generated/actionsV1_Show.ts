@@ -57,43 +57,95 @@ const actionsV1_Show: AppBlock = {
                   "properties": {
                         "assignee": {
                               "type": "object",
-                              "additionalProperties": true
+                              "properties": {
+                                    "email": {
+                                          "type": "string"
+                                    },
+                                    "id": {
+                                          "type": "string"
+                                    },
+                                    "name": {
+                                          "type": "string"
+                                    },
+                                    "role": {
+                                          "type": "string",
+                                          "enum": [
+                                                "viewer",
+                                                "responder",
+                                                "administrator",
+                                                "owner",
+                                                "unset"
+                                          ]
+                                    },
+                                    "slack_user_id": {
+                                          "type": "string"
+                                    }
+                              },
+                              "required": [
+                                    "role",
+                                    "id",
+                                    "slack_role",
+                                    "name",
+                                    "deprecated_base_role",
+                                    "organisation_id"
+                              ]
                         },
                         "completed_at": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "created_at": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "description": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "external_issue_reference": {
                               "type": "object",
+                              "properties": {
+                                    "issue_name": {
+                                          "type": "string"
+                                    },
+                                    "issue_permalink": {
+                                          "type": "string"
+                                    },
+                                    "provider": {
+                                          "type": "string",
+                                          "enum": [
+                                                "asana",
+                                                "azure_devops",
+                                                "click_up",
+                                                "linear",
+                                                "jira",
+                                                "jira_server",
+                                                "github",
+                                                "gitlab",
+                                                "service_now",
+                                                "shortcut"
+                                          ]
+                                    }
+                              },
                               "additionalProperties": true
                         },
                         "follow_up": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "boolean"
                         },
                         "id": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "incident_id": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "status": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string",
+                              "enum": [
+                                    "outstanding",
+                                    "completed",
+                                    "deleted",
+                                    "not_doing"
+                              ]
                         },
                         "updated_at": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         }
                   },
                   "required": [

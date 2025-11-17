@@ -112,44 +112,38 @@ const catalogV2_CreateEntry: AppBlock = {
                   "type": "object",
                   "properties": {
                         "aliases": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "array",
+                              "items": {
+                                    "type": "string"
+                              }
                         },
                         "archived_at": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "attribute_values": {
                               "type": "object",
                               "additionalProperties": true
                         },
                         "catalog_type_id": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "created_at": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "external_id": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "id": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "name": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "rank": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "number"
                         },
                         "updated_at": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         }
                   },
                   "required": [

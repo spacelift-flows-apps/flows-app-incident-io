@@ -56,36 +56,32 @@ const incidentTypesV1_Show: AppBlock = {
                   "type": "object",
                   "properties": {
                         "create_in_triage": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string",
+                              "enum": [
+                                    "always",
+                                    "optional"
+                              ]
                         },
                         "created_at": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "description": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "id": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "is_default": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "boolean"
                         },
                         "name": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "private_incidents_only": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "boolean"
                         },
                         "updated_at": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         }
                   },
                   "required": [

@@ -56,16 +56,13 @@ const privateIncidentMembershipGrantedV1Subscription: AppBlock = {
                   "type": "object",
                   "properties": {
                         "actor_user_id": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "incident_id": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "user_id": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         }
                   },
                   "required": [

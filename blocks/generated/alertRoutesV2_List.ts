@@ -69,19 +69,32 @@ const alertRoutesV2_List: AppBlock = {
                   "type": "array",
                   "items": {
                         "type": "object",
-                        "additionalProperties": true
+                        "properties": {
+                              "enabled": {
+                                    "type": "boolean"
+                              },
+                              "id": {
+                                    "type": "string"
+                              },
+                              "name": {
+                                    "type": "string"
+                              }
+                        },
+                        "required": [
+                              "id",
+                              "name",
+                              "enabled"
+                        ]
                   }
             },
             "pagination_meta": {
                   "type": "object",
                   "properties": {
                         "after": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "page_size": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "number"
                         }
                   },
                   "required": [

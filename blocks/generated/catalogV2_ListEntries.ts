@@ -78,7 +78,52 @@ const catalogV2_ListEntries: AppBlock = {
                   "type": "array",
                   "items": {
                         "type": "object",
-                        "additionalProperties": true
+                        "properties": {
+                              "aliases": {
+                                    "type": "array",
+                                    "items": {
+                                          "type": "string"
+                                    }
+                              },
+                              "archived_at": {
+                                    "type": "string"
+                              },
+                              "attribute_values": {
+                                    "type": "object",
+                                    "additionalProperties": true
+                              },
+                              "catalog_type_id": {
+                                    "type": "string"
+                              },
+                              "created_at": {
+                                    "type": "string"
+                              },
+                              "external_id": {
+                                    "type": "string"
+                              },
+                              "id": {
+                                    "type": "string"
+                              },
+                              "name": {
+                                    "type": "string"
+                              },
+                              "rank": {
+                                    "type": "number"
+                              },
+                              "updated_at": {
+                                    "type": "string"
+                              }
+                        },
+                        "required": [
+                              "id",
+                              "catalog_type_id",
+                              "name",
+                              "aliases",
+                              "rank",
+                              "attribute_values",
+                              "created_at",
+                              "updated_at"
+                        ]
                   }
             },
             "catalog_type": {
@@ -89,80 +134,183 @@ const catalogV2_ListEntries: AppBlock = {
                               "additionalProperties": true
                         },
                         "categories": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "array",
+                              "items": {
+                                    "type": "string",
+                                    "enum": [
+                                          "customer",
+                                          "issue-tracker",
+                                          "product-feature",
+                                          "service",
+                                          "on-call",
+                                          "team",
+                                          "user"
+                                    ]
+                              }
                         },
                         "color": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string",
+                              "enum": [
+                                    "yellow",
+                                    "green",
+                                    "blue",
+                                    "violet",
+                                    "pink",
+                                    "cyan",
+                                    "orange"
+                              ]
                         },
                         "created_at": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "description": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "dynamic_resource_parameter": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "estimated_count": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "number"
                         },
                         "icon": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string",
+                              "enum": [
+                                    "alert",
+                                    "bolt",
+                                    "box",
+                                    "briefcase",
+                                    "browser",
+                                    "bulb",
+                                    "calendar",
+                                    "clock",
+                                    "cog",
+                                    "components",
+                                    "database",
+                                    "doc",
+                                    "email",
+                                    "escalation-path",
+                                    "files",
+                                    "flag",
+                                    "folder",
+                                    "globe",
+                                    "money",
+                                    "server",
+                                    "severity",
+                                    "status-page",
+                                    "store",
+                                    "star",
+                                    "tag",
+                                    "user",
+                                    "users"
+                              ]
                         },
                         "id": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "is_editable": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "boolean"
                         },
                         "last_synced_at": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "name": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "ranked": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "boolean"
                         },
                         "registry_type": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "required_integrations": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "array",
+                              "items": {
+                                    "type": "string"
+                              }
                         },
                         "schema": {
                               "type": "object",
-                              "additionalProperties": true
+                              "properties": {
+                                    "attributes": {
+                                          "type": "array",
+                                          "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                      "array": {
+                                                            "type": "boolean"
+                                                      },
+                                                      "backlink_attribute": {
+                                                            "type": "string"
+                                                      },
+                                                      "id": {
+                                                            "type": "string"
+                                                      },
+                                                      "mode": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                  "",
+                                                                  "manual",
+                                                                  "external",
+                                                                  "internal",
+                                                                  "dynamic",
+                                                                  "backlink",
+                                                                  "path"
+                                                            ]
+                                                      },
+                                                      "name": {
+                                                            "type": "string"
+                                                      },
+                                                      "path": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                        "attribute_id": {
+                                                                              "type": "string"
+                                                                        },
+                                                                        "attribute_name": {
+                                                                              "type": "string"
+                                                                        }
+                                                                  },
+                                                                  "required": [
+                                                                        "attribute_id",
+                                                                        "attribute_name"
+                                                                  ]
+                                                            }
+                                                      },
+                                                      "type": {
+                                                            "type": "string"
+                                                      }
+                                                },
+                                                "required": [
+                                                      "id",
+                                                      "mode",
+                                                      "name",
+                                                      "type",
+                                                      "array"
+                                                ]
+                                          }
+                                    },
+                                    "version": {
+                                          "type": "number"
+                                    }
+                              },
+                              "required": [
+                                    "attributes",
+                                    "version"
+                              ]
                         },
                         "semantic_type": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "source_repo_url": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "type_name": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "updated_at": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         }
                   },
                   "required": [
@@ -189,12 +337,10 @@ const catalogV2_ListEntries: AppBlock = {
                   "type": "object",
                   "properties": {
                         "after": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "page_size": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "number"
                         }
                   },
                   "required": [

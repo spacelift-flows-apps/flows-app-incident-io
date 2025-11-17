@@ -450,7 +450,7 @@ export default ${blockName};
   }
 
   private schemaToOutputType(schema: Schema, depth = 0): any {
-    if (depth > 3) {
+    if (depth > 20) {
       return { type: "object", additionalProperties: true };
     }
 
@@ -459,6 +459,8 @@ export default ${blockName};
       if (resolved) {
         return this.schemaToOutputType(resolved, depth + 1);
       }
+      // If ref couldn't be resolved, return generic object
+      return { type: "object", additionalProperties: true };
     }
 
     if (schema.oneOf || schema.anyOf) {
@@ -476,6 +478,21 @@ export default ${blockName};
       return merged;
     }
 
+    // Handle schemas with properties but no explicit type (treat as object)
+    if (schema.properties && !schema.type) {
+      const properties: Record<string, any> = {};
+      for (const [propName, propSchema] of Object.entries(schema.properties)) {
+        properties[propName] = this.schemaToOutputType(propSchema, depth + 1);
+      }
+      return {
+        type: "object",
+        properties,
+        ...(schema.required && schema.required.length > 0
+          ? { required: schema.required }
+          : { additionalProperties: true }),
+      };
+    }
+
     switch (schema.type) {
       case "object":
         if (schema.properties) {
@@ -486,7 +503,9 @@ export default ${blockName};
           return {
             type: "object",
             properties,
-            ...(schema.required ? { required: schema.required } : { additionalProperties: true }),
+            ...(schema.required && schema.required.length > 0
+              ? { required: schema.required }
+              : { additionalProperties: true }),
           };
         }
         return { type: "object", additionalProperties: true };
@@ -514,6 +533,11 @@ export default ${blockName};
         return { type: "boolean" };
 
       default:
+        // If no type specified but has example, infer from example
+        if (schema.enum) {
+          return { type: "string", enum: schema.enum };
+        }
+        // Default to string for unknown types
         return { type: "string" };
     }
   }

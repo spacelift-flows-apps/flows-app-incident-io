@@ -105,16 +105,54 @@ const incidentAttachmentsV1_Create: AppBlock = {
                   "type": "object",
                   "properties": {
                         "id": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "incident_id": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "resource": {
                               "type": "object",
-                              "additionalProperties": true
+                              "properties": {
+                                    "external_id": {
+                                          "type": "string"
+                                    },
+                                    "permalink": {
+                                          "type": "string"
+                                    },
+                                    "resource_type": {
+                                          "type": "string",
+                                          "enum": [
+                                                "pager_duty_incident",
+                                                "opsgenie_alert",
+                                                "datadog_monitor_alert",
+                                                "github_pull_request",
+                                                "gitlab_merge_request",
+                                                "sentry_issue",
+                                                "jira_issue",
+                                                "jsm_alert",
+                                                "atlassian_statuspage_incident",
+                                                "zendesk_ticket",
+                                                "google_calendar_event",
+                                                "outlook_calendar_event",
+                                                "slack_file",
+                                                "scrubbed",
+                                                "statuspage_incident"
+                                          ]
+                                    },
+                                    "title": {
+                                          "type": "string"
+                                    }
+                              },
+                              "required": [
+                                    "id",
+                                    "permalink",
+                                    "external_id",
+                                    "title",
+                                    "resource_type",
+                                    "resource_type_label",
+                                    "created_at",
+                                    "updated_at"
+                              ]
                         }
                   },
                   "required": [

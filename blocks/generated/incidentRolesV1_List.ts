@@ -48,7 +48,51 @@ const incidentRolesV1_List: AppBlock = {
                   "type": "array",
                   "items": {
                         "type": "object",
-                        "additionalProperties": true
+                        "properties": {
+                              "created_at": {
+                                    "type": "string"
+                              },
+                              "description": {
+                                    "type": "string"
+                              },
+                              "id": {
+                                    "type": "string"
+                              },
+                              "instructions": {
+                                    "type": "string"
+                              },
+                              "name": {
+                                    "type": "string"
+                              },
+                              "required": {
+                                    "type": "boolean"
+                              },
+                              "role_type": {
+                                    "type": "string",
+                                    "enum": [
+                                          "lead",
+                                          "reporter",
+                                          "custom"
+                                    ]
+                              },
+                              "shortform": {
+                                    "type": "string"
+                              },
+                              "updated_at": {
+                                    "type": "string"
+                              }
+                        },
+                        "required": [
+                              "name",
+                              "shortform",
+                              "description",
+                              "instructions",
+                              "condition_groups",
+                              "id",
+                              "role_type",
+                              "created_at",
+                              "updated_at"
+                        ]
                   }
             }
       },

@@ -78,19 +78,223 @@ const incidentUpdatesV2_List: AppBlock = {
                   "type": "array",
                   "items": {
                         "type": "object",
-                        "additionalProperties": true
+                        "properties": {
+                              "created_at": {
+                                    "type": "string"
+                              },
+                              "id": {
+                                    "type": "string"
+                              },
+                              "incident_id": {
+                                    "type": "string"
+                              },
+                              "merged_into_incident_id": {
+                                    "type": "string"
+                              },
+                              "message": {
+                                    "type": "string"
+                              },
+                              "new_incident_status": {
+                                    "type": "object",
+                                    "properties": {
+                                          "category": {
+                                                "type": "string",
+                                                "enum": [
+                                                      "triage",
+                                                      "declined",
+                                                      "merged",
+                                                      "canceled",
+                                                      "live",
+                                                      "learning",
+                                                      "closed",
+                                                      "paused"
+                                                ]
+                                          },
+                                          "created_at": {
+                                                "type": "string"
+                                          },
+                                          "description": {
+                                                "type": "string"
+                                          },
+                                          "id": {
+                                                "type": "string"
+                                          },
+                                          "name": {
+                                                "type": "string"
+                                          },
+                                          "rank": {
+                                                "type": "number"
+                                          },
+                                          "updated_at": {
+                                                "type": "string"
+                                          }
+                                    },
+                                    "required": [
+                                          "id",
+                                          "name",
+                                          "description",
+                                          "rank",
+                                          "category",
+                                          "created_at",
+                                          "updated_at"
+                                    ]
+                              },
+                              "new_severity": {
+                                    "type": "object",
+                                    "properties": {
+                                          "created_at": {
+                                                "type": "string"
+                                          },
+                                          "description": {
+                                                "type": "string"
+                                          },
+                                          "id": {
+                                                "type": "string"
+                                          },
+                                          "name": {
+                                                "type": "string"
+                                          },
+                                          "rank": {
+                                                "type": "number"
+                                          },
+                                          "updated_at": {
+                                                "type": "string"
+                                          }
+                                    },
+                                    "required": [
+                                          "id",
+                                          "name",
+                                          "description",
+                                          "rank",
+                                          "created_at",
+                                          "updated_at"
+                                    ]
+                              },
+                              "updater": {
+                                    "type": "object",
+                                    "properties": {
+                                          "alert": {
+                                                "type": "object",
+                                                "properties": {
+                                                      "id": {
+                                                            "type": "string"
+                                                      },
+                                                      "title": {
+                                                            "type": "string"
+                                                      }
+                                                },
+                                                "required": [
+                                                      "id",
+                                                      "title",
+                                                      "deduplication_key",
+                                                      "alert_source_id",
+                                                      "source_type",
+                                                      "status",
+                                                      "created_at",
+                                                      "updated_at"
+                                                ]
+                                          },
+                                          "api_key": {
+                                                "type": "object",
+                                                "properties": {
+                                                      "id": {
+                                                            "type": "string"
+                                                      },
+                                                      "name": {
+                                                            "type": "string"
+                                                      }
+                                                },
+                                                "required": [
+                                                      "id",
+                                                      "name",
+                                                      "roles",
+                                                      "created_by"
+                                                ]
+                                          },
+                                          "user": {
+                                                "type": "object",
+                                                "properties": {
+                                                      "email": {
+                                                            "type": "string"
+                                                      },
+                                                      "id": {
+                                                            "type": "string"
+                                                      },
+                                                      "name": {
+                                                            "type": "string"
+                                                      },
+                                                      "role": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                  "viewer",
+                                                                  "responder",
+                                                                  "administrator",
+                                                                  "owner",
+                                                                  "unset"
+                                                            ]
+                                                      },
+                                                      "slack_user_id": {
+                                                            "type": "string"
+                                                      }
+                                                },
+                                                "required": [
+                                                      "role",
+                                                      "id",
+                                                      "slack_role",
+                                                      "name",
+                                                      "deprecated_base_role",
+                                                      "organisation_id"
+                                                ]
+                                          },
+                                          "workflow": {
+                                                "type": "object",
+                                                "properties": {
+                                                      "id": {
+                                                            "type": "string"
+                                                      },
+                                                      "name": {
+                                                            "type": "string"
+                                                      }
+                                                },
+                                                "required": [
+                                                      "id",
+                                                      "name",
+                                                      "organisation_id",
+                                                      "trigger",
+                                                      "once_for",
+                                                      "version",
+                                                      "expressions",
+                                                      "condition_groups",
+                                                      "steps",
+                                                      "include_private_incidents",
+                                                      "runs_on_incident_modes",
+                                                      "continue_on_step_error",
+                                                      "runs_on_incidents",
+                                                      "state"
+                                                ]
+                                          }
+                                    },
+                                    "additionalProperties": true
+                              }
+                        },
+                        "required": [
+                              "id",
+                              "incident_id",
+                              "new_incident_status",
+                              "updater",
+                              "created_at",
+                              "next_update_in_minutes"
+                        ]
                   }
             },
             "pagination_meta": {
                   "type": "object",
                   "properties": {
                         "after": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "page_size": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "number"
                         }
                   },
                   "required": [

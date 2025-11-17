@@ -31,6 +31,111 @@ const schedulesV2_Update: AppBlock = {
                                           "type": "array",
                                           "items": {
                                                 "type": "object",
+                                                "properties": {
+                                                      "effective_from": {
+                                                            "type": "string"
+                                                      },
+                                                      "handover_start_at": {
+                                                            "type": "string"
+                                                      },
+                                                      "handovers": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                        "interval": {
+                                                                              "type": "number"
+                                                                        },
+                                                                        "interval_type": {
+                                                                              "type": "string",
+                                                                              "enum": [
+                                                                                    "hourly",
+                                                                                    "daily",
+                                                                                    "weekly"
+                                                                              ]
+                                                                        }
+                                                                  },
+                                                                  "additionalProperties": true
+                                                            }
+                                                      },
+                                                      "id": {
+                                                            "type": "string"
+                                                      },
+                                                      "layers": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                        "id": {
+                                                                              "type": "string"
+                                                                        },
+                                                                        "name": {
+                                                                              "type": "string"
+                                                                        }
+                                                                  },
+                                                                  "additionalProperties": true
+                                                            }
+                                                      },
+                                                      "name": {
+                                                            "type": "string"
+                                                      },
+                                                      "scheduling_mode": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                  "fair",
+                                                                  "sequential"
+                                                            ]
+                                                      },
+                                                      "users": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                        "email": {
+                                                                              "type": "string"
+                                                                        },
+                                                                        "id": {
+                                                                              "type": "string"
+                                                                        },
+                                                                        "slack_user_id": {
+                                                                              "type": "string"
+                                                                        }
+                                                                  },
+                                                                  "additionalProperties": true
+                                                            }
+                                                      },
+                                                      "working_interval": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                        "end_time": {
+                                                                              "type": "string"
+                                                                        },
+                                                                        "start_time": {
+                                                                              "type": "string"
+                                                                        },
+                                                                        "weekday": {
+                                                                              "type": "string",
+                                                                              "enum": [
+                                                                                    "monday",
+                                                                                    "tuesday",
+                                                                                    "wednesday",
+                                                                                    "thursday",
+                                                                                    "friday",
+                                                                                    "saturday",
+                                                                                    "sunday"
+                                                                              ]
+                                                                        }
+                                                                  },
+                                                                  "required": [
+                                                                        "weekday",
+                                                                        "start_time",
+                                                                        "end_time"
+                                                                  ]
+                                                            }
+                                                      }
+                                                },
                                                 "additionalProperties": true
                                           }
                                     }
@@ -43,8 +148,7 @@ const schedulesV2_Update: AppBlock = {
                                     "country_codes": {
                                           "type": "array",
                                           "items": {
-                                                "type": "object",
-                                                "additionalProperties": true
+                                                "type": "string"
                                           }
                                     }
                               },
@@ -120,39 +224,286 @@ const schedulesV2_Update: AppBlock = {
                         },
                         "config": {
                               "type": "object",
-                              "additionalProperties": true
+                              "properties": {
+                                    "rotations": {
+                                          "type": "array",
+                                          "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                      "effective_from": {
+                                                            "type": "string"
+                                                      },
+                                                      "handover_start_at": {
+                                                            "type": "string"
+                                                      },
+                                                      "handovers": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                        "interval": {
+                                                                              "type": "number"
+                                                                        },
+                                                                        "interval_type": {
+                                                                              "type": "string",
+                                                                              "enum": [
+                                                                                    "hourly",
+                                                                                    "daily",
+                                                                                    "weekly"
+                                                                              ]
+                                                                        }
+                                                                  },
+                                                                  "additionalProperties": true
+                                                            }
+                                                      },
+                                                      "id": {
+                                                            "type": "string"
+                                                      },
+                                                      "layers": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                        "id": {
+                                                                              "type": "string"
+                                                                        },
+                                                                        "name": {
+                                                                              "type": "string"
+                                                                        }
+                                                                  },
+                                                                  "additionalProperties": true
+                                                            }
+                                                      },
+                                                      "name": {
+                                                            "type": "string"
+                                                      },
+                                                      "scheduling_mode": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                  "fair",
+                                                                  "sequential"
+                                                            ]
+                                                      },
+                                                      "users": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                        "email": {
+                                                                              "type": "string"
+                                                                        },
+                                                                        "id": {
+                                                                              "type": "string"
+                                                                        },
+                                                                        "name": {
+                                                                              "type": "string"
+                                                                        },
+                                                                        "role": {
+                                                                              "type": "string",
+                                                                              "enum": [
+                                                                                    "viewer",
+                                                                                    "responder",
+                                                                                    "administrator",
+                                                                                    "owner",
+                                                                                    "unset"
+                                                                              ]
+                                                                        },
+                                                                        "slack_user_id": {
+                                                                              "type": "string"
+                                                                        }
+                                                                  },
+                                                                  "required": [
+                                                                        "role",
+                                                                        "id",
+                                                                        "slack_role",
+                                                                        "name",
+                                                                        "deprecated_base_role",
+                                                                        "organisation_id"
+                                                                  ]
+                                                            }
+                                                      },
+                                                      "working_interval": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                        "end_time": {
+                                                                              "type": "string"
+                                                                        },
+                                                                        "start_time": {
+                                                                              "type": "string"
+                                                                        },
+                                                                        "weekday": {
+                                                                              "type": "string",
+                                                                              "enum": [
+                                                                                    "monday",
+                                                                                    "tuesday",
+                                                                                    "wednesday",
+                                                                                    "thursday",
+                                                                                    "friday",
+                                                                                    "saturday",
+                                                                                    "sunday"
+                                                                              ]
+                                                                        }
+                                                                  },
+                                                                  "required": [
+                                                                        "weekday",
+                                                                        "start_time",
+                                                                        "end_time"
+                                                                  ]
+                                                            }
+                                                      },
+                                                      "working_intervals": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                        "end_time": {
+                                                                              "type": "string"
+                                                                        },
+                                                                        "start_time": {
+                                                                              "type": "string"
+                                                                        },
+                                                                        "weekday": {
+                                                                              "type": "string",
+                                                                              "enum": [
+                                                                                    "monday",
+                                                                                    "tuesday",
+                                                                                    "wednesday",
+                                                                                    "thursday",
+                                                                                    "friday",
+                                                                                    "saturday",
+                                                                                    "sunday"
+                                                                              ]
+                                                                        }
+                                                                  },
+                                                                  "required": [
+                                                                        "weekday",
+                                                                        "start_time",
+                                                                        "end_time"
+                                                                  ]
+                                                            }
+                                                      }
+                                                },
+                                                "required": [
+                                                      "id",
+                                                      "name",
+                                                      "layers",
+                                                      "user_ids",
+                                                      "users",
+                                                      "working_intervals",
+                                                      "handover_start_at",
+                                                      "handovers"
+                                                ]
+                                          }
+                                    }
+                              },
+                              "required": [
+                                    "rotations",
+                                    "version"
+                              ]
                         },
                         "created_at": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "current_shifts": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "array",
+                              "items": {
+                                    "type": "object",
+                                    "properties": {
+                                          "end_at": {
+                                                "type": "string"
+                                          },
+                                          "entry_id": {
+                                                "type": "string"
+                                          },
+                                          "fingerprint": {
+                                                "type": "string"
+                                          },
+                                          "layer_id": {
+                                                "type": "string"
+                                          },
+                                          "rotation_id": {
+                                                "type": "string"
+                                          },
+                                          "start_at": {
+                                                "type": "string"
+                                          },
+                                          "user": {
+                                                "type": "object",
+                                                "properties": {
+                                                      "email": {
+                                                            "type": "string"
+                                                      },
+                                                      "id": {
+                                                            "type": "string"
+                                                      },
+                                                      "name": {
+                                                            "type": "string"
+                                                      },
+                                                      "role": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                  "viewer",
+                                                                  "responder",
+                                                                  "administrator",
+                                                                  "owner",
+                                                                  "unset"
+                                                            ]
+                                                      },
+                                                      "slack_user_id": {
+                                                            "type": "string"
+                                                      }
+                                                },
+                                                "required": [
+                                                      "role",
+                                                      "id",
+                                                      "slack_role",
+                                                      "name",
+                                                      "deprecated_base_role",
+                                                      "organisation_id"
+                                                ]
+                                          }
+                                    },
+                                    "required": [
+                                          "user_id",
+                                          "external_user_id",
+                                          "start_at",
+                                          "end_at"
+                                    ]
+                              }
                         },
                         "holidays_public_config": {
                               "type": "object",
-                              "additionalProperties": true
+                              "properties": {
+                                    "country_codes": {
+                                          "type": "array",
+                                          "items": {
+                                                "type": "string"
+                                          }
+                                    }
+                              },
+                              "required": [
+                                    "country_codes"
+                              ]
                         },
                         "id": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "name": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "team_ids": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "array",
+                              "items": {
+                                    "type": "string"
+                              }
                         },
                         "timezone": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "updated_at": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         }
                   },
                   "required": [

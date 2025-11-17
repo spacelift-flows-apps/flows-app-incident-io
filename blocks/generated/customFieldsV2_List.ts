@@ -48,7 +48,66 @@ const customFieldsV2_List: AppBlock = {
                   "type": "array",
                   "items": {
                         "type": "object",
-                        "additionalProperties": true
+                        "properties": {
+                              "catalog_type_id": {
+                                    "type": "string"
+                              },
+                              "created_at": {
+                                    "type": "string"
+                              },
+                              "description": {
+                                    "type": "string"
+                              },
+                              "field_type": {
+                                    "type": "string",
+                                    "enum": [
+                                          "single_select",
+                                          "multi_select",
+                                          "text",
+                                          "link",
+                                          "numeric"
+                                    ]
+                              },
+                              "filter_by": {
+                                    "type": "object",
+                                    "properties": {
+                                          "catalog_attribute_id": {
+                                                "type": "string"
+                                          },
+                                          "custom_field_id": {
+                                                "type": "string"
+                                          }
+                                    },
+                                    "required": [
+                                          "custom_field_id",
+                                          "catalog_attribute_id"
+                                    ]
+                              },
+                              "group_by_catalog_attribute_id": {
+                                    "type": "string"
+                              },
+                              "helptext_catalog_attribute_id": {
+                                    "type": "string"
+                              },
+                              "id": {
+                                    "type": "string"
+                              },
+                              "name": {
+                                    "type": "string"
+                              },
+                              "updated_at": {
+                                    "type": "string"
+                              }
+                        },
+                        "required": [
+                              "id",
+                              "name",
+                              "description",
+                              "field_type",
+                              "cannot_be_unset",
+                              "created_at",
+                              "updated_at"
+                        ]
                   }
             }
       },

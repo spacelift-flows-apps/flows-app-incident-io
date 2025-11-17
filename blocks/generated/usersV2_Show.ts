@@ -57,31 +57,84 @@ const usersV2_Show: AppBlock = {
                   "properties": {
                         "base_role": {
                               "type": "object",
-                              "additionalProperties": true
+                              "properties": {
+                                    "description": {
+                                          "type": "string"
+                                    },
+                                    "id": {
+                                          "type": "string"
+                                    },
+                                    "name": {
+                                          "type": "string"
+                                    },
+                                    "slug": {
+                                          "type": "string"
+                                    }
+                              },
+                              "required": [
+                                    "id",
+                                    "organisation_id",
+                                    "name",
+                                    "slug",
+                                    "privileges",
+                                    "is_base_role",
+                                    "rank",
+                                    "created_at",
+                                    "updated_at"
+                              ]
                         },
                         "custom_roles": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "array",
+                              "items": {
+                                    "type": "object",
+                                    "properties": {
+                                          "description": {
+                                                "type": "string"
+                                          },
+                                          "id": {
+                                                "type": "string"
+                                          },
+                                          "name": {
+                                                "type": "string"
+                                          },
+                                          "slug": {
+                                                "type": "string"
+                                          }
+                                    },
+                                    "required": [
+                                          "id",
+                                          "organisation_id",
+                                          "name",
+                                          "slug",
+                                          "privileges",
+                                          "is_base_role",
+                                          "rank",
+                                          "created_at",
+                                          "updated_at"
+                                    ]
+                              }
                         },
                         "email": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "id": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "name": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "role": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string",
+                              "enum": [
+                                    "viewer",
+                                    "responder",
+                                    "administrator",
+                                    "owner",
+                                    "unset"
+                              ]
                         },
                         "slack_user_id": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         }
                   },
                   "required": [

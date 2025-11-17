@@ -68,24 +68,51 @@ const incidentMembershipsV1_Create: AppBlock = {
                   "type": "object",
                   "properties": {
                         "created_at": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "id": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "incident_id": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "updated_at": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "user": {
                               "type": "object",
-                              "additionalProperties": true
+                              "properties": {
+                                    "email": {
+                                          "type": "string"
+                                    },
+                                    "id": {
+                                          "type": "string"
+                                    },
+                                    "name": {
+                                          "type": "string"
+                                    },
+                                    "role": {
+                                          "type": "string",
+                                          "enum": [
+                                                "viewer",
+                                                "responder",
+                                                "administrator",
+                                                "owner",
+                                                "unset"
+                                          ]
+                                    },
+                                    "slack_user_id": {
+                                          "type": "string"
+                                    }
+                              },
+                              "required": [
+                                    "role",
+                                    "id",
+                                    "slack_role",
+                                    "name",
+                                    "deprecated_base_role",
+                                    "organisation_id"
+                              ]
                         }
                   },
                   "required": [

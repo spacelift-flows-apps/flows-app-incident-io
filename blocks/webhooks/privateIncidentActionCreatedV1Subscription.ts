@@ -56,8 +56,7 @@ const privateIncidentActionCreatedV1Subscription: AppBlock = {
                   "type": "object",
                   "properties": {
                         "id": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         }
                   },
                   "required": [

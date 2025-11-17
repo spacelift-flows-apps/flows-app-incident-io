@@ -48,7 +48,48 @@ const incidentStatusesV1_List: AppBlock = {
                   "type": "array",
                   "items": {
                         "type": "object",
-                        "additionalProperties": true
+                        "properties": {
+                              "category": {
+                                    "type": "string",
+                                    "enum": [
+                                          "triage",
+                                          "declined",
+                                          "merged",
+                                          "canceled",
+                                          "live",
+                                          "learning",
+                                          "closed",
+                                          "paused"
+                                    ]
+                              },
+                              "created_at": {
+                                    "type": "string"
+                              },
+                              "description": {
+                                    "type": "string"
+                              },
+                              "id": {
+                                    "type": "string"
+                              },
+                              "name": {
+                                    "type": "string"
+                              },
+                              "rank": {
+                                    "type": "number"
+                              },
+                              "updated_at": {
+                                    "type": "string"
+                              }
+                        },
+                        "required": [
+                              "id",
+                              "name",
+                              "description",
+                              "rank",
+                              "category",
+                              "created_at",
+                              "updated_at"
+                        ]
                   }
             }
       },

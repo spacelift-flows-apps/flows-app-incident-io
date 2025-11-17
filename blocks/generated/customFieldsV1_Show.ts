@@ -56,60 +56,86 @@ const customFieldsV1_Show: AppBlock = {
                   "type": "object",
                   "properties": {
                         "catalog_type_id": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "created_at": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "description": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "field_type": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string",
+                              "enum": [
+                                    "single_select",
+                                    "multi_select",
+                                    "text",
+                                    "link",
+                                    "numeric"
+                              ]
                         },
                         "id": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "name": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "options": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "array",
+                              "items": {
+                                    "type": "object",
+                                    "properties": {
+                                          "custom_field_id": {
+                                                "type": "string"
+                                          },
+                                          "id": {
+                                                "type": "string"
+                                          },
+                                          "sort_key": {
+                                                "type": "number"
+                                          },
+                                          "value": {
+                                                "type": "string"
+                                          }
+                                    },
+                                    "required": [
+                                          "id",
+                                          "custom_field_id",
+                                          "value",
+                                          "sort_key"
+                                    ]
+                              }
                         },
                         "required": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string",
+                              "enum": [
+                                    "never",
+                                    "before_closure",
+                                    "always"
+                              ]
                         },
                         "required_v2": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string",
+                              "enum": [
+                                    "never",
+                                    "before_resolution",
+                                    "always"
+                              ]
                         },
                         "show_before_closure": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "boolean"
                         },
                         "show_before_creation": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "boolean"
                         },
                         "show_before_update": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "boolean"
                         },
                         "show_in_announcement_post": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "boolean"
                         },
                         "updated_at": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         }
                   },
                   "required": [

@@ -48,16 +48,36 @@ const utilitiesV1_Identity: AppBlock = {
                   "type": "object",
                   "properties": {
                         "dashboard_url": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "name": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "roles": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "array",
+                              "items": {
+                                    "type": "string",
+                                    "enum": [
+                                          "viewer",
+                                          "incident_creator",
+                                          "incident_editor",
+                                          "manage_settings",
+                                          "global_access",
+                                          "catalog_viewer",
+                                          "catalog_editor",
+                                          "incident_memberships_editor",
+                                          "schedules_editor",
+                                          "schedules_reader",
+                                          "schedule_overrides_editor",
+                                          "workflows_editor",
+                                          "private_workflows_editor",
+                                          "on_call_editor",
+                                          "escalation_creator",
+                                          "post_incident_flow_opt_out",
+                                          "security_settings_editor",
+                                          "investigation_download"
+                                    ]
+                              }
                         }
                   },
                   "required": [

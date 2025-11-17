@@ -93,20 +93,30 @@ const iPAllowlistsV1_UpdateIPAllowlist: AppBlock = {
                   "type": "object",
                   "properties": {
                         "allowlist": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "array",
+                              "items": {
+                                    "type": "object",
+                                    "properties": {
+                                          "label": {
+                                                "type": "string"
+                                          },
+                                          "value": {
+                                                "type": "string"
+                                          }
+                                    },
+                                    "required": [
+                                          "value"
+                                    ]
+                              }
                         },
                         "enabled": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "boolean"
                         },
                         "updated_at": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "version": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "number"
                         }
                   },
                   "required": [

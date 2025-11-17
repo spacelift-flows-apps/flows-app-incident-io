@@ -48,7 +48,54 @@ const incidentTypesV1_List: AppBlock = {
                   "type": "array",
                   "items": {
                         "type": "object",
-                        "additionalProperties": true
+                        "properties": {
+                              "create_in_triage": {
+                                    "type": "string",
+                                    "enum": [
+                                          "always",
+                                          "optional"
+                                    ]
+                              },
+                              "created_at": {
+                                    "type": "string"
+                              },
+                              "description": {
+                                    "type": "string"
+                              },
+                              "id": {
+                                    "type": "string"
+                              },
+                              "is_default": {
+                                    "type": "boolean"
+                              },
+                              "name": {
+                                    "type": "string"
+                              },
+                              "private_incidents_only": {
+                                    "type": "boolean"
+                              },
+                              "updated_at": {
+                                    "type": "string"
+                              }
+                        },
+                        "required": [
+                              "id",
+                              "name",
+                              "is_default",
+                              "description",
+                              "private_incidents_only",
+                              "created_at",
+                              "updated_at",
+                              "create_in_triage",
+                              "severity_aliases",
+                              "rank",
+                              "override_auto_close_incidents",
+                              "auto_close_incidents",
+                              "auto_close_incidents_delay_days",
+                              "override_auto_archive_slack_channels",
+                              "auto_archive_slack_channels",
+                              "auto_archive_slack_channels_delay_days"
+                        ]
                   }
             }
       },

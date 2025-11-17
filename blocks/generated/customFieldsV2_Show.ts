@@ -56,44 +56,53 @@ const customFieldsV2_Show: AppBlock = {
                   "type": "object",
                   "properties": {
                         "catalog_type_id": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "created_at": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "description": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "field_type": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string",
+                              "enum": [
+                                    "single_select",
+                                    "multi_select",
+                                    "text",
+                                    "link",
+                                    "numeric"
+                              ]
                         },
                         "filter_by": {
                               "type": "object",
-                              "additionalProperties": true
+                              "properties": {
+                                    "catalog_attribute_id": {
+                                          "type": "string"
+                                    },
+                                    "custom_field_id": {
+                                          "type": "string"
+                                    }
+                              },
+                              "required": [
+                                    "custom_field_id",
+                                    "catalog_attribute_id"
+                              ]
                         },
                         "group_by_catalog_attribute_id": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "helptext_catalog_attribute_id": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "id": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "name": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "updated_at": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         }
                   },
                   "required": [

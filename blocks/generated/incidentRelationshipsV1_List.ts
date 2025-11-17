@@ -78,19 +78,44 @@ const incidentRelationshipsV1_List: AppBlock = {
                   "type": "array",
                   "items": {
                         "type": "object",
-                        "additionalProperties": true
+                        "properties": {
+                              "id": {
+                                    "type": "string"
+                              },
+                              "incident": {
+                                    "type": "object",
+                                    "properties": {
+                                          "external_id": {
+                                                "type": "number"
+                                          },
+                                          "id": {
+                                                "type": "string"
+                                          },
+                                          "name": {
+                                                "type": "string"
+                                          }
+                                    },
+                                    "required": [
+                                          "id",
+                                          "name",
+                                          "external_id"
+                                    ]
+                              }
+                        },
+                        "required": [
+                              "id",
+                              "incident"
+                        ]
                   }
             },
             "pagination_meta": {
                   "type": "object",
                   "properties": {
                         "after": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "page_size": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "number"
                         }
                   },
                   "required": [

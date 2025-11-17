@@ -87,12 +87,10 @@ const usersV2_List: AppBlock = {
                   "type": "object",
                   "properties": {
                         "after": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "page_size": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "number"
                         }
                   },
                   "required": [
@@ -103,7 +101,99 @@ const usersV2_List: AppBlock = {
                   "type": "array",
                   "items": {
                         "type": "object",
-                        "additionalProperties": true
+                        "properties": {
+                              "base_role": {
+                                    "type": "object",
+                                    "properties": {
+                                          "description": {
+                                                "type": "string"
+                                          },
+                                          "id": {
+                                                "type": "string"
+                                          },
+                                          "name": {
+                                                "type": "string"
+                                          },
+                                          "slug": {
+                                                "type": "string"
+                                          }
+                                    },
+                                    "required": [
+                                          "id",
+                                          "organisation_id",
+                                          "name",
+                                          "slug",
+                                          "privileges",
+                                          "is_base_role",
+                                          "rank",
+                                          "created_at",
+                                          "updated_at"
+                                    ]
+                              },
+                              "custom_roles": {
+                                    "type": "array",
+                                    "items": {
+                                          "type": "object",
+                                          "properties": {
+                                                "description": {
+                                                      "type": "string"
+                                                },
+                                                "id": {
+                                                      "type": "string"
+                                                },
+                                                "name": {
+                                                      "type": "string"
+                                                },
+                                                "slug": {
+                                                      "type": "string"
+                                                }
+                                          },
+                                          "required": [
+                                                "id",
+                                                "organisation_id",
+                                                "name",
+                                                "slug",
+                                                "privileges",
+                                                "is_base_role",
+                                                "rank",
+                                                "created_at",
+                                                "updated_at"
+                                          ]
+                                    }
+                              },
+                              "email": {
+                                    "type": "string"
+                              },
+                              "id": {
+                                    "type": "string"
+                              },
+                              "name": {
+                                    "type": "string"
+                              },
+                              "role": {
+                                    "type": "string",
+                                    "enum": [
+                                          "viewer",
+                                          "responder",
+                                          "administrator",
+                                          "owner",
+                                          "unset"
+                                    ]
+                              },
+                              "slack_user_id": {
+                                    "type": "string"
+                              }
+                        },
+                        "required": [
+                              "base_role",
+                              "custom_roles",
+                              "role",
+                              "id",
+                              "slack_role",
+                              "name",
+                              "deprecated_base_role",
+                              "organisation_id"
+                        ]
                   }
             }
       },

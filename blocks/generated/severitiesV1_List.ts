@@ -48,7 +48,34 @@ const severitiesV1_List: AppBlock = {
                   "type": "array",
                   "items": {
                         "type": "object",
-                        "additionalProperties": true
+                        "properties": {
+                              "created_at": {
+                                    "type": "string"
+                              },
+                              "description": {
+                                    "type": "string"
+                              },
+                              "id": {
+                                    "type": "string"
+                              },
+                              "name": {
+                                    "type": "string"
+                              },
+                              "rank": {
+                                    "type": "number"
+                              },
+                              "updated_at": {
+                                    "type": "string"
+                              }
+                        },
+                        "required": [
+                              "rank",
+                              "created_at",
+                              "updated_at",
+                              "id",
+                              "name",
+                              "description"
+                        ]
                   }
             }
       },

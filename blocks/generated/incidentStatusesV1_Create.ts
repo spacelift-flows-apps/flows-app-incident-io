@@ -77,32 +77,35 @@ const incidentStatusesV1_Create: AppBlock = {
                   "type": "object",
                   "properties": {
                         "category": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string",
+                              "enum": [
+                                    "triage",
+                                    "declined",
+                                    "merged",
+                                    "canceled",
+                                    "live",
+                                    "learning",
+                                    "closed",
+                                    "paused"
+                              ]
                         },
                         "created_at": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "description": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "id": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "name": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "rank": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "number"
                         },
                         "updated_at": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         }
                   },
                   "required": [

@@ -71,12 +71,15 @@ const workflowsV2_ShowWorkflow: AppBlock = {
                               "additionalProperties": true
                         },
                         "managed_by": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string",
+                              "enum": [
+                                    "dashboard",
+                                    "terraform",
+                                    "external"
+                              ]
                         },
                         "source_url": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         }
                   },
                   "required": [
@@ -88,72 +91,681 @@ const workflowsV2_ShowWorkflow: AppBlock = {
                   "type": "object",
                   "properties": {
                         "condition_groups": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "array",
+                              "items": {
+                                    "type": "object",
+                                    "properties": {
+                                          "conditions": {
+                                                "type": "array",
+                                                "items": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                            "operation": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                        "label": {
+                                                                              "type": "string"
+                                                                        },
+                                                                        "value": {
+                                                                              "type": "string"
+                                                                        }
+                                                                  },
+                                                                  "required": [
+                                                                        "label",
+                                                                        "value",
+                                                                        "sort_key"
+                                                                  ]
+                                                            },
+                                                            "param_bindings": {
+                                                                  "type": "array",
+                                                                  "items": {
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                              "array_value": {
+                                                                                    "type": "array",
+                                                                                    "items": {
+                                                                                          "type": "object",
+                                                                                          "properties": {
+                                                                                                "label": {
+                                                                                                      "type": "string"
+                                                                                                },
+                                                                                                "literal": {
+                                                                                                      "type": "string"
+                                                                                                },
+                                                                                                "reference": {
+                                                                                                      "type": "string"
+                                                                                                }
+                                                                                          },
+                                                                                          "required": [
+                                                                                                "label",
+                                                                                                "sort_key"
+                                                                                          ]
+                                                                                    }
+                                                                              },
+                                                                              "value": {
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                          "label": {
+                                                                                                "type": "string"
+                                                                                          },
+                                                                                          "literal": {
+                                                                                                "type": "string"
+                                                                                          },
+                                                                                          "reference": {
+                                                                                                "type": "string"
+                                                                                          }
+                                                                                    },
+                                                                                    "required": [
+                                                                                          "label",
+                                                                                          "sort_key"
+                                                                                    ]
+                                                                              }
+                                                                        },
+                                                                        "additionalProperties": true
+                                                                  }
+                                                            },
+                                                            "subject": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                        "label": {
+                                                                              "type": "string"
+                                                                        },
+                                                                        "reference": {
+                                                                              "type": "string"
+                                                                        }
+                                                                  },
+                                                                  "required": [
+                                                                        "label",
+                                                                        "icon",
+                                                                        "reference"
+                                                                  ]
+                                                            }
+                                                      },
+                                                      "required": [
+                                                            "subject",
+                                                            "operation",
+                                                            "params",
+                                                            "param_bindings"
+                                                      ]
+                                                }
+                                          }
+                                    },
+                                    "required": [
+                                          "conditions"
+                                    ]
+                              }
                         },
                         "continue_on_step_error": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "boolean"
                         },
                         "delay": {
                               "type": "object",
-                              "additionalProperties": true
+                              "properties": {
+                                    "conditions_apply_over_delay": {
+                                          "type": "boolean"
+                                    },
+                                    "for_seconds": {
+                                          "type": "number"
+                                    }
+                              },
+                              "required": [
+                                    "for_seconds",
+                                    "conditions_apply_over_delay"
+                              ]
                         },
                         "expressions": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "array",
+                              "items": {
+                                    "type": "object",
+                                    "properties": {
+                                          "else_branch": {
+                                                "type": "object",
+                                                "properties": {
+                                                      "result": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                  "array_value": {
+                                                                        "type": "array",
+                                                                        "items": {
+                                                                              "type": "object",
+                                                                              "properties": {
+                                                                                    "label": {
+                                                                                          "type": "string"
+                                                                                    },
+                                                                                    "literal": {
+                                                                                          "type": "string"
+                                                                                    },
+                                                                                    "reference": {
+                                                                                          "type": "string"
+                                                                                    }
+                                                                              },
+                                                                              "required": [
+                                                                                    "label",
+                                                                                    "sort_key"
+                                                                              ]
+                                                                        }
+                                                                  },
+                                                                  "value": {
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                              "label": {
+                                                                                    "type": "string"
+                                                                              },
+                                                                              "literal": {
+                                                                                    "type": "string"
+                                                                              },
+                                                                              "reference": {
+                                                                                    "type": "string"
+                                                                              }
+                                                                        },
+                                                                        "required": [
+                                                                              "label",
+                                                                              "sort_key"
+                                                                        ]
+                                                                  }
+                                                            },
+                                                            "additionalProperties": true
+                                                      }
+                                                },
+                                                "required": [
+                                                      "result"
+                                                ]
+                                          },
+                                          "label": {
+                                                "type": "string"
+                                          },
+                                          "operations": {
+                                                "type": "array",
+                                                "items": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                            "branches": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                        "branches": {
+                                                                              "type": "array",
+                                                                              "items": {
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                          "condition_groups": {
+                                                                                                "type": "array",
+                                                                                                "items": {
+                                                                                                      "type": "object",
+                                                                                                      "properties": {
+                                                                                                            "conditions": {
+                                                                                                                  "type": "array",
+                                                                                                                  "items": {
+                                                                                                                        "type": "object",
+                                                                                                                        "properties": {
+                                                                                                                              "operation": {
+                                                                                                                                    "type": "object",
+                                                                                                                                    "additionalProperties": true
+                                                                                                                              },
+                                                                                                                              "param_bindings": {
+                                                                                                                                    "type": "object",
+                                                                                                                                    "additionalProperties": true
+                                                                                                                              },
+                                                                                                                              "subject": {
+                                                                                                                                    "type": "object",
+                                                                                                                                    "additionalProperties": true
+                                                                                                                              }
+                                                                                                                        },
+                                                                                                                        "required": [
+                                                                                                                              "subject",
+                                                                                                                              "operation",
+                                                                                                                              "params",
+                                                                                                                              "param_bindings"
+                                                                                                                        ]
+                                                                                                                  }
+                                                                                                            }
+                                                                                                      },
+                                                                                                      "required": [
+                                                                                                            "conditions"
+                                                                                                      ]
+                                                                                                }
+                                                                                          },
+                                                                                          "result": {
+                                                                                                "type": "object",
+                                                                                                "properties": {
+                                                                                                      "array_value": {
+                                                                                                            "type": "array",
+                                                                                                            "items": {
+                                                                                                                  "type": "object",
+                                                                                                                  "properties": {
+                                                                                                                        "label": {
+                                                                                                                              "type": "string"
+                                                                                                                        },
+                                                                                                                        "literal": {
+                                                                                                                              "type": "string"
+                                                                                                                        },
+                                                                                                                        "reference": {
+                                                                                                                              "type": "string"
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "required": [
+                                                                                                                        "label",
+                                                                                                                        "sort_key"
+                                                                                                                  ]
+                                                                                                            }
+                                                                                                      },
+                                                                                                      "value": {
+                                                                                                            "type": "object",
+                                                                                                            "properties": {
+                                                                                                                  "label": {
+                                                                                                                        "type": "string"
+                                                                                                                  },
+                                                                                                                  "literal": {
+                                                                                                                        "type": "string"
+                                                                                                                  },
+                                                                                                                  "reference": {
+                                                                                                                        "type": "string"
+                                                                                                                  }
+                                                                                                            },
+                                                                                                            "required": [
+                                                                                                                  "label",
+                                                                                                                  "sort_key"
+                                                                                                            ]
+                                                                                                      }
+                                                                                                },
+                                                                                                "additionalProperties": true
+                                                                                          }
+                                                                                    },
+                                                                                    "required": [
+                                                                                          "condition_groups",
+                                                                                          "result"
+                                                                                    ]
+                                                                              }
+                                                                        },
+                                                                        "returns": {
+                                                                              "type": "object",
+                                                                              "properties": {
+                                                                                    "array": {
+                                                                                          "type": "boolean"
+                                                                                    },
+                                                                                    "type": {
+                                                                                          "type": "string"
+                                                                                    }
+                                                                              },
+                                                                              "required": [
+                                                                                    "type",
+                                                                                    "array"
+                                                                              ]
+                                                                        }
+                                                                  },
+                                                                  "required": [
+                                                                        "branches",
+                                                                        "returns"
+                                                                  ]
+                                                            },
+                                                            "filter": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                        "condition_groups": {
+                                                                              "type": "array",
+                                                                              "items": {
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                          "conditions": {
+                                                                                                "type": "array",
+                                                                                                "items": {
+                                                                                                      "type": "object",
+                                                                                                      "properties": {
+                                                                                                            "operation": {
+                                                                                                                  "type": "object",
+                                                                                                                  "properties": {
+                                                                                                                        "label": {
+                                                                                                                              "type": "string"
+                                                                                                                        },
+                                                                                                                        "value": {
+                                                                                                                              "type": "string"
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "required": [
+                                                                                                                        "label",
+                                                                                                                        "value",
+                                                                                                                        "sort_key"
+                                                                                                                  ]
+                                                                                                            },
+                                                                                                            "param_bindings": {
+                                                                                                                  "type": "array",
+                                                                                                                  "items": {
+                                                                                                                        "type": "object",
+                                                                                                                        "properties": {
+                                                                                                                              "array_value": {
+                                                                                                                                    "type": "object",
+                                                                                                                                    "additionalProperties": true
+                                                                                                                              },
+                                                                                                                              "value": {
+                                                                                                                                    "type": "object",
+                                                                                                                                    "additionalProperties": true
+                                                                                                                              }
+                                                                                                                        },
+                                                                                                                        "additionalProperties": true
+                                                                                                                  }
+                                                                                                            },
+                                                                                                            "subject": {
+                                                                                                                  "type": "object",
+                                                                                                                  "properties": {
+                                                                                                                        "label": {
+                                                                                                                              "type": "string"
+                                                                                                                        },
+                                                                                                                        "reference": {
+                                                                                                                              "type": "string"
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "required": [
+                                                                                                                        "label",
+                                                                                                                        "icon",
+                                                                                                                        "reference"
+                                                                                                                  ]
+                                                                                                            }
+                                                                                                      },
+                                                                                                      "required": [
+                                                                                                            "subject",
+                                                                                                            "operation",
+                                                                                                            "params",
+                                                                                                            "param_bindings"
+                                                                                                      ]
+                                                                                                }
+                                                                                          }
+                                                                                    },
+                                                                                    "required": [
+                                                                                          "conditions"
+                                                                                    ]
+                                                                              }
+                                                                        }
+                                                                  },
+                                                                  "required": [
+                                                                        "condition_groups"
+                                                                  ]
+                                                            },
+                                                            "navigate": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                        "reference": {
+                                                                              "type": "string"
+                                                                        },
+                                                                        "reference_label": {
+                                                                              "type": "string"
+                                                                        }
+                                                                  },
+                                                                  "required": [
+                                                                        "reference",
+                                                                        "reference_label"
+                                                                  ]
+                                                            },
+                                                            "operation_type": {
+                                                                  "type": "string",
+                                                                  "enum": [
+                                                                        "navigate",
+                                                                        "filter",
+                                                                        "concatenate",
+                                                                        "count",
+                                                                        "min",
+                                                                        "max",
+                                                                        "sum",
+                                                                        "random",
+                                                                        "first",
+                                                                        "parse",
+                                                                        "branches"
+                                                                  ]
+                                                            },
+                                                            "parse": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                        "returns": {
+                                                                              "type": "object",
+                                                                              "properties": {
+                                                                                    "array": {
+                                                                                          "type": "boolean"
+                                                                                    },
+                                                                                    "type": {
+                                                                                          "type": "string"
+                                                                                    }
+                                                                              },
+                                                                              "required": [
+                                                                                    "type",
+                                                                                    "array"
+                                                                              ]
+                                                                        },
+                                                                        "source": {
+                                                                              "type": "string"
+                                                                        }
+                                                                  },
+                                                                  "required": [
+                                                                        "source",
+                                                                        "returns"
+                                                                  ]
+                                                            },
+                                                            "returns": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                        "array": {
+                                                                              "type": "boolean"
+                                                                        },
+                                                                        "type": {
+                                                                              "type": "string"
+                                                                        }
+                                                                  },
+                                                                  "required": [
+                                                                        "type",
+                                                                        "array"
+                                                                  ]
+                                                            }
+                                                      },
+                                                      "required": [
+                                                            "operation_type",
+                                                            "returns"
+                                                      ]
+                                                }
+                                          },
+                                          "reference": {
+                                                "type": "string"
+                                          },
+                                          "returns": {
+                                                "type": "object",
+                                                "properties": {
+                                                      "array": {
+                                                            "type": "boolean"
+                                                      },
+                                                      "type": {
+                                                            "type": "string"
+                                                      }
+                                                },
+                                                "required": [
+                                                      "type",
+                                                      "array"
+                                                ]
+                                          },
+                                          "root_reference": {
+                                                "type": "string"
+                                          }
+                                    },
+                                    "required": [
+                                          "label",
+                                          "reference",
+                                          "returns",
+                                          "root_reference",
+                                          "operations",
+                                          "id"
+                                    ]
+                              }
                         },
                         "folder": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "id": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "include_private_incidents": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "boolean"
                         },
                         "name": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "once_for": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "array",
+                              "items": {
+                                    "type": "object",
+                                    "properties": {
+                                          "array": {
+                                                "type": "boolean"
+                                          },
+                                          "key": {
+                                                "type": "string"
+                                          },
+                                          "label": {
+                                                "type": "string"
+                                          },
+                                          "type": {
+                                                "type": "string"
+                                          }
+                                    },
+                                    "required": [
+                                          "key",
+                                          "label",
+                                          "node_label",
+                                          "type",
+                                          "hide_filter",
+                                          "array"
+                                    ]
+                              }
                         },
                         "runs_from": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "runs_on_incident_modes": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "array",
+                              "items": {
+                                    "type": "string",
+                                    "enum": [
+                                          "standard",
+                                          "test",
+                                          "retrospective"
+                                    ]
+                              }
                         },
                         "runs_on_incidents": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string",
+                              "enum": [
+                                    "newly_created",
+                                    "newly_created_and_active"
+                              ]
                         },
                         "shortform": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "state": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string",
+                              "enum": [
+                                    "active",
+                                    "disabled",
+                                    "draft",
+                                    "error"
+                              ]
                         },
                         "steps": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "array",
+                              "items": {
+                                    "type": "object",
+                                    "properties": {
+                                          "for_each": {
+                                                "type": "string"
+                                          },
+                                          "id": {
+                                                "type": "string"
+                                          },
+                                          "label": {
+                                                "type": "string"
+                                          },
+                                          "name": {
+                                                "type": "string"
+                                          },
+                                          "param_bindings": {
+                                                "type": "array",
+                                                "items": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                            "array_value": {
+                                                                  "type": "array",
+                                                                  "items": {
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                              "label": {
+                                                                                    "type": "string"
+                                                                              },
+                                                                              "literal": {
+                                                                                    "type": "string"
+                                                                              },
+                                                                              "reference": {
+                                                                                    "type": "string"
+                                                                              }
+                                                                        },
+                                                                        "required": [
+                                                                              "label",
+                                                                              "sort_key"
+                                                                        ]
+                                                                  }
+                                                            },
+                                                            "value": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                        "label": {
+                                                                              "type": "string"
+                                                                        },
+                                                                        "literal": {
+                                                                              "type": "string"
+                                                                        },
+                                                                        "reference": {
+                                                                              "type": "string"
+                                                                        }
+                                                                  },
+                                                                  "required": [
+                                                                        "label",
+                                                                        "sort_key"
+                                                                  ]
+                                                            }
+                                                      },
+                                                      "additionalProperties": true
+                                                }
+                                          }
+                                    },
+                                    "required": [
+                                          "id",
+                                          "name",
+                                          "label",
+                                          "description",
+                                          "params",
+                                          "param_bindings",
+                                          "organisation_is_eligible",
+                                          "release_channel",
+                                          "group_label"
+                                    ]
+                              }
                         },
                         "trigger": {
                               "type": "object",
-                              "additionalProperties": true
+                              "properties": {
+                                    "label": {
+                                          "type": "string"
+                                    },
+                                    "name": {
+                                          "type": "string"
+                                    }
+                              },
+                              "required": [
+                                    "name",
+                                    "icon",
+                                    "label",
+                                    "group_label",
+                                    "when_description",
+                                    "default_once_for",
+                                    "default_condition_groups",
+                                    "scope"
+                              ]
                         },
                         "version": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "number"
                         }
                   },
                   "required": [

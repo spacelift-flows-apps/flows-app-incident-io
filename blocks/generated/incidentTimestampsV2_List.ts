@@ -48,7 +48,30 @@ const incidentTimestampsV2_List: AppBlock = {
                   "type": "array",
                   "items": {
                         "type": "object",
-                        "additionalProperties": true
+                        "properties": {
+                              "id": {
+                                    "type": "string"
+                              },
+                              "name": {
+                                    "type": "string"
+                              },
+                              "rank": {
+                                    "type": "number"
+                              }
+                        },
+                        "required": [
+                              "id",
+                              "name",
+                              "description",
+                              "rank",
+                              "set_on_creation",
+                              "set_on_acceptance",
+                              "set_on_resolution",
+                              "set_by_rules",
+                              "timestamp_type",
+                              "created_at",
+                              "updated_at"
+                        ]
                   }
             }
       },

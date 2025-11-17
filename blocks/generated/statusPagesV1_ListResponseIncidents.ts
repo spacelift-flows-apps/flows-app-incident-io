@@ -63,7 +63,18 @@ const statusPagesV1_ListResponseIncidents: AppBlock = {
                   "type": "array",
                   "items": {
                         "type": "object",
-                        "additionalProperties": true
+                        "properties": {
+                              "id": {
+                                    "type": "string"
+                              },
+                              "linked_at": {
+                                    "type": "string"
+                              }
+                        },
+                        "required": [
+                              "id",
+                              "linked_at"
+                        ]
                   }
             }
       },

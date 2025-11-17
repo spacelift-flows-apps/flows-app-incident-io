@@ -33,19 +33,2727 @@ const escalationsV2_UpdatePath: AppBlock = {
                               },
                               "if_else": {
                                     "type": "object",
-                                    "additionalProperties": true
+                                    "properties": {
+                                          "conditions": {
+                                                "type": "array",
+                                                "items": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                            "operation": {
+                                                                  "type": "string"
+                                                            },
+                                                            "param_bindings": {
+                                                                  "type": "array",
+                                                                  "items": {
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                              "array_value": {
+                                                                                    "type": "array",
+                                                                                    "items": {
+                                                                                          "type": "object",
+                                                                                          "properties": {
+                                                                                                "literal": {
+                                                                                                      "type": "string"
+                                                                                                },
+                                                                                                "reference": {
+                                                                                                      "type": "string"
+                                                                                                }
+                                                                                          },
+                                                                                          "additionalProperties": true
+                                                                                    }
+                                                                              },
+                                                                              "value": {
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                          "literal": {
+                                                                                                "type": "string"
+                                                                                          },
+                                                                                          "reference": {
+                                                                                                "type": "string"
+                                                                                          }
+                                                                                    },
+                                                                                    "additionalProperties": true
+                                                                              }
+                                                                        },
+                                                                        "additionalProperties": true
+                                                                  }
+                                                            },
+                                                            "subject": {
+                                                                  "type": "string"
+                                                            }
+                                                      },
+                                                      "required": [
+                                                            "subject",
+                                                            "operation",
+                                                            "param_bindings"
+                                                      ]
+                                                }
+                                          },
+                                          "else_path": {
+                                                "type": "array",
+                                                "items": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                            "id": {
+                                                                  "type": "string"
+                                                            },
+                                                            "if_else": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                        "conditions": {
+                                                                              "type": "array",
+                                                                              "items": {
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                          "operation": {
+                                                                                                "type": "string"
+                                                                                          },
+                                                                                          "param_bindings": {
+                                                                                                "type": "array",
+                                                                                                "items": {
+                                                                                                      "type": "object",
+                                                                                                      "properties": {
+                                                                                                            "array_value": {
+                                                                                                                  "type": "array",
+                                                                                                                  "items": {
+                                                                                                                        "type": "object",
+                                                                                                                        "properties": {
+                                                                                                                              "literal": {
+                                                                                                                                    "type": "string"
+                                                                                                                              },
+                                                                                                                              "reference": {
+                                                                                                                                    "type": "string"
+                                                                                                                              }
+                                                                                                                        },
+                                                                                                                        "additionalProperties": true
+                                                                                                                  }
+                                                                                                            },
+                                                                                                            "value": {
+                                                                                                                  "type": "object",
+                                                                                                                  "properties": {
+                                                                                                                        "literal": {
+                                                                                                                              "type": "string"
+                                                                                                                        },
+                                                                                                                        "reference": {
+                                                                                                                              "type": "string"
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "additionalProperties": true
+                                                                                                            }
+                                                                                                      },
+                                                                                                      "additionalProperties": true
+                                                                                                }
+                                                                                          },
+                                                                                          "subject": {
+                                                                                                "type": "string"
+                                                                                          }
+                                                                                    },
+                                                                                    "required": [
+                                                                                          "subject",
+                                                                                          "operation",
+                                                                                          "param_bindings"
+                                                                                    ]
+                                                                              }
+                                                                        },
+                                                                        "else_path": {
+                                                                              "type": "array",
+                                                                              "items": {
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                          "id": {
+                                                                                                "type": "string"
+                                                                                          },
+                                                                                          "if_else": {
+                                                                                                "type": "object",
+                                                                                                "properties": {
+                                                                                                      "conditions": {
+                                                                                                            "type": "array",
+                                                                                                            "items": {
+                                                                                                                  "type": "object",
+                                                                                                                  "properties": {
+                                                                                                                        "operation": {
+                                                                                                                              "type": "string"
+                                                                                                                        },
+                                                                                                                        "param_bindings": {
+                                                                                                                              "type": "array",
+                                                                                                                              "items": {
+                                                                                                                                    "type": "object",
+                                                                                                                                    "properties": {
+                                                                                                                                          "array_value": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          },
+                                                                                                                                          "value": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "additionalProperties": true
+                                                                                                                              }
+                                                                                                                        },
+                                                                                                                        "subject": {
+                                                                                                                              "type": "string"
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "required": [
+                                                                                                                        "subject",
+                                                                                                                        "operation",
+                                                                                                                        "param_bindings"
+                                                                                                                  ]
+                                                                                                            }
+                                                                                                      },
+                                                                                                      "else_path": {
+                                                                                                            "type": "array",
+                                                                                                            "items": {
+                                                                                                                  "type": "object",
+                                                                                                                  "properties": {
+                                                                                                                        "id": {
+                                                                                                                              "type": "string"
+                                                                                                                        },
+                                                                                                                        "if_else": {
+                                                                                                                              "type": "object",
+                                                                                                                              "properties": {
+                                                                                                                                    "conditions": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "else_path": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "then_path": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    }
+                                                                                                                              },
+                                                                                                                              "required": [
+                                                                                                                                    "then_path",
+                                                                                                                                    "else_path"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "level": {
+                                                                                                                              "type": "object",
+                                                                                                                              "properties": {
+                                                                                                                                    "ack_mode": {
+                                                                                                                                          "type": "string",
+                                                                                                                                          "enum": [
+                                                                                                                                                "all",
+                                                                                                                                                "first"
+                                                                                                                                          ]
+                                                                                                                                    },
+                                                                                                                                    "round_robin_config": {
+                                                                                                                                          "type": "object",
+                                                                                                                                          "additionalProperties": true
+                                                                                                                                    },
+                                                                                                                                    "targets": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_interval_condition": {
+                                                                                                                                          "type": "string",
+                                                                                                                                          "enum": [
+                                                                                                                                                "active",
+                                                                                                                                                "inactive"
+                                                                                                                                          ]
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_seconds": {
+                                                                                                                                          "type": "number"
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_weekday_interval_config_id": {
+                                                                                                                                          "type": "string"
+                                                                                                                                    }
+                                                                                                                              },
+                                                                                                                              "required": [
+                                                                                                                                    "targets"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "notify_channel": {
+                                                                                                                              "type": "object",
+                                                                                                                              "properties": {
+                                                                                                                                    "targets": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_interval_condition": {
+                                                                                                                                          "type": "string",
+                                                                                                                                          "enum": [
+                                                                                                                                                "active",
+                                                                                                                                                "inactive"
+                                                                                                                                          ]
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_seconds": {
+                                                                                                                                          "type": "number"
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_weekday_interval_config_id": {
+                                                                                                                                          "type": "string"
+                                                                                                                                    }
+                                                                                                                              },
+                                                                                                                              "required": [
+                                                                                                                                    "targets"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "repeat": {
+                                                                                                                              "type": "object",
+                                                                                                                              "properties": {
+                                                                                                                                    "repeat_times": {
+                                                                                                                                          "type": "number"
+                                                                                                                                    },
+                                                                                                                                    "to_node": {
+                                                                                                                                          "type": "string"
+                                                                                                                                    }
+                                                                                                                              },
+                                                                                                                              "required": [
+                                                                                                                                    "to_node",
+                                                                                                                                    "repeat_times"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "type": {
+                                                                                                                              "type": "string",
+                                                                                                                              "enum": [
+                                                                                                                                    "if_else",
+                                                                                                                                    "repeat",
+                                                                                                                                    "level",
+                                                                                                                                    "notify_channel"
+                                                                                                                              ]
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "required": [
+                                                                                                                        "id",
+                                                                                                                        "type"
+                                                                                                                  ]
+                                                                                                            }
+                                                                                                      },
+                                                                                                      "then_path": {
+                                                                                                            "type": "array",
+                                                                                                            "items": {
+                                                                                                                  "type": "object",
+                                                                                                                  "properties": {
+                                                                                                                        "id": {
+                                                                                                                              "type": "string"
+                                                                                                                        },
+                                                                                                                        "if_else": {
+                                                                                                                              "type": "object",
+                                                                                                                              "properties": {
+                                                                                                                                    "conditions": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "else_path": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "then_path": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    }
+                                                                                                                              },
+                                                                                                                              "required": [
+                                                                                                                                    "then_path",
+                                                                                                                                    "else_path"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "level": {
+                                                                                                                              "type": "object",
+                                                                                                                              "properties": {
+                                                                                                                                    "ack_mode": {
+                                                                                                                                          "type": "string",
+                                                                                                                                          "enum": [
+                                                                                                                                                "all",
+                                                                                                                                                "first"
+                                                                                                                                          ]
+                                                                                                                                    },
+                                                                                                                                    "round_robin_config": {
+                                                                                                                                          "type": "object",
+                                                                                                                                          "additionalProperties": true
+                                                                                                                                    },
+                                                                                                                                    "targets": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_interval_condition": {
+                                                                                                                                          "type": "string",
+                                                                                                                                          "enum": [
+                                                                                                                                                "active",
+                                                                                                                                                "inactive"
+                                                                                                                                          ]
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_seconds": {
+                                                                                                                                          "type": "number"
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_weekday_interval_config_id": {
+                                                                                                                                          "type": "string"
+                                                                                                                                    }
+                                                                                                                              },
+                                                                                                                              "required": [
+                                                                                                                                    "targets"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "notify_channel": {
+                                                                                                                              "type": "object",
+                                                                                                                              "properties": {
+                                                                                                                                    "targets": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_interval_condition": {
+                                                                                                                                          "type": "string",
+                                                                                                                                          "enum": [
+                                                                                                                                                "active",
+                                                                                                                                                "inactive"
+                                                                                                                                          ]
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_seconds": {
+                                                                                                                                          "type": "number"
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_weekday_interval_config_id": {
+                                                                                                                                          "type": "string"
+                                                                                                                                    }
+                                                                                                                              },
+                                                                                                                              "required": [
+                                                                                                                                    "targets"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "repeat": {
+                                                                                                                              "type": "object",
+                                                                                                                              "properties": {
+                                                                                                                                    "repeat_times": {
+                                                                                                                                          "type": "number"
+                                                                                                                                    },
+                                                                                                                                    "to_node": {
+                                                                                                                                          "type": "string"
+                                                                                                                                    }
+                                                                                                                              },
+                                                                                                                              "required": [
+                                                                                                                                    "to_node",
+                                                                                                                                    "repeat_times"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "type": {
+                                                                                                                              "type": "string",
+                                                                                                                              "enum": [
+                                                                                                                                    "if_else",
+                                                                                                                                    "repeat",
+                                                                                                                                    "level",
+                                                                                                                                    "notify_channel"
+                                                                                                                              ]
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "required": [
+                                                                                                                        "id",
+                                                                                                                        "type"
+                                                                                                                  ]
+                                                                                                            }
+                                                                                                      }
+                                                                                                },
+                                                                                                "required": [
+                                                                                                      "then_path",
+                                                                                                      "else_path"
+                                                                                                ]
+                                                                                          },
+                                                                                          "level": {
+                                                                                                "type": "object",
+                                                                                                "properties": {
+                                                                                                      "ack_mode": {
+                                                                                                            "type": "string",
+                                                                                                            "enum": [
+                                                                                                                  "all",
+                                                                                                                  "first"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "round_robin_config": {
+                                                                                                            "type": "object",
+                                                                                                            "properties": {
+                                                                                                                  "enabled": {
+                                                                                                                        "type": "boolean"
+                                                                                                                  },
+                                                                                                                  "rotate_after_seconds": {
+                                                                                                                        "type": "number"
+                                                                                                                  }
+                                                                                                            },
+                                                                                                            "required": [
+                                                                                                                  "enabled"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "targets": {
+                                                                                                            "type": "array",
+                                                                                                            "items": {
+                                                                                                                  "type": "object",
+                                                                                                                  "properties": {
+                                                                                                                        "id": {
+                                                                                                                              "type": "string"
+                                                                                                                        },
+                                                                                                                        "schedule_mode": {
+                                                                                                                              "type": "string",
+                                                                                                                              "enum": [
+                                                                                                                                    "currently_on_call",
+                                                                                                                                    "all_users_for_rota",
+                                                                                                                                    "all_users",
+                                                                                                                                    ""
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "type": {
+                                                                                                                              "type": "string",
+                                                                                                                              "enum": [
+                                                                                                                                    "schedule",
+                                                                                                                                    "user",
+                                                                                                                                    "slack_channel",
+                                                                                                                                    "msteams_channel"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "urgency": {
+                                                                                                                              "type": "string",
+                                                                                                                              "enum": [
+                                                                                                                                    "high",
+                                                                                                                                    "low"
+                                                                                                                              ]
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "required": [
+                                                                                                                        "type",
+                                                                                                                        "id",
+                                                                                                                        "urgency"
+                                                                                                                  ]
+                                                                                                            }
+                                                                                                      },
+                                                                                                      "time_to_ack_interval_condition": {
+                                                                                                            "type": "string",
+                                                                                                            "enum": [
+                                                                                                                  "active",
+                                                                                                                  "inactive"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "time_to_ack_seconds": {
+                                                                                                            "type": "number"
+                                                                                                      },
+                                                                                                      "time_to_ack_weekday_interval_config_id": {
+                                                                                                            "type": "string"
+                                                                                                      }
+                                                                                                },
+                                                                                                "required": [
+                                                                                                      "targets"
+                                                                                                ]
+                                                                                          },
+                                                                                          "notify_channel": {
+                                                                                                "type": "object",
+                                                                                                "properties": {
+                                                                                                      "targets": {
+                                                                                                            "type": "array",
+                                                                                                            "items": {
+                                                                                                                  "type": "object",
+                                                                                                                  "properties": {
+                                                                                                                        "id": {
+                                                                                                                              "type": "string"
+                                                                                                                        },
+                                                                                                                        "schedule_mode": {
+                                                                                                                              "type": "string",
+                                                                                                                              "enum": [
+                                                                                                                                    "currently_on_call",
+                                                                                                                                    "all_users_for_rota",
+                                                                                                                                    "all_users",
+                                                                                                                                    ""
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "type": {
+                                                                                                                              "type": "string",
+                                                                                                                              "enum": [
+                                                                                                                                    "schedule",
+                                                                                                                                    "user",
+                                                                                                                                    "slack_channel",
+                                                                                                                                    "msteams_channel"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "urgency": {
+                                                                                                                              "type": "string",
+                                                                                                                              "enum": [
+                                                                                                                                    "high",
+                                                                                                                                    "low"
+                                                                                                                              ]
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "required": [
+                                                                                                                        "type",
+                                                                                                                        "id",
+                                                                                                                        "urgency"
+                                                                                                                  ]
+                                                                                                            }
+                                                                                                      },
+                                                                                                      "time_to_ack_interval_condition": {
+                                                                                                            "type": "string",
+                                                                                                            "enum": [
+                                                                                                                  "active",
+                                                                                                                  "inactive"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "time_to_ack_seconds": {
+                                                                                                            "type": "number"
+                                                                                                      },
+                                                                                                      "time_to_ack_weekday_interval_config_id": {
+                                                                                                            "type": "string"
+                                                                                                      }
+                                                                                                },
+                                                                                                "required": [
+                                                                                                      "targets"
+                                                                                                ]
+                                                                                          },
+                                                                                          "repeat": {
+                                                                                                "type": "object",
+                                                                                                "properties": {
+                                                                                                      "repeat_times": {
+                                                                                                            "type": "number"
+                                                                                                      },
+                                                                                                      "to_node": {
+                                                                                                            "type": "string"
+                                                                                                      }
+                                                                                                },
+                                                                                                "required": [
+                                                                                                      "to_node",
+                                                                                                      "repeat_times"
+                                                                                                ]
+                                                                                          },
+                                                                                          "type": {
+                                                                                                "type": "string",
+                                                                                                "enum": [
+                                                                                                      "if_else",
+                                                                                                      "repeat",
+                                                                                                      "level",
+                                                                                                      "notify_channel"
+                                                                                                ]
+                                                                                          }
+                                                                                    },
+                                                                                    "required": [
+                                                                                          "id",
+                                                                                          "type"
+                                                                                    ]
+                                                                              }
+                                                                        },
+                                                                        "then_path": {
+                                                                              "type": "array",
+                                                                              "items": {
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                          "id": {
+                                                                                                "type": "string"
+                                                                                          },
+                                                                                          "if_else": {
+                                                                                                "type": "object",
+                                                                                                "properties": {
+                                                                                                      "conditions": {
+                                                                                                            "type": "array",
+                                                                                                            "items": {
+                                                                                                                  "type": "object",
+                                                                                                                  "properties": {
+                                                                                                                        "operation": {
+                                                                                                                              "type": "string"
+                                                                                                                        },
+                                                                                                                        "param_bindings": {
+                                                                                                                              "type": "array",
+                                                                                                                              "items": {
+                                                                                                                                    "type": "object",
+                                                                                                                                    "properties": {
+                                                                                                                                          "array_value": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          },
+                                                                                                                                          "value": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "additionalProperties": true
+                                                                                                                              }
+                                                                                                                        },
+                                                                                                                        "subject": {
+                                                                                                                              "type": "string"
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "required": [
+                                                                                                                        "subject",
+                                                                                                                        "operation",
+                                                                                                                        "param_bindings"
+                                                                                                                  ]
+                                                                                                            }
+                                                                                                      },
+                                                                                                      "else_path": {
+                                                                                                            "type": "array",
+                                                                                                            "items": {
+                                                                                                                  "type": "object",
+                                                                                                                  "properties": {
+                                                                                                                        "id": {
+                                                                                                                              "type": "string"
+                                                                                                                        },
+                                                                                                                        "if_else": {
+                                                                                                                              "type": "object",
+                                                                                                                              "properties": {
+                                                                                                                                    "conditions": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "else_path": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "then_path": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    }
+                                                                                                                              },
+                                                                                                                              "required": [
+                                                                                                                                    "then_path",
+                                                                                                                                    "else_path"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "level": {
+                                                                                                                              "type": "object",
+                                                                                                                              "properties": {
+                                                                                                                                    "ack_mode": {
+                                                                                                                                          "type": "string",
+                                                                                                                                          "enum": [
+                                                                                                                                                "all",
+                                                                                                                                                "first"
+                                                                                                                                          ]
+                                                                                                                                    },
+                                                                                                                                    "round_robin_config": {
+                                                                                                                                          "type": "object",
+                                                                                                                                          "additionalProperties": true
+                                                                                                                                    },
+                                                                                                                                    "targets": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_interval_condition": {
+                                                                                                                                          "type": "string",
+                                                                                                                                          "enum": [
+                                                                                                                                                "active",
+                                                                                                                                                "inactive"
+                                                                                                                                          ]
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_seconds": {
+                                                                                                                                          "type": "number"
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_weekday_interval_config_id": {
+                                                                                                                                          "type": "string"
+                                                                                                                                    }
+                                                                                                                              },
+                                                                                                                              "required": [
+                                                                                                                                    "targets"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "notify_channel": {
+                                                                                                                              "type": "object",
+                                                                                                                              "properties": {
+                                                                                                                                    "targets": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_interval_condition": {
+                                                                                                                                          "type": "string",
+                                                                                                                                          "enum": [
+                                                                                                                                                "active",
+                                                                                                                                                "inactive"
+                                                                                                                                          ]
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_seconds": {
+                                                                                                                                          "type": "number"
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_weekday_interval_config_id": {
+                                                                                                                                          "type": "string"
+                                                                                                                                    }
+                                                                                                                              },
+                                                                                                                              "required": [
+                                                                                                                                    "targets"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "repeat": {
+                                                                                                                              "type": "object",
+                                                                                                                              "properties": {
+                                                                                                                                    "repeat_times": {
+                                                                                                                                          "type": "number"
+                                                                                                                                    },
+                                                                                                                                    "to_node": {
+                                                                                                                                          "type": "string"
+                                                                                                                                    }
+                                                                                                                              },
+                                                                                                                              "required": [
+                                                                                                                                    "to_node",
+                                                                                                                                    "repeat_times"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "type": {
+                                                                                                                              "type": "string",
+                                                                                                                              "enum": [
+                                                                                                                                    "if_else",
+                                                                                                                                    "repeat",
+                                                                                                                                    "level",
+                                                                                                                                    "notify_channel"
+                                                                                                                              ]
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "required": [
+                                                                                                                        "id",
+                                                                                                                        "type"
+                                                                                                                  ]
+                                                                                                            }
+                                                                                                      },
+                                                                                                      "then_path": {
+                                                                                                            "type": "array",
+                                                                                                            "items": {
+                                                                                                                  "type": "object",
+                                                                                                                  "properties": {
+                                                                                                                        "id": {
+                                                                                                                              "type": "string"
+                                                                                                                        },
+                                                                                                                        "if_else": {
+                                                                                                                              "type": "object",
+                                                                                                                              "properties": {
+                                                                                                                                    "conditions": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "else_path": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "then_path": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    }
+                                                                                                                              },
+                                                                                                                              "required": [
+                                                                                                                                    "then_path",
+                                                                                                                                    "else_path"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "level": {
+                                                                                                                              "type": "object",
+                                                                                                                              "properties": {
+                                                                                                                                    "ack_mode": {
+                                                                                                                                          "type": "string",
+                                                                                                                                          "enum": [
+                                                                                                                                                "all",
+                                                                                                                                                "first"
+                                                                                                                                          ]
+                                                                                                                                    },
+                                                                                                                                    "round_robin_config": {
+                                                                                                                                          "type": "object",
+                                                                                                                                          "additionalProperties": true
+                                                                                                                                    },
+                                                                                                                                    "targets": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_interval_condition": {
+                                                                                                                                          "type": "string",
+                                                                                                                                          "enum": [
+                                                                                                                                                "active",
+                                                                                                                                                "inactive"
+                                                                                                                                          ]
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_seconds": {
+                                                                                                                                          "type": "number"
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_weekday_interval_config_id": {
+                                                                                                                                          "type": "string"
+                                                                                                                                    }
+                                                                                                                              },
+                                                                                                                              "required": [
+                                                                                                                                    "targets"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "notify_channel": {
+                                                                                                                              "type": "object",
+                                                                                                                              "properties": {
+                                                                                                                                    "targets": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_interval_condition": {
+                                                                                                                                          "type": "string",
+                                                                                                                                          "enum": [
+                                                                                                                                                "active",
+                                                                                                                                                "inactive"
+                                                                                                                                          ]
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_seconds": {
+                                                                                                                                          "type": "number"
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_weekday_interval_config_id": {
+                                                                                                                                          "type": "string"
+                                                                                                                                    }
+                                                                                                                              },
+                                                                                                                              "required": [
+                                                                                                                                    "targets"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "repeat": {
+                                                                                                                              "type": "object",
+                                                                                                                              "properties": {
+                                                                                                                                    "repeat_times": {
+                                                                                                                                          "type": "number"
+                                                                                                                                    },
+                                                                                                                                    "to_node": {
+                                                                                                                                          "type": "string"
+                                                                                                                                    }
+                                                                                                                              },
+                                                                                                                              "required": [
+                                                                                                                                    "to_node",
+                                                                                                                                    "repeat_times"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "type": {
+                                                                                                                              "type": "string",
+                                                                                                                              "enum": [
+                                                                                                                                    "if_else",
+                                                                                                                                    "repeat",
+                                                                                                                                    "level",
+                                                                                                                                    "notify_channel"
+                                                                                                                              ]
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "required": [
+                                                                                                                        "id",
+                                                                                                                        "type"
+                                                                                                                  ]
+                                                                                                            }
+                                                                                                      }
+                                                                                                },
+                                                                                                "required": [
+                                                                                                      "then_path",
+                                                                                                      "else_path"
+                                                                                                ]
+                                                                                          },
+                                                                                          "level": {
+                                                                                                "type": "object",
+                                                                                                "properties": {
+                                                                                                      "ack_mode": {
+                                                                                                            "type": "string",
+                                                                                                            "enum": [
+                                                                                                                  "all",
+                                                                                                                  "first"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "round_robin_config": {
+                                                                                                            "type": "object",
+                                                                                                            "properties": {
+                                                                                                                  "enabled": {
+                                                                                                                        "type": "boolean"
+                                                                                                                  },
+                                                                                                                  "rotate_after_seconds": {
+                                                                                                                        "type": "number"
+                                                                                                                  }
+                                                                                                            },
+                                                                                                            "required": [
+                                                                                                                  "enabled"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "targets": {
+                                                                                                            "type": "array",
+                                                                                                            "items": {
+                                                                                                                  "type": "object",
+                                                                                                                  "properties": {
+                                                                                                                        "id": {
+                                                                                                                              "type": "string"
+                                                                                                                        },
+                                                                                                                        "schedule_mode": {
+                                                                                                                              "type": "string",
+                                                                                                                              "enum": [
+                                                                                                                                    "currently_on_call",
+                                                                                                                                    "all_users_for_rota",
+                                                                                                                                    "all_users",
+                                                                                                                                    ""
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "type": {
+                                                                                                                              "type": "string",
+                                                                                                                              "enum": [
+                                                                                                                                    "schedule",
+                                                                                                                                    "user",
+                                                                                                                                    "slack_channel",
+                                                                                                                                    "msteams_channel"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "urgency": {
+                                                                                                                              "type": "string",
+                                                                                                                              "enum": [
+                                                                                                                                    "high",
+                                                                                                                                    "low"
+                                                                                                                              ]
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "required": [
+                                                                                                                        "type",
+                                                                                                                        "id",
+                                                                                                                        "urgency"
+                                                                                                                  ]
+                                                                                                            }
+                                                                                                      },
+                                                                                                      "time_to_ack_interval_condition": {
+                                                                                                            "type": "string",
+                                                                                                            "enum": [
+                                                                                                                  "active",
+                                                                                                                  "inactive"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "time_to_ack_seconds": {
+                                                                                                            "type": "number"
+                                                                                                      },
+                                                                                                      "time_to_ack_weekday_interval_config_id": {
+                                                                                                            "type": "string"
+                                                                                                      }
+                                                                                                },
+                                                                                                "required": [
+                                                                                                      "targets"
+                                                                                                ]
+                                                                                          },
+                                                                                          "notify_channel": {
+                                                                                                "type": "object",
+                                                                                                "properties": {
+                                                                                                      "targets": {
+                                                                                                            "type": "array",
+                                                                                                            "items": {
+                                                                                                                  "type": "object",
+                                                                                                                  "properties": {
+                                                                                                                        "id": {
+                                                                                                                              "type": "string"
+                                                                                                                        },
+                                                                                                                        "schedule_mode": {
+                                                                                                                              "type": "string",
+                                                                                                                              "enum": [
+                                                                                                                                    "currently_on_call",
+                                                                                                                                    "all_users_for_rota",
+                                                                                                                                    "all_users",
+                                                                                                                                    ""
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "type": {
+                                                                                                                              "type": "string",
+                                                                                                                              "enum": [
+                                                                                                                                    "schedule",
+                                                                                                                                    "user",
+                                                                                                                                    "slack_channel",
+                                                                                                                                    "msteams_channel"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "urgency": {
+                                                                                                                              "type": "string",
+                                                                                                                              "enum": [
+                                                                                                                                    "high",
+                                                                                                                                    "low"
+                                                                                                                              ]
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "required": [
+                                                                                                                        "type",
+                                                                                                                        "id",
+                                                                                                                        "urgency"
+                                                                                                                  ]
+                                                                                                            }
+                                                                                                      },
+                                                                                                      "time_to_ack_interval_condition": {
+                                                                                                            "type": "string",
+                                                                                                            "enum": [
+                                                                                                                  "active",
+                                                                                                                  "inactive"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "time_to_ack_seconds": {
+                                                                                                            "type": "number"
+                                                                                                      },
+                                                                                                      "time_to_ack_weekday_interval_config_id": {
+                                                                                                            "type": "string"
+                                                                                                      }
+                                                                                                },
+                                                                                                "required": [
+                                                                                                      "targets"
+                                                                                                ]
+                                                                                          },
+                                                                                          "repeat": {
+                                                                                                "type": "object",
+                                                                                                "properties": {
+                                                                                                      "repeat_times": {
+                                                                                                            "type": "number"
+                                                                                                      },
+                                                                                                      "to_node": {
+                                                                                                            "type": "string"
+                                                                                                      }
+                                                                                                },
+                                                                                                "required": [
+                                                                                                      "to_node",
+                                                                                                      "repeat_times"
+                                                                                                ]
+                                                                                          },
+                                                                                          "type": {
+                                                                                                "type": "string",
+                                                                                                "enum": [
+                                                                                                      "if_else",
+                                                                                                      "repeat",
+                                                                                                      "level",
+                                                                                                      "notify_channel"
+                                                                                                ]
+                                                                                          }
+                                                                                    },
+                                                                                    "required": [
+                                                                                          "id",
+                                                                                          "type"
+                                                                                    ]
+                                                                              }
+                                                                        }
+                                                                  },
+                                                                  "required": [
+                                                                        "then_path",
+                                                                        "else_path"
+                                                                  ]
+                                                            },
+                                                            "level": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                        "ack_mode": {
+                                                                              "type": "string",
+                                                                              "enum": [
+                                                                                    "all",
+                                                                                    "first"
+                                                                              ]
+                                                                        },
+                                                                        "round_robin_config": {
+                                                                              "type": "object",
+                                                                              "properties": {
+                                                                                    "enabled": {
+                                                                                          "type": "boolean"
+                                                                                    },
+                                                                                    "rotate_after_seconds": {
+                                                                                          "type": "number"
+                                                                                    }
+                                                                              },
+                                                                              "required": [
+                                                                                    "enabled"
+                                                                              ]
+                                                                        },
+                                                                        "targets": {
+                                                                              "type": "array",
+                                                                              "items": {
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                          "id": {
+                                                                                                "type": "string"
+                                                                                          },
+                                                                                          "schedule_mode": {
+                                                                                                "type": "string",
+                                                                                                "enum": [
+                                                                                                      "currently_on_call",
+                                                                                                      "all_users_for_rota",
+                                                                                                      "all_users",
+                                                                                                      ""
+                                                                                                ]
+                                                                                          },
+                                                                                          "type": {
+                                                                                                "type": "string",
+                                                                                                "enum": [
+                                                                                                      "schedule",
+                                                                                                      "user",
+                                                                                                      "slack_channel",
+                                                                                                      "msteams_channel"
+                                                                                                ]
+                                                                                          },
+                                                                                          "urgency": {
+                                                                                                "type": "string",
+                                                                                                "enum": [
+                                                                                                      "high",
+                                                                                                      "low"
+                                                                                                ]
+                                                                                          }
+                                                                                    },
+                                                                                    "required": [
+                                                                                          "type",
+                                                                                          "id",
+                                                                                          "urgency"
+                                                                                    ]
+                                                                              }
+                                                                        },
+                                                                        "time_to_ack_interval_condition": {
+                                                                              "type": "string",
+                                                                              "enum": [
+                                                                                    "active",
+                                                                                    "inactive"
+                                                                              ]
+                                                                        },
+                                                                        "time_to_ack_seconds": {
+                                                                              "type": "number"
+                                                                        },
+                                                                        "time_to_ack_weekday_interval_config_id": {
+                                                                              "type": "string"
+                                                                        }
+                                                                  },
+                                                                  "required": [
+                                                                        "targets"
+                                                                  ]
+                                                            },
+                                                            "notify_channel": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                        "targets": {
+                                                                              "type": "array",
+                                                                              "items": {
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                          "id": {
+                                                                                                "type": "string"
+                                                                                          },
+                                                                                          "schedule_mode": {
+                                                                                                "type": "string",
+                                                                                                "enum": [
+                                                                                                      "currently_on_call",
+                                                                                                      "all_users_for_rota",
+                                                                                                      "all_users",
+                                                                                                      ""
+                                                                                                ]
+                                                                                          },
+                                                                                          "type": {
+                                                                                                "type": "string",
+                                                                                                "enum": [
+                                                                                                      "schedule",
+                                                                                                      "user",
+                                                                                                      "slack_channel",
+                                                                                                      "msteams_channel"
+                                                                                                ]
+                                                                                          },
+                                                                                          "urgency": {
+                                                                                                "type": "string",
+                                                                                                "enum": [
+                                                                                                      "high",
+                                                                                                      "low"
+                                                                                                ]
+                                                                                          }
+                                                                                    },
+                                                                                    "required": [
+                                                                                          "type",
+                                                                                          "id",
+                                                                                          "urgency"
+                                                                                    ]
+                                                                              }
+                                                                        },
+                                                                        "time_to_ack_interval_condition": {
+                                                                              "type": "string",
+                                                                              "enum": [
+                                                                                    "active",
+                                                                                    "inactive"
+                                                                              ]
+                                                                        },
+                                                                        "time_to_ack_seconds": {
+                                                                              "type": "number"
+                                                                        },
+                                                                        "time_to_ack_weekday_interval_config_id": {
+                                                                              "type": "string"
+                                                                        }
+                                                                  },
+                                                                  "required": [
+                                                                        "targets"
+                                                                  ]
+                                                            },
+                                                            "repeat": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                        "repeat_times": {
+                                                                              "type": "number"
+                                                                        },
+                                                                        "to_node": {
+                                                                              "type": "string"
+                                                                        }
+                                                                  },
+                                                                  "required": [
+                                                                        "to_node",
+                                                                        "repeat_times"
+                                                                  ]
+                                                            },
+                                                            "type": {
+                                                                  "type": "string",
+                                                                  "enum": [
+                                                                        "if_else",
+                                                                        "repeat",
+                                                                        "level",
+                                                                        "notify_channel"
+                                                                  ]
+                                                            }
+                                                      },
+                                                      "required": [
+                                                            "id",
+                                                            "type"
+                                                      ]
+                                                }
+                                          },
+                                          "then_path": {
+                                                "type": "array",
+                                                "items": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                            "id": {
+                                                                  "type": "string"
+                                                            },
+                                                            "if_else": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                        "conditions": {
+                                                                              "type": "array",
+                                                                              "items": {
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                          "operation": {
+                                                                                                "type": "string"
+                                                                                          },
+                                                                                          "param_bindings": {
+                                                                                                "type": "array",
+                                                                                                "items": {
+                                                                                                      "type": "object",
+                                                                                                      "properties": {
+                                                                                                            "array_value": {
+                                                                                                                  "type": "array",
+                                                                                                                  "items": {
+                                                                                                                        "type": "object",
+                                                                                                                        "properties": {
+                                                                                                                              "literal": {
+                                                                                                                                    "type": "string"
+                                                                                                                              },
+                                                                                                                              "reference": {
+                                                                                                                                    "type": "string"
+                                                                                                                              }
+                                                                                                                        },
+                                                                                                                        "additionalProperties": true
+                                                                                                                  }
+                                                                                                            },
+                                                                                                            "value": {
+                                                                                                                  "type": "object",
+                                                                                                                  "properties": {
+                                                                                                                        "literal": {
+                                                                                                                              "type": "string"
+                                                                                                                        },
+                                                                                                                        "reference": {
+                                                                                                                              "type": "string"
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "additionalProperties": true
+                                                                                                            }
+                                                                                                      },
+                                                                                                      "additionalProperties": true
+                                                                                                }
+                                                                                          },
+                                                                                          "subject": {
+                                                                                                "type": "string"
+                                                                                          }
+                                                                                    },
+                                                                                    "required": [
+                                                                                          "subject",
+                                                                                          "operation",
+                                                                                          "param_bindings"
+                                                                                    ]
+                                                                              }
+                                                                        },
+                                                                        "else_path": {
+                                                                              "type": "array",
+                                                                              "items": {
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                          "id": {
+                                                                                                "type": "string"
+                                                                                          },
+                                                                                          "if_else": {
+                                                                                                "type": "object",
+                                                                                                "properties": {
+                                                                                                      "conditions": {
+                                                                                                            "type": "array",
+                                                                                                            "items": {
+                                                                                                                  "type": "object",
+                                                                                                                  "properties": {
+                                                                                                                        "operation": {
+                                                                                                                              "type": "string"
+                                                                                                                        },
+                                                                                                                        "param_bindings": {
+                                                                                                                              "type": "array",
+                                                                                                                              "items": {
+                                                                                                                                    "type": "object",
+                                                                                                                                    "properties": {
+                                                                                                                                          "array_value": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          },
+                                                                                                                                          "value": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "additionalProperties": true
+                                                                                                                              }
+                                                                                                                        },
+                                                                                                                        "subject": {
+                                                                                                                              "type": "string"
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "required": [
+                                                                                                                        "subject",
+                                                                                                                        "operation",
+                                                                                                                        "param_bindings"
+                                                                                                                  ]
+                                                                                                            }
+                                                                                                      },
+                                                                                                      "else_path": {
+                                                                                                            "type": "array",
+                                                                                                            "items": {
+                                                                                                                  "type": "object",
+                                                                                                                  "properties": {
+                                                                                                                        "id": {
+                                                                                                                              "type": "string"
+                                                                                                                        },
+                                                                                                                        "if_else": {
+                                                                                                                              "type": "object",
+                                                                                                                              "properties": {
+                                                                                                                                    "conditions": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "else_path": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "then_path": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    }
+                                                                                                                              },
+                                                                                                                              "required": [
+                                                                                                                                    "then_path",
+                                                                                                                                    "else_path"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "level": {
+                                                                                                                              "type": "object",
+                                                                                                                              "properties": {
+                                                                                                                                    "ack_mode": {
+                                                                                                                                          "type": "string",
+                                                                                                                                          "enum": [
+                                                                                                                                                "all",
+                                                                                                                                                "first"
+                                                                                                                                          ]
+                                                                                                                                    },
+                                                                                                                                    "round_robin_config": {
+                                                                                                                                          "type": "object",
+                                                                                                                                          "additionalProperties": true
+                                                                                                                                    },
+                                                                                                                                    "targets": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_interval_condition": {
+                                                                                                                                          "type": "string",
+                                                                                                                                          "enum": [
+                                                                                                                                                "active",
+                                                                                                                                                "inactive"
+                                                                                                                                          ]
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_seconds": {
+                                                                                                                                          "type": "number"
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_weekday_interval_config_id": {
+                                                                                                                                          "type": "string"
+                                                                                                                                    }
+                                                                                                                              },
+                                                                                                                              "required": [
+                                                                                                                                    "targets"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "notify_channel": {
+                                                                                                                              "type": "object",
+                                                                                                                              "properties": {
+                                                                                                                                    "targets": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_interval_condition": {
+                                                                                                                                          "type": "string",
+                                                                                                                                          "enum": [
+                                                                                                                                                "active",
+                                                                                                                                                "inactive"
+                                                                                                                                          ]
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_seconds": {
+                                                                                                                                          "type": "number"
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_weekday_interval_config_id": {
+                                                                                                                                          "type": "string"
+                                                                                                                                    }
+                                                                                                                              },
+                                                                                                                              "required": [
+                                                                                                                                    "targets"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "repeat": {
+                                                                                                                              "type": "object",
+                                                                                                                              "properties": {
+                                                                                                                                    "repeat_times": {
+                                                                                                                                          "type": "number"
+                                                                                                                                    },
+                                                                                                                                    "to_node": {
+                                                                                                                                          "type": "string"
+                                                                                                                                    }
+                                                                                                                              },
+                                                                                                                              "required": [
+                                                                                                                                    "to_node",
+                                                                                                                                    "repeat_times"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "type": {
+                                                                                                                              "type": "string",
+                                                                                                                              "enum": [
+                                                                                                                                    "if_else",
+                                                                                                                                    "repeat",
+                                                                                                                                    "level",
+                                                                                                                                    "notify_channel"
+                                                                                                                              ]
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "required": [
+                                                                                                                        "id",
+                                                                                                                        "type"
+                                                                                                                  ]
+                                                                                                            }
+                                                                                                      },
+                                                                                                      "then_path": {
+                                                                                                            "type": "array",
+                                                                                                            "items": {
+                                                                                                                  "type": "object",
+                                                                                                                  "properties": {
+                                                                                                                        "id": {
+                                                                                                                              "type": "string"
+                                                                                                                        },
+                                                                                                                        "if_else": {
+                                                                                                                              "type": "object",
+                                                                                                                              "properties": {
+                                                                                                                                    "conditions": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "else_path": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "then_path": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    }
+                                                                                                                              },
+                                                                                                                              "required": [
+                                                                                                                                    "then_path",
+                                                                                                                                    "else_path"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "level": {
+                                                                                                                              "type": "object",
+                                                                                                                              "properties": {
+                                                                                                                                    "ack_mode": {
+                                                                                                                                          "type": "string",
+                                                                                                                                          "enum": [
+                                                                                                                                                "all",
+                                                                                                                                                "first"
+                                                                                                                                          ]
+                                                                                                                                    },
+                                                                                                                                    "round_robin_config": {
+                                                                                                                                          "type": "object",
+                                                                                                                                          "additionalProperties": true
+                                                                                                                                    },
+                                                                                                                                    "targets": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_interval_condition": {
+                                                                                                                                          "type": "string",
+                                                                                                                                          "enum": [
+                                                                                                                                                "active",
+                                                                                                                                                "inactive"
+                                                                                                                                          ]
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_seconds": {
+                                                                                                                                          "type": "number"
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_weekday_interval_config_id": {
+                                                                                                                                          "type": "string"
+                                                                                                                                    }
+                                                                                                                              },
+                                                                                                                              "required": [
+                                                                                                                                    "targets"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "notify_channel": {
+                                                                                                                              "type": "object",
+                                                                                                                              "properties": {
+                                                                                                                                    "targets": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_interval_condition": {
+                                                                                                                                          "type": "string",
+                                                                                                                                          "enum": [
+                                                                                                                                                "active",
+                                                                                                                                                "inactive"
+                                                                                                                                          ]
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_seconds": {
+                                                                                                                                          "type": "number"
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_weekday_interval_config_id": {
+                                                                                                                                          "type": "string"
+                                                                                                                                    }
+                                                                                                                              },
+                                                                                                                              "required": [
+                                                                                                                                    "targets"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "repeat": {
+                                                                                                                              "type": "object",
+                                                                                                                              "properties": {
+                                                                                                                                    "repeat_times": {
+                                                                                                                                          "type": "number"
+                                                                                                                                    },
+                                                                                                                                    "to_node": {
+                                                                                                                                          "type": "string"
+                                                                                                                                    }
+                                                                                                                              },
+                                                                                                                              "required": [
+                                                                                                                                    "to_node",
+                                                                                                                                    "repeat_times"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "type": {
+                                                                                                                              "type": "string",
+                                                                                                                              "enum": [
+                                                                                                                                    "if_else",
+                                                                                                                                    "repeat",
+                                                                                                                                    "level",
+                                                                                                                                    "notify_channel"
+                                                                                                                              ]
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "required": [
+                                                                                                                        "id",
+                                                                                                                        "type"
+                                                                                                                  ]
+                                                                                                            }
+                                                                                                      }
+                                                                                                },
+                                                                                                "required": [
+                                                                                                      "then_path",
+                                                                                                      "else_path"
+                                                                                                ]
+                                                                                          },
+                                                                                          "level": {
+                                                                                                "type": "object",
+                                                                                                "properties": {
+                                                                                                      "ack_mode": {
+                                                                                                            "type": "string",
+                                                                                                            "enum": [
+                                                                                                                  "all",
+                                                                                                                  "first"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "round_robin_config": {
+                                                                                                            "type": "object",
+                                                                                                            "properties": {
+                                                                                                                  "enabled": {
+                                                                                                                        "type": "boolean"
+                                                                                                                  },
+                                                                                                                  "rotate_after_seconds": {
+                                                                                                                        "type": "number"
+                                                                                                                  }
+                                                                                                            },
+                                                                                                            "required": [
+                                                                                                                  "enabled"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "targets": {
+                                                                                                            "type": "array",
+                                                                                                            "items": {
+                                                                                                                  "type": "object",
+                                                                                                                  "properties": {
+                                                                                                                        "id": {
+                                                                                                                              "type": "string"
+                                                                                                                        },
+                                                                                                                        "schedule_mode": {
+                                                                                                                              "type": "string",
+                                                                                                                              "enum": [
+                                                                                                                                    "currently_on_call",
+                                                                                                                                    "all_users_for_rota",
+                                                                                                                                    "all_users",
+                                                                                                                                    ""
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "type": {
+                                                                                                                              "type": "string",
+                                                                                                                              "enum": [
+                                                                                                                                    "schedule",
+                                                                                                                                    "user",
+                                                                                                                                    "slack_channel",
+                                                                                                                                    "msteams_channel"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "urgency": {
+                                                                                                                              "type": "string",
+                                                                                                                              "enum": [
+                                                                                                                                    "high",
+                                                                                                                                    "low"
+                                                                                                                              ]
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "required": [
+                                                                                                                        "type",
+                                                                                                                        "id",
+                                                                                                                        "urgency"
+                                                                                                                  ]
+                                                                                                            }
+                                                                                                      },
+                                                                                                      "time_to_ack_interval_condition": {
+                                                                                                            "type": "string",
+                                                                                                            "enum": [
+                                                                                                                  "active",
+                                                                                                                  "inactive"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "time_to_ack_seconds": {
+                                                                                                            "type": "number"
+                                                                                                      },
+                                                                                                      "time_to_ack_weekday_interval_config_id": {
+                                                                                                            "type": "string"
+                                                                                                      }
+                                                                                                },
+                                                                                                "required": [
+                                                                                                      "targets"
+                                                                                                ]
+                                                                                          },
+                                                                                          "notify_channel": {
+                                                                                                "type": "object",
+                                                                                                "properties": {
+                                                                                                      "targets": {
+                                                                                                            "type": "array",
+                                                                                                            "items": {
+                                                                                                                  "type": "object",
+                                                                                                                  "properties": {
+                                                                                                                        "id": {
+                                                                                                                              "type": "string"
+                                                                                                                        },
+                                                                                                                        "schedule_mode": {
+                                                                                                                              "type": "string",
+                                                                                                                              "enum": [
+                                                                                                                                    "currently_on_call",
+                                                                                                                                    "all_users_for_rota",
+                                                                                                                                    "all_users",
+                                                                                                                                    ""
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "type": {
+                                                                                                                              "type": "string",
+                                                                                                                              "enum": [
+                                                                                                                                    "schedule",
+                                                                                                                                    "user",
+                                                                                                                                    "slack_channel",
+                                                                                                                                    "msteams_channel"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "urgency": {
+                                                                                                                              "type": "string",
+                                                                                                                              "enum": [
+                                                                                                                                    "high",
+                                                                                                                                    "low"
+                                                                                                                              ]
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "required": [
+                                                                                                                        "type",
+                                                                                                                        "id",
+                                                                                                                        "urgency"
+                                                                                                                  ]
+                                                                                                            }
+                                                                                                      },
+                                                                                                      "time_to_ack_interval_condition": {
+                                                                                                            "type": "string",
+                                                                                                            "enum": [
+                                                                                                                  "active",
+                                                                                                                  "inactive"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "time_to_ack_seconds": {
+                                                                                                            "type": "number"
+                                                                                                      },
+                                                                                                      "time_to_ack_weekday_interval_config_id": {
+                                                                                                            "type": "string"
+                                                                                                      }
+                                                                                                },
+                                                                                                "required": [
+                                                                                                      "targets"
+                                                                                                ]
+                                                                                          },
+                                                                                          "repeat": {
+                                                                                                "type": "object",
+                                                                                                "properties": {
+                                                                                                      "repeat_times": {
+                                                                                                            "type": "number"
+                                                                                                      },
+                                                                                                      "to_node": {
+                                                                                                            "type": "string"
+                                                                                                      }
+                                                                                                },
+                                                                                                "required": [
+                                                                                                      "to_node",
+                                                                                                      "repeat_times"
+                                                                                                ]
+                                                                                          },
+                                                                                          "type": {
+                                                                                                "type": "string",
+                                                                                                "enum": [
+                                                                                                      "if_else",
+                                                                                                      "repeat",
+                                                                                                      "level",
+                                                                                                      "notify_channel"
+                                                                                                ]
+                                                                                          }
+                                                                                    },
+                                                                                    "required": [
+                                                                                          "id",
+                                                                                          "type"
+                                                                                    ]
+                                                                              }
+                                                                        },
+                                                                        "then_path": {
+                                                                              "type": "array",
+                                                                              "items": {
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                          "id": {
+                                                                                                "type": "string"
+                                                                                          },
+                                                                                          "if_else": {
+                                                                                                "type": "object",
+                                                                                                "properties": {
+                                                                                                      "conditions": {
+                                                                                                            "type": "array",
+                                                                                                            "items": {
+                                                                                                                  "type": "object",
+                                                                                                                  "properties": {
+                                                                                                                        "operation": {
+                                                                                                                              "type": "string"
+                                                                                                                        },
+                                                                                                                        "param_bindings": {
+                                                                                                                              "type": "array",
+                                                                                                                              "items": {
+                                                                                                                                    "type": "object",
+                                                                                                                                    "properties": {
+                                                                                                                                          "array_value": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          },
+                                                                                                                                          "value": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "additionalProperties": true
+                                                                                                                              }
+                                                                                                                        },
+                                                                                                                        "subject": {
+                                                                                                                              "type": "string"
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "required": [
+                                                                                                                        "subject",
+                                                                                                                        "operation",
+                                                                                                                        "param_bindings"
+                                                                                                                  ]
+                                                                                                            }
+                                                                                                      },
+                                                                                                      "else_path": {
+                                                                                                            "type": "array",
+                                                                                                            "items": {
+                                                                                                                  "type": "object",
+                                                                                                                  "properties": {
+                                                                                                                        "id": {
+                                                                                                                              "type": "string"
+                                                                                                                        },
+                                                                                                                        "if_else": {
+                                                                                                                              "type": "object",
+                                                                                                                              "properties": {
+                                                                                                                                    "conditions": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "else_path": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "then_path": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    }
+                                                                                                                              },
+                                                                                                                              "required": [
+                                                                                                                                    "then_path",
+                                                                                                                                    "else_path"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "level": {
+                                                                                                                              "type": "object",
+                                                                                                                              "properties": {
+                                                                                                                                    "ack_mode": {
+                                                                                                                                          "type": "string",
+                                                                                                                                          "enum": [
+                                                                                                                                                "all",
+                                                                                                                                                "first"
+                                                                                                                                          ]
+                                                                                                                                    },
+                                                                                                                                    "round_robin_config": {
+                                                                                                                                          "type": "object",
+                                                                                                                                          "additionalProperties": true
+                                                                                                                                    },
+                                                                                                                                    "targets": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_interval_condition": {
+                                                                                                                                          "type": "string",
+                                                                                                                                          "enum": [
+                                                                                                                                                "active",
+                                                                                                                                                "inactive"
+                                                                                                                                          ]
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_seconds": {
+                                                                                                                                          "type": "number"
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_weekday_interval_config_id": {
+                                                                                                                                          "type": "string"
+                                                                                                                                    }
+                                                                                                                              },
+                                                                                                                              "required": [
+                                                                                                                                    "targets"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "notify_channel": {
+                                                                                                                              "type": "object",
+                                                                                                                              "properties": {
+                                                                                                                                    "targets": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_interval_condition": {
+                                                                                                                                          "type": "string",
+                                                                                                                                          "enum": [
+                                                                                                                                                "active",
+                                                                                                                                                "inactive"
+                                                                                                                                          ]
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_seconds": {
+                                                                                                                                          "type": "number"
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_weekday_interval_config_id": {
+                                                                                                                                          "type": "string"
+                                                                                                                                    }
+                                                                                                                              },
+                                                                                                                              "required": [
+                                                                                                                                    "targets"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "repeat": {
+                                                                                                                              "type": "object",
+                                                                                                                              "properties": {
+                                                                                                                                    "repeat_times": {
+                                                                                                                                          "type": "number"
+                                                                                                                                    },
+                                                                                                                                    "to_node": {
+                                                                                                                                          "type": "string"
+                                                                                                                                    }
+                                                                                                                              },
+                                                                                                                              "required": [
+                                                                                                                                    "to_node",
+                                                                                                                                    "repeat_times"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "type": {
+                                                                                                                              "type": "string",
+                                                                                                                              "enum": [
+                                                                                                                                    "if_else",
+                                                                                                                                    "repeat",
+                                                                                                                                    "level",
+                                                                                                                                    "notify_channel"
+                                                                                                                              ]
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "required": [
+                                                                                                                        "id",
+                                                                                                                        "type"
+                                                                                                                  ]
+                                                                                                            }
+                                                                                                      },
+                                                                                                      "then_path": {
+                                                                                                            "type": "array",
+                                                                                                            "items": {
+                                                                                                                  "type": "object",
+                                                                                                                  "properties": {
+                                                                                                                        "id": {
+                                                                                                                              "type": "string"
+                                                                                                                        },
+                                                                                                                        "if_else": {
+                                                                                                                              "type": "object",
+                                                                                                                              "properties": {
+                                                                                                                                    "conditions": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "else_path": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "then_path": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    }
+                                                                                                                              },
+                                                                                                                              "required": [
+                                                                                                                                    "then_path",
+                                                                                                                                    "else_path"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "level": {
+                                                                                                                              "type": "object",
+                                                                                                                              "properties": {
+                                                                                                                                    "ack_mode": {
+                                                                                                                                          "type": "string",
+                                                                                                                                          "enum": [
+                                                                                                                                                "all",
+                                                                                                                                                "first"
+                                                                                                                                          ]
+                                                                                                                                    },
+                                                                                                                                    "round_robin_config": {
+                                                                                                                                          "type": "object",
+                                                                                                                                          "additionalProperties": true
+                                                                                                                                    },
+                                                                                                                                    "targets": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_interval_condition": {
+                                                                                                                                          "type": "string",
+                                                                                                                                          "enum": [
+                                                                                                                                                "active",
+                                                                                                                                                "inactive"
+                                                                                                                                          ]
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_seconds": {
+                                                                                                                                          "type": "number"
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_weekday_interval_config_id": {
+                                                                                                                                          "type": "string"
+                                                                                                                                    }
+                                                                                                                              },
+                                                                                                                              "required": [
+                                                                                                                                    "targets"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "notify_channel": {
+                                                                                                                              "type": "object",
+                                                                                                                              "properties": {
+                                                                                                                                    "targets": {
+                                                                                                                                          "type": "array",
+                                                                                                                                          "items": {
+                                                                                                                                                "type": "object",
+                                                                                                                                                "additionalProperties": true
+                                                                                                                                          }
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_interval_condition": {
+                                                                                                                                          "type": "string",
+                                                                                                                                          "enum": [
+                                                                                                                                                "active",
+                                                                                                                                                "inactive"
+                                                                                                                                          ]
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_seconds": {
+                                                                                                                                          "type": "number"
+                                                                                                                                    },
+                                                                                                                                    "time_to_ack_weekday_interval_config_id": {
+                                                                                                                                          "type": "string"
+                                                                                                                                    }
+                                                                                                                              },
+                                                                                                                              "required": [
+                                                                                                                                    "targets"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "repeat": {
+                                                                                                                              "type": "object",
+                                                                                                                              "properties": {
+                                                                                                                                    "repeat_times": {
+                                                                                                                                          "type": "number"
+                                                                                                                                    },
+                                                                                                                                    "to_node": {
+                                                                                                                                          "type": "string"
+                                                                                                                                    }
+                                                                                                                              },
+                                                                                                                              "required": [
+                                                                                                                                    "to_node",
+                                                                                                                                    "repeat_times"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "type": {
+                                                                                                                              "type": "string",
+                                                                                                                              "enum": [
+                                                                                                                                    "if_else",
+                                                                                                                                    "repeat",
+                                                                                                                                    "level",
+                                                                                                                                    "notify_channel"
+                                                                                                                              ]
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "required": [
+                                                                                                                        "id",
+                                                                                                                        "type"
+                                                                                                                  ]
+                                                                                                            }
+                                                                                                      }
+                                                                                                },
+                                                                                                "required": [
+                                                                                                      "then_path",
+                                                                                                      "else_path"
+                                                                                                ]
+                                                                                          },
+                                                                                          "level": {
+                                                                                                "type": "object",
+                                                                                                "properties": {
+                                                                                                      "ack_mode": {
+                                                                                                            "type": "string",
+                                                                                                            "enum": [
+                                                                                                                  "all",
+                                                                                                                  "first"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "round_robin_config": {
+                                                                                                            "type": "object",
+                                                                                                            "properties": {
+                                                                                                                  "enabled": {
+                                                                                                                        "type": "boolean"
+                                                                                                                  },
+                                                                                                                  "rotate_after_seconds": {
+                                                                                                                        "type": "number"
+                                                                                                                  }
+                                                                                                            },
+                                                                                                            "required": [
+                                                                                                                  "enabled"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "targets": {
+                                                                                                            "type": "array",
+                                                                                                            "items": {
+                                                                                                                  "type": "object",
+                                                                                                                  "properties": {
+                                                                                                                        "id": {
+                                                                                                                              "type": "string"
+                                                                                                                        },
+                                                                                                                        "schedule_mode": {
+                                                                                                                              "type": "string",
+                                                                                                                              "enum": [
+                                                                                                                                    "currently_on_call",
+                                                                                                                                    "all_users_for_rota",
+                                                                                                                                    "all_users",
+                                                                                                                                    ""
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "type": {
+                                                                                                                              "type": "string",
+                                                                                                                              "enum": [
+                                                                                                                                    "schedule",
+                                                                                                                                    "user",
+                                                                                                                                    "slack_channel",
+                                                                                                                                    "msteams_channel"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "urgency": {
+                                                                                                                              "type": "string",
+                                                                                                                              "enum": [
+                                                                                                                                    "high",
+                                                                                                                                    "low"
+                                                                                                                              ]
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "required": [
+                                                                                                                        "type",
+                                                                                                                        "id",
+                                                                                                                        "urgency"
+                                                                                                                  ]
+                                                                                                            }
+                                                                                                      },
+                                                                                                      "time_to_ack_interval_condition": {
+                                                                                                            "type": "string",
+                                                                                                            "enum": [
+                                                                                                                  "active",
+                                                                                                                  "inactive"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "time_to_ack_seconds": {
+                                                                                                            "type": "number"
+                                                                                                      },
+                                                                                                      "time_to_ack_weekday_interval_config_id": {
+                                                                                                            "type": "string"
+                                                                                                      }
+                                                                                                },
+                                                                                                "required": [
+                                                                                                      "targets"
+                                                                                                ]
+                                                                                          },
+                                                                                          "notify_channel": {
+                                                                                                "type": "object",
+                                                                                                "properties": {
+                                                                                                      "targets": {
+                                                                                                            "type": "array",
+                                                                                                            "items": {
+                                                                                                                  "type": "object",
+                                                                                                                  "properties": {
+                                                                                                                        "id": {
+                                                                                                                              "type": "string"
+                                                                                                                        },
+                                                                                                                        "schedule_mode": {
+                                                                                                                              "type": "string",
+                                                                                                                              "enum": [
+                                                                                                                                    "currently_on_call",
+                                                                                                                                    "all_users_for_rota",
+                                                                                                                                    "all_users",
+                                                                                                                                    ""
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "type": {
+                                                                                                                              "type": "string",
+                                                                                                                              "enum": [
+                                                                                                                                    "schedule",
+                                                                                                                                    "user",
+                                                                                                                                    "slack_channel",
+                                                                                                                                    "msteams_channel"
+                                                                                                                              ]
+                                                                                                                        },
+                                                                                                                        "urgency": {
+                                                                                                                              "type": "string",
+                                                                                                                              "enum": [
+                                                                                                                                    "high",
+                                                                                                                                    "low"
+                                                                                                                              ]
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "required": [
+                                                                                                                        "type",
+                                                                                                                        "id",
+                                                                                                                        "urgency"
+                                                                                                                  ]
+                                                                                                            }
+                                                                                                      },
+                                                                                                      "time_to_ack_interval_condition": {
+                                                                                                            "type": "string",
+                                                                                                            "enum": [
+                                                                                                                  "active",
+                                                                                                                  "inactive"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "time_to_ack_seconds": {
+                                                                                                            "type": "number"
+                                                                                                      },
+                                                                                                      "time_to_ack_weekday_interval_config_id": {
+                                                                                                            "type": "string"
+                                                                                                      }
+                                                                                                },
+                                                                                                "required": [
+                                                                                                      "targets"
+                                                                                                ]
+                                                                                          },
+                                                                                          "repeat": {
+                                                                                                "type": "object",
+                                                                                                "properties": {
+                                                                                                      "repeat_times": {
+                                                                                                            "type": "number"
+                                                                                                      },
+                                                                                                      "to_node": {
+                                                                                                            "type": "string"
+                                                                                                      }
+                                                                                                },
+                                                                                                "required": [
+                                                                                                      "to_node",
+                                                                                                      "repeat_times"
+                                                                                                ]
+                                                                                          },
+                                                                                          "type": {
+                                                                                                "type": "string",
+                                                                                                "enum": [
+                                                                                                      "if_else",
+                                                                                                      "repeat",
+                                                                                                      "level",
+                                                                                                      "notify_channel"
+                                                                                                ]
+                                                                                          }
+                                                                                    },
+                                                                                    "required": [
+                                                                                          "id",
+                                                                                          "type"
+                                                                                    ]
+                                                                              }
+                                                                        }
+                                                                  },
+                                                                  "required": [
+                                                                        "then_path",
+                                                                        "else_path"
+                                                                  ]
+                                                            },
+                                                            "level": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                        "ack_mode": {
+                                                                              "type": "string",
+                                                                              "enum": [
+                                                                                    "all",
+                                                                                    "first"
+                                                                              ]
+                                                                        },
+                                                                        "round_robin_config": {
+                                                                              "type": "object",
+                                                                              "properties": {
+                                                                                    "enabled": {
+                                                                                          "type": "boolean"
+                                                                                    },
+                                                                                    "rotate_after_seconds": {
+                                                                                          "type": "number"
+                                                                                    }
+                                                                              },
+                                                                              "required": [
+                                                                                    "enabled"
+                                                                              ]
+                                                                        },
+                                                                        "targets": {
+                                                                              "type": "array",
+                                                                              "items": {
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                          "id": {
+                                                                                                "type": "string"
+                                                                                          },
+                                                                                          "schedule_mode": {
+                                                                                                "type": "string",
+                                                                                                "enum": [
+                                                                                                      "currently_on_call",
+                                                                                                      "all_users_for_rota",
+                                                                                                      "all_users",
+                                                                                                      ""
+                                                                                                ]
+                                                                                          },
+                                                                                          "type": {
+                                                                                                "type": "string",
+                                                                                                "enum": [
+                                                                                                      "schedule",
+                                                                                                      "user",
+                                                                                                      "slack_channel",
+                                                                                                      "msteams_channel"
+                                                                                                ]
+                                                                                          },
+                                                                                          "urgency": {
+                                                                                                "type": "string",
+                                                                                                "enum": [
+                                                                                                      "high",
+                                                                                                      "low"
+                                                                                                ]
+                                                                                          }
+                                                                                    },
+                                                                                    "required": [
+                                                                                          "type",
+                                                                                          "id",
+                                                                                          "urgency"
+                                                                                    ]
+                                                                              }
+                                                                        },
+                                                                        "time_to_ack_interval_condition": {
+                                                                              "type": "string",
+                                                                              "enum": [
+                                                                                    "active",
+                                                                                    "inactive"
+                                                                              ]
+                                                                        },
+                                                                        "time_to_ack_seconds": {
+                                                                              "type": "number"
+                                                                        },
+                                                                        "time_to_ack_weekday_interval_config_id": {
+                                                                              "type": "string"
+                                                                        }
+                                                                  },
+                                                                  "required": [
+                                                                        "targets"
+                                                                  ]
+                                                            },
+                                                            "notify_channel": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                        "targets": {
+                                                                              "type": "array",
+                                                                              "items": {
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                          "id": {
+                                                                                                "type": "string"
+                                                                                          },
+                                                                                          "schedule_mode": {
+                                                                                                "type": "string",
+                                                                                                "enum": [
+                                                                                                      "currently_on_call",
+                                                                                                      "all_users_for_rota",
+                                                                                                      "all_users",
+                                                                                                      ""
+                                                                                                ]
+                                                                                          },
+                                                                                          "type": {
+                                                                                                "type": "string",
+                                                                                                "enum": [
+                                                                                                      "schedule",
+                                                                                                      "user",
+                                                                                                      "slack_channel",
+                                                                                                      "msteams_channel"
+                                                                                                ]
+                                                                                          },
+                                                                                          "urgency": {
+                                                                                                "type": "string",
+                                                                                                "enum": [
+                                                                                                      "high",
+                                                                                                      "low"
+                                                                                                ]
+                                                                                          }
+                                                                                    },
+                                                                                    "required": [
+                                                                                          "type",
+                                                                                          "id",
+                                                                                          "urgency"
+                                                                                    ]
+                                                                              }
+                                                                        },
+                                                                        "time_to_ack_interval_condition": {
+                                                                              "type": "string",
+                                                                              "enum": [
+                                                                                    "active",
+                                                                                    "inactive"
+                                                                              ]
+                                                                        },
+                                                                        "time_to_ack_seconds": {
+                                                                              "type": "number"
+                                                                        },
+                                                                        "time_to_ack_weekday_interval_config_id": {
+                                                                              "type": "string"
+                                                                        }
+                                                                  },
+                                                                  "required": [
+                                                                        "targets"
+                                                                  ]
+                                                            },
+                                                            "repeat": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                        "repeat_times": {
+                                                                              "type": "number"
+                                                                        },
+                                                                        "to_node": {
+                                                                              "type": "string"
+                                                                        }
+                                                                  },
+                                                                  "required": [
+                                                                        "to_node",
+                                                                        "repeat_times"
+                                                                  ]
+                                                            },
+                                                            "type": {
+                                                                  "type": "string",
+                                                                  "enum": [
+                                                                        "if_else",
+                                                                        "repeat",
+                                                                        "level",
+                                                                        "notify_channel"
+                                                                  ]
+                                                            }
+                                                      },
+                                                      "required": [
+                                                            "id",
+                                                            "type"
+                                                      ]
+                                                }
+                                          }
+                                    },
+                                    "required": [
+                                          "then_path",
+                                          "else_path"
+                                    ]
                               },
                               "level": {
                                     "type": "object",
-                                    "additionalProperties": true
+                                    "properties": {
+                                          "ack_mode": {
+                                                "type": "string",
+                                                "enum": [
+                                                      "all",
+                                                      "first"
+                                                ]
+                                          },
+                                          "round_robin_config": {
+                                                "type": "object",
+                                                "properties": {
+                                                      "enabled": {
+                                                            "type": "boolean"
+                                                      },
+                                                      "rotate_after_seconds": {
+                                                            "type": "number"
+                                                      }
+                                                },
+                                                "required": [
+                                                      "enabled"
+                                                ]
+                                          },
+                                          "targets": {
+                                                "type": "array",
+                                                "items": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                            "id": {
+                                                                  "type": "string"
+                                                            },
+                                                            "schedule_mode": {
+                                                                  "type": "string",
+                                                                  "enum": [
+                                                                        "currently_on_call",
+                                                                        "all_users_for_rota",
+                                                                        "all_users",
+                                                                        ""
+                                                                  ]
+                                                            },
+                                                            "type": {
+                                                                  "type": "string",
+                                                                  "enum": [
+                                                                        "schedule",
+                                                                        "user",
+                                                                        "slack_channel",
+                                                                        "msteams_channel"
+                                                                  ]
+                                                            },
+                                                            "urgency": {
+                                                                  "type": "string",
+                                                                  "enum": [
+                                                                        "high",
+                                                                        "low"
+                                                                  ]
+                                                            }
+                                                      },
+                                                      "required": [
+                                                            "type",
+                                                            "id",
+                                                            "urgency"
+                                                      ]
+                                                }
+                                          },
+                                          "time_to_ack_interval_condition": {
+                                                "type": "string",
+                                                "enum": [
+                                                      "active",
+                                                      "inactive"
+                                                ]
+                                          },
+                                          "time_to_ack_seconds": {
+                                                "type": "number"
+                                          },
+                                          "time_to_ack_weekday_interval_config_id": {
+                                                "type": "string"
+                                          }
+                                    },
+                                    "required": [
+                                          "targets"
+                                    ]
                               },
                               "notify_channel": {
                                     "type": "object",
-                                    "additionalProperties": true
+                                    "properties": {
+                                          "targets": {
+                                                "type": "array",
+                                                "items": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                            "id": {
+                                                                  "type": "string"
+                                                            },
+                                                            "schedule_mode": {
+                                                                  "type": "string",
+                                                                  "enum": [
+                                                                        "currently_on_call",
+                                                                        "all_users_for_rota",
+                                                                        "all_users",
+                                                                        ""
+                                                                  ]
+                                                            },
+                                                            "type": {
+                                                                  "type": "string",
+                                                                  "enum": [
+                                                                        "schedule",
+                                                                        "user",
+                                                                        "slack_channel",
+                                                                        "msteams_channel"
+                                                                  ]
+                                                            },
+                                                            "urgency": {
+                                                                  "type": "string",
+                                                                  "enum": [
+                                                                        "high",
+                                                                        "low"
+                                                                  ]
+                                                            }
+                                                      },
+                                                      "required": [
+                                                            "type",
+                                                            "id",
+                                                            "urgency"
+                                                      ]
+                                                }
+                                          },
+                                          "time_to_ack_interval_condition": {
+                                                "type": "string",
+                                                "enum": [
+                                                      "active",
+                                                      "inactive"
+                                                ]
+                                          },
+                                          "time_to_ack_seconds": {
+                                                "type": "number"
+                                          },
+                                          "time_to_ack_weekday_interval_config_id": {
+                                                "type": "string"
+                                          }
+                                    },
+                                    "required": [
+                                          "targets"
+                                    ]
                               },
                               "repeat": {
                                     "type": "object",
-                                    "additionalProperties": true
+                                    "properties": {
+                                          "repeat_times": {
+                                                "type": "number"
+                                          },
+                                          "to_node": {
+                                                "type": "string"
+                                          }
+                                    },
+                                    "required": [
+                                          "to_node",
+                                          "repeat_times"
+                                    ]
                               },
                               "type": {
                                     "type": "string",
@@ -97,7 +2805,31 @@ const escalationsV2_UpdatePath: AppBlock = {
                                     "type": "array",
                                     "items": {
                                           "type": "object",
-                                          "additionalProperties": true
+                                          "properties": {
+                                                "end_time": {
+                                                      "type": "string"
+                                                },
+                                                "start_time": {
+                                                      "type": "string"
+                                                },
+                                                "weekday": {
+                                                      "type": "string",
+                                                      "enum": [
+                                                            "monday",
+                                                            "tuesday",
+                                                            "wednesday",
+                                                            "thursday",
+                                                            "friday",
+                                                            "saturday",
+                                                            "sunday"
+                                                      ]
+                                                }
+                                          },
+                                          "required": [
+                                                "weekday",
+                                                "start_time",
+                                                "end_time"
+                                          ]
                                     }
                               }
                         },
@@ -166,24 +2898,1474 @@ const escalationsV2_UpdatePath: AppBlock = {
                   "type": "object",
                   "properties": {
                         "id": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "name": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "path": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "array",
+                              "items": {
+                                    "type": "object",
+                                    "properties": {
+                                          "id": {
+                                                "type": "string"
+                                          },
+                                          "if_else": {
+                                                "type": "object",
+                                                "properties": {
+                                                      "conditions": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                        "operation": {
+                                                                              "type": "object",
+                                                                              "properties": {
+                                                                                    "label": {
+                                                                                          "type": "string"
+                                                                                    },
+                                                                                    "value": {
+                                                                                          "type": "string"
+                                                                                    }
+                                                                              },
+                                                                              "required": [
+                                                                                    "label",
+                                                                                    "value",
+                                                                                    "sort_key"
+                                                                              ]
+                                                                        },
+                                                                        "param_bindings": {
+                                                                              "type": "array",
+                                                                              "items": {
+                                                                                    "type": "object",
+                                                                                    "properties": {
+                                                                                          "array_value": {
+                                                                                                "type": "array",
+                                                                                                "items": {
+                                                                                                      "type": "object",
+                                                                                                      "properties": {
+                                                                                                            "label": {
+                                                                                                                  "type": "string"
+                                                                                                            },
+                                                                                                            "literal": {
+                                                                                                                  "type": "string"
+                                                                                                            },
+                                                                                                            "reference": {
+                                                                                                                  "type": "string"
+                                                                                                            }
+                                                                                                      },
+                                                                                                      "required": [
+                                                                                                            "label",
+                                                                                                            "sort_key"
+                                                                                                      ]
+                                                                                                }
+                                                                                          },
+                                                                                          "value": {
+                                                                                                "type": "object",
+                                                                                                "properties": {
+                                                                                                      "label": {
+                                                                                                            "type": "string"
+                                                                                                      },
+                                                                                                      "literal": {
+                                                                                                            "type": "string"
+                                                                                                      },
+                                                                                                      "reference": {
+                                                                                                            "type": "string"
+                                                                                                      }
+                                                                                                },
+                                                                                                "required": [
+                                                                                                      "label",
+                                                                                                      "sort_key"
+                                                                                                ]
+                                                                                          }
+                                                                                    },
+                                                                                    "additionalProperties": true
+                                                                              }
+                                                                        },
+                                                                        "subject": {
+                                                                              "type": "object",
+                                                                              "properties": {
+                                                                                    "label": {
+                                                                                          "type": "string"
+                                                                                    },
+                                                                                    "reference": {
+                                                                                          "type": "string"
+                                                                                    }
+                                                                              },
+                                                                              "required": [
+                                                                                    "label",
+                                                                                    "icon",
+                                                                                    "reference"
+                                                                              ]
+                                                                        }
+                                                                  },
+                                                                  "required": [
+                                                                        "subject",
+                                                                        "operation",
+                                                                        "params",
+                                                                        "param_bindings"
+                                                                  ]
+                                                            }
+                                                      },
+                                                      "else_path": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                        "id": {
+                                                                              "type": "string"
+                                                                        },
+                                                                        "if_else": {
+                                                                              "type": "object",
+                                                                              "properties": {
+                                                                                    "conditions": {
+                                                                                          "type": "array",
+                                                                                          "items": {
+                                                                                                "type": "object",
+                                                                                                "properties": {
+                                                                                                      "operation": {
+                                                                                                            "type": "object",
+                                                                                                            "properties": {
+                                                                                                                  "label": {
+                                                                                                                        "type": "string"
+                                                                                                                  },
+                                                                                                                  "value": {
+                                                                                                                        "type": "string"
+                                                                                                                  }
+                                                                                                            },
+                                                                                                            "required": [
+                                                                                                                  "label",
+                                                                                                                  "value",
+                                                                                                                  "sort_key"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "param_bindings": {
+                                                                                                            "type": "array",
+                                                                                                            "items": {
+                                                                                                                  "type": "object",
+                                                                                                                  "properties": {
+                                                                                                                        "array_value": {
+                                                                                                                              "type": "array",
+                                                                                                                              "items": {
+                                                                                                                                    "type": "object",
+                                                                                                                                    "additionalProperties": true
+                                                                                                                              }
+                                                                                                                        },
+                                                                                                                        "value": {
+                                                                                                                              "type": "object",
+                                                                                                                              "additionalProperties": true
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "additionalProperties": true
+                                                                                                            }
+                                                                                                      },
+                                                                                                      "subject": {
+                                                                                                            "type": "object",
+                                                                                                            "properties": {
+                                                                                                                  "label": {
+                                                                                                                        "type": "string"
+                                                                                                                  },
+                                                                                                                  "reference": {
+                                                                                                                        "type": "string"
+                                                                                                                  }
+                                                                                                            },
+                                                                                                            "required": [
+                                                                                                                  "label",
+                                                                                                                  "icon",
+                                                                                                                  "reference"
+                                                                                                            ]
+                                                                                                      }
+                                                                                                },
+                                                                                                "required": [
+                                                                                                      "subject",
+                                                                                                      "operation",
+                                                                                                      "params",
+                                                                                                      "param_bindings"
+                                                                                                ]
+                                                                                          }
+                                                                                    },
+                                                                                    "else_path": {
+                                                                                          "type": "array",
+                                                                                          "items": {
+                                                                                                "type": "object",
+                                                                                                "properties": {
+                                                                                                      "id": {
+                                                                                                            "type": "string"
+                                                                                                      },
+                                                                                                      "if_else": {
+                                                                                                            "type": "object",
+                                                                                                            "properties": {
+                                                                                                                  "conditions": {
+                                                                                                                        "type": "array",
+                                                                                                                        "items": {
+                                                                                                                              "type": "object",
+                                                                                                                              "additionalProperties": true
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "else_path": {
+                                                                                                                        "type": "array",
+                                                                                                                        "items": {
+                                                                                                                              "type": "object",
+                                                                                                                              "additionalProperties": true
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "then_path": {
+                                                                                                                        "type": "array",
+                                                                                                                        "items": {
+                                                                                                                              "type": "object",
+                                                                                                                              "additionalProperties": true
+                                                                                                                        }
+                                                                                                                  }
+                                                                                                            },
+                                                                                                            "required": [
+                                                                                                                  "conditions",
+                                                                                                                  "then_path",
+                                                                                                                  "else_path"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "level": {
+                                                                                                            "type": "object",
+                                                                                                            "properties": {
+                                                                                                                  "ack_mode": {
+                                                                                                                        "type": "string",
+                                                                                                                        "enum": [
+                                                                                                                              "all",
+                                                                                                                              "first"
+                                                                                                                        ]
+                                                                                                                  },
+                                                                                                                  "round_robin_config": {
+                                                                                                                        "type": "object",
+                                                                                                                        "properties": {
+                                                                                                                              "enabled": {
+                                                                                                                                    "type": "object",
+                                                                                                                                    "additionalProperties": true
+                                                                                                                              },
+                                                                                                                              "rotate_after_seconds": {
+                                                                                                                                    "type": "object",
+                                                                                                                                    "additionalProperties": true
+                                                                                                                              }
+                                                                                                                        },
+                                                                                                                        "required": [
+                                                                                                                              "enabled"
+                                                                                                                        ]
+                                                                                                                  },
+                                                                                                                  "targets": {
+                                                                                                                        "type": "array",
+                                                                                                                        "items": {
+                                                                                                                              "type": "object",
+                                                                                                                              "additionalProperties": true
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "time_to_ack_interval_condition": {
+                                                                                                                        "type": "string",
+                                                                                                                        "enum": [
+                                                                                                                              "active",
+                                                                                                                              "inactive"
+                                                                                                                        ]
+                                                                                                                  },
+                                                                                                                  "time_to_ack_seconds": {
+                                                                                                                        "type": "number"
+                                                                                                                  },
+                                                                                                                  "time_to_ack_weekday_interval_config_id": {
+                                                                                                                        "type": "string"
+                                                                                                                  }
+                                                                                                            },
+                                                                                                            "required": [
+                                                                                                                  "targets"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "notify_channel": {
+                                                                                                            "type": "object",
+                                                                                                            "properties": {
+                                                                                                                  "targets": {
+                                                                                                                        "type": "array",
+                                                                                                                        "items": {
+                                                                                                                              "type": "object",
+                                                                                                                              "additionalProperties": true
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "time_to_ack_interval_condition": {
+                                                                                                                        "type": "string",
+                                                                                                                        "enum": [
+                                                                                                                              "active",
+                                                                                                                              "inactive"
+                                                                                                                        ]
+                                                                                                                  },
+                                                                                                                  "time_to_ack_seconds": {
+                                                                                                                        "type": "number"
+                                                                                                                  },
+                                                                                                                  "time_to_ack_weekday_interval_config_id": {
+                                                                                                                        "type": "string"
+                                                                                                                  }
+                                                                                                            },
+                                                                                                            "required": [
+                                                                                                                  "targets"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "repeat": {
+                                                                                                            "type": "object",
+                                                                                                            "properties": {
+                                                                                                                  "repeat_times": {
+                                                                                                                        "type": "number"
+                                                                                                                  },
+                                                                                                                  "to_node": {
+                                                                                                                        "type": "string"
+                                                                                                                  }
+                                                                                                            },
+                                                                                                            "required": [
+                                                                                                                  "to_node",
+                                                                                                                  "repeat_times"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "type": {
+                                                                                                            "type": "string",
+                                                                                                            "enum": [
+                                                                                                                  "if_else",
+                                                                                                                  "repeat",
+                                                                                                                  "level",
+                                                                                                                  "notify_channel"
+                                                                                                            ]
+                                                                                                      }
+                                                                                                },
+                                                                                                "required": [
+                                                                                                      "id",
+                                                                                                      "type"
+                                                                                                ]
+                                                                                          }
+                                                                                    },
+                                                                                    "then_path": {
+                                                                                          "type": "array",
+                                                                                          "items": {
+                                                                                                "type": "object",
+                                                                                                "properties": {
+                                                                                                      "id": {
+                                                                                                            "type": "string"
+                                                                                                      },
+                                                                                                      "if_else": {
+                                                                                                            "type": "object",
+                                                                                                            "properties": {
+                                                                                                                  "conditions": {
+                                                                                                                        "type": "array",
+                                                                                                                        "items": {
+                                                                                                                              "type": "object",
+                                                                                                                              "additionalProperties": true
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "else_path": {
+                                                                                                                        "type": "array",
+                                                                                                                        "items": {
+                                                                                                                              "type": "object",
+                                                                                                                              "additionalProperties": true
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "then_path": {
+                                                                                                                        "type": "array",
+                                                                                                                        "items": {
+                                                                                                                              "type": "object",
+                                                                                                                              "additionalProperties": true
+                                                                                                                        }
+                                                                                                                  }
+                                                                                                            },
+                                                                                                            "required": [
+                                                                                                                  "conditions",
+                                                                                                                  "then_path",
+                                                                                                                  "else_path"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "level": {
+                                                                                                            "type": "object",
+                                                                                                            "properties": {
+                                                                                                                  "ack_mode": {
+                                                                                                                        "type": "string",
+                                                                                                                        "enum": [
+                                                                                                                              "all",
+                                                                                                                              "first"
+                                                                                                                        ]
+                                                                                                                  },
+                                                                                                                  "round_robin_config": {
+                                                                                                                        "type": "object",
+                                                                                                                        "properties": {
+                                                                                                                              "enabled": {
+                                                                                                                                    "type": "object",
+                                                                                                                                    "additionalProperties": true
+                                                                                                                              },
+                                                                                                                              "rotate_after_seconds": {
+                                                                                                                                    "type": "object",
+                                                                                                                                    "additionalProperties": true
+                                                                                                                              }
+                                                                                                                        },
+                                                                                                                        "required": [
+                                                                                                                              "enabled"
+                                                                                                                        ]
+                                                                                                                  },
+                                                                                                                  "targets": {
+                                                                                                                        "type": "array",
+                                                                                                                        "items": {
+                                                                                                                              "type": "object",
+                                                                                                                              "additionalProperties": true
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "time_to_ack_interval_condition": {
+                                                                                                                        "type": "string",
+                                                                                                                        "enum": [
+                                                                                                                              "active",
+                                                                                                                              "inactive"
+                                                                                                                        ]
+                                                                                                                  },
+                                                                                                                  "time_to_ack_seconds": {
+                                                                                                                        "type": "number"
+                                                                                                                  },
+                                                                                                                  "time_to_ack_weekday_interval_config_id": {
+                                                                                                                        "type": "string"
+                                                                                                                  }
+                                                                                                            },
+                                                                                                            "required": [
+                                                                                                                  "targets"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "notify_channel": {
+                                                                                                            "type": "object",
+                                                                                                            "properties": {
+                                                                                                                  "targets": {
+                                                                                                                        "type": "array",
+                                                                                                                        "items": {
+                                                                                                                              "type": "object",
+                                                                                                                              "additionalProperties": true
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "time_to_ack_interval_condition": {
+                                                                                                                        "type": "string",
+                                                                                                                        "enum": [
+                                                                                                                              "active",
+                                                                                                                              "inactive"
+                                                                                                                        ]
+                                                                                                                  },
+                                                                                                                  "time_to_ack_seconds": {
+                                                                                                                        "type": "number"
+                                                                                                                  },
+                                                                                                                  "time_to_ack_weekday_interval_config_id": {
+                                                                                                                        "type": "string"
+                                                                                                                  }
+                                                                                                            },
+                                                                                                            "required": [
+                                                                                                                  "targets"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "repeat": {
+                                                                                                            "type": "object",
+                                                                                                            "properties": {
+                                                                                                                  "repeat_times": {
+                                                                                                                        "type": "number"
+                                                                                                                  },
+                                                                                                                  "to_node": {
+                                                                                                                        "type": "string"
+                                                                                                                  }
+                                                                                                            },
+                                                                                                            "required": [
+                                                                                                                  "to_node",
+                                                                                                                  "repeat_times"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "type": {
+                                                                                                            "type": "string",
+                                                                                                            "enum": [
+                                                                                                                  "if_else",
+                                                                                                                  "repeat",
+                                                                                                                  "level",
+                                                                                                                  "notify_channel"
+                                                                                                            ]
+                                                                                                      }
+                                                                                                },
+                                                                                                "required": [
+                                                                                                      "id",
+                                                                                                      "type"
+                                                                                                ]
+                                                                                          }
+                                                                                    }
+                                                                              },
+                                                                              "required": [
+                                                                                    "conditions",
+                                                                                    "then_path",
+                                                                                    "else_path"
+                                                                              ]
+                                                                        },
+                                                                        "level": {
+                                                                              "type": "object",
+                                                                              "properties": {
+                                                                                    "ack_mode": {
+                                                                                          "type": "string",
+                                                                                          "enum": [
+                                                                                                "all",
+                                                                                                "first"
+                                                                                          ]
+                                                                                    },
+                                                                                    "round_robin_config": {
+                                                                                          "type": "object",
+                                                                                          "properties": {
+                                                                                                "enabled": {
+                                                                                                      "type": "boolean"
+                                                                                                },
+                                                                                                "rotate_after_seconds": {
+                                                                                                      "type": "number"
+                                                                                                }
+                                                                                          },
+                                                                                          "required": [
+                                                                                                "enabled"
+                                                                                          ]
+                                                                                    },
+                                                                                    "targets": {
+                                                                                          "type": "array",
+                                                                                          "items": {
+                                                                                                "type": "object",
+                                                                                                "properties": {
+                                                                                                      "id": {
+                                                                                                            "type": "string"
+                                                                                                      },
+                                                                                                      "schedule_mode": {
+                                                                                                            "type": "string",
+                                                                                                            "enum": [
+                                                                                                                  "currently_on_call",
+                                                                                                                  "all_users_for_rota",
+                                                                                                                  "all_users",
+                                                                                                                  ""
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "type": {
+                                                                                                            "type": "string",
+                                                                                                            "enum": [
+                                                                                                                  "schedule",
+                                                                                                                  "user",
+                                                                                                                  "slack_channel",
+                                                                                                                  "msteams_channel"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "urgency": {
+                                                                                                            "type": "string",
+                                                                                                            "enum": [
+                                                                                                                  "high",
+                                                                                                                  "low"
+                                                                                                            ]
+                                                                                                      }
+                                                                                                },
+                                                                                                "required": [
+                                                                                                      "type",
+                                                                                                      "id",
+                                                                                                      "urgency"
+                                                                                                ]
+                                                                                          }
+                                                                                    },
+                                                                                    "time_to_ack_interval_condition": {
+                                                                                          "type": "string",
+                                                                                          "enum": [
+                                                                                                "active",
+                                                                                                "inactive"
+                                                                                          ]
+                                                                                    },
+                                                                                    "time_to_ack_seconds": {
+                                                                                          "type": "number"
+                                                                                    },
+                                                                                    "time_to_ack_weekday_interval_config_id": {
+                                                                                          "type": "string"
+                                                                                    }
+                                                                              },
+                                                                              "required": [
+                                                                                    "targets"
+                                                                              ]
+                                                                        },
+                                                                        "notify_channel": {
+                                                                              "type": "object",
+                                                                              "properties": {
+                                                                                    "targets": {
+                                                                                          "type": "array",
+                                                                                          "items": {
+                                                                                                "type": "object",
+                                                                                                "properties": {
+                                                                                                      "id": {
+                                                                                                            "type": "string"
+                                                                                                      },
+                                                                                                      "schedule_mode": {
+                                                                                                            "type": "string",
+                                                                                                            "enum": [
+                                                                                                                  "currently_on_call",
+                                                                                                                  "all_users_for_rota",
+                                                                                                                  "all_users",
+                                                                                                                  ""
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "type": {
+                                                                                                            "type": "string",
+                                                                                                            "enum": [
+                                                                                                                  "schedule",
+                                                                                                                  "user",
+                                                                                                                  "slack_channel",
+                                                                                                                  "msteams_channel"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "urgency": {
+                                                                                                            "type": "string",
+                                                                                                            "enum": [
+                                                                                                                  "high",
+                                                                                                                  "low"
+                                                                                                            ]
+                                                                                                      }
+                                                                                                },
+                                                                                                "required": [
+                                                                                                      "type",
+                                                                                                      "id",
+                                                                                                      "urgency"
+                                                                                                ]
+                                                                                          }
+                                                                                    },
+                                                                                    "time_to_ack_interval_condition": {
+                                                                                          "type": "string",
+                                                                                          "enum": [
+                                                                                                "active",
+                                                                                                "inactive"
+                                                                                          ]
+                                                                                    },
+                                                                                    "time_to_ack_seconds": {
+                                                                                          "type": "number"
+                                                                                    },
+                                                                                    "time_to_ack_weekday_interval_config_id": {
+                                                                                          "type": "string"
+                                                                                    }
+                                                                              },
+                                                                              "required": [
+                                                                                    "targets"
+                                                                              ]
+                                                                        },
+                                                                        "repeat": {
+                                                                              "type": "object",
+                                                                              "properties": {
+                                                                                    "repeat_times": {
+                                                                                          "type": "number"
+                                                                                    },
+                                                                                    "to_node": {
+                                                                                          "type": "string"
+                                                                                    }
+                                                                              },
+                                                                              "required": [
+                                                                                    "to_node",
+                                                                                    "repeat_times"
+                                                                              ]
+                                                                        },
+                                                                        "type": {
+                                                                              "type": "string",
+                                                                              "enum": [
+                                                                                    "if_else",
+                                                                                    "repeat",
+                                                                                    "level",
+                                                                                    "notify_channel"
+                                                                              ]
+                                                                        }
+                                                                  },
+                                                                  "required": [
+                                                                        "id",
+                                                                        "type"
+                                                                  ]
+                                                            }
+                                                      },
+                                                      "then_path": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                        "id": {
+                                                                              "type": "string"
+                                                                        },
+                                                                        "if_else": {
+                                                                              "type": "object",
+                                                                              "properties": {
+                                                                                    "conditions": {
+                                                                                          "type": "array",
+                                                                                          "items": {
+                                                                                                "type": "object",
+                                                                                                "properties": {
+                                                                                                      "operation": {
+                                                                                                            "type": "object",
+                                                                                                            "properties": {
+                                                                                                                  "label": {
+                                                                                                                        "type": "string"
+                                                                                                                  },
+                                                                                                                  "value": {
+                                                                                                                        "type": "string"
+                                                                                                                  }
+                                                                                                            },
+                                                                                                            "required": [
+                                                                                                                  "label",
+                                                                                                                  "value",
+                                                                                                                  "sort_key"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "param_bindings": {
+                                                                                                            "type": "array",
+                                                                                                            "items": {
+                                                                                                                  "type": "object",
+                                                                                                                  "properties": {
+                                                                                                                        "array_value": {
+                                                                                                                              "type": "array",
+                                                                                                                              "items": {
+                                                                                                                                    "type": "object",
+                                                                                                                                    "additionalProperties": true
+                                                                                                                              }
+                                                                                                                        },
+                                                                                                                        "value": {
+                                                                                                                              "type": "object",
+                                                                                                                              "additionalProperties": true
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "additionalProperties": true
+                                                                                                            }
+                                                                                                      },
+                                                                                                      "subject": {
+                                                                                                            "type": "object",
+                                                                                                            "properties": {
+                                                                                                                  "label": {
+                                                                                                                        "type": "string"
+                                                                                                                  },
+                                                                                                                  "reference": {
+                                                                                                                        "type": "string"
+                                                                                                                  }
+                                                                                                            },
+                                                                                                            "required": [
+                                                                                                                  "label",
+                                                                                                                  "icon",
+                                                                                                                  "reference"
+                                                                                                            ]
+                                                                                                      }
+                                                                                                },
+                                                                                                "required": [
+                                                                                                      "subject",
+                                                                                                      "operation",
+                                                                                                      "params",
+                                                                                                      "param_bindings"
+                                                                                                ]
+                                                                                          }
+                                                                                    },
+                                                                                    "else_path": {
+                                                                                          "type": "array",
+                                                                                          "items": {
+                                                                                                "type": "object",
+                                                                                                "properties": {
+                                                                                                      "id": {
+                                                                                                            "type": "string"
+                                                                                                      },
+                                                                                                      "if_else": {
+                                                                                                            "type": "object",
+                                                                                                            "properties": {
+                                                                                                                  "conditions": {
+                                                                                                                        "type": "array",
+                                                                                                                        "items": {
+                                                                                                                              "type": "object",
+                                                                                                                              "additionalProperties": true
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "else_path": {
+                                                                                                                        "type": "array",
+                                                                                                                        "items": {
+                                                                                                                              "type": "object",
+                                                                                                                              "additionalProperties": true
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "then_path": {
+                                                                                                                        "type": "array",
+                                                                                                                        "items": {
+                                                                                                                              "type": "object",
+                                                                                                                              "additionalProperties": true
+                                                                                                                        }
+                                                                                                                  }
+                                                                                                            },
+                                                                                                            "required": [
+                                                                                                                  "conditions",
+                                                                                                                  "then_path",
+                                                                                                                  "else_path"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "level": {
+                                                                                                            "type": "object",
+                                                                                                            "properties": {
+                                                                                                                  "ack_mode": {
+                                                                                                                        "type": "string",
+                                                                                                                        "enum": [
+                                                                                                                              "all",
+                                                                                                                              "first"
+                                                                                                                        ]
+                                                                                                                  },
+                                                                                                                  "round_robin_config": {
+                                                                                                                        "type": "object",
+                                                                                                                        "properties": {
+                                                                                                                              "enabled": {
+                                                                                                                                    "type": "object",
+                                                                                                                                    "additionalProperties": true
+                                                                                                                              },
+                                                                                                                              "rotate_after_seconds": {
+                                                                                                                                    "type": "object",
+                                                                                                                                    "additionalProperties": true
+                                                                                                                              }
+                                                                                                                        },
+                                                                                                                        "required": [
+                                                                                                                              "enabled"
+                                                                                                                        ]
+                                                                                                                  },
+                                                                                                                  "targets": {
+                                                                                                                        "type": "array",
+                                                                                                                        "items": {
+                                                                                                                              "type": "object",
+                                                                                                                              "additionalProperties": true
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "time_to_ack_interval_condition": {
+                                                                                                                        "type": "string",
+                                                                                                                        "enum": [
+                                                                                                                              "active",
+                                                                                                                              "inactive"
+                                                                                                                        ]
+                                                                                                                  },
+                                                                                                                  "time_to_ack_seconds": {
+                                                                                                                        "type": "number"
+                                                                                                                  },
+                                                                                                                  "time_to_ack_weekday_interval_config_id": {
+                                                                                                                        "type": "string"
+                                                                                                                  }
+                                                                                                            },
+                                                                                                            "required": [
+                                                                                                                  "targets"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "notify_channel": {
+                                                                                                            "type": "object",
+                                                                                                            "properties": {
+                                                                                                                  "targets": {
+                                                                                                                        "type": "array",
+                                                                                                                        "items": {
+                                                                                                                              "type": "object",
+                                                                                                                              "additionalProperties": true
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "time_to_ack_interval_condition": {
+                                                                                                                        "type": "string",
+                                                                                                                        "enum": [
+                                                                                                                              "active",
+                                                                                                                              "inactive"
+                                                                                                                        ]
+                                                                                                                  },
+                                                                                                                  "time_to_ack_seconds": {
+                                                                                                                        "type": "number"
+                                                                                                                  },
+                                                                                                                  "time_to_ack_weekday_interval_config_id": {
+                                                                                                                        "type": "string"
+                                                                                                                  }
+                                                                                                            },
+                                                                                                            "required": [
+                                                                                                                  "targets"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "repeat": {
+                                                                                                            "type": "object",
+                                                                                                            "properties": {
+                                                                                                                  "repeat_times": {
+                                                                                                                        "type": "number"
+                                                                                                                  },
+                                                                                                                  "to_node": {
+                                                                                                                        "type": "string"
+                                                                                                                  }
+                                                                                                            },
+                                                                                                            "required": [
+                                                                                                                  "to_node",
+                                                                                                                  "repeat_times"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "type": {
+                                                                                                            "type": "string",
+                                                                                                            "enum": [
+                                                                                                                  "if_else",
+                                                                                                                  "repeat",
+                                                                                                                  "level",
+                                                                                                                  "notify_channel"
+                                                                                                            ]
+                                                                                                      }
+                                                                                                },
+                                                                                                "required": [
+                                                                                                      "id",
+                                                                                                      "type"
+                                                                                                ]
+                                                                                          }
+                                                                                    },
+                                                                                    "then_path": {
+                                                                                          "type": "array",
+                                                                                          "items": {
+                                                                                                "type": "object",
+                                                                                                "properties": {
+                                                                                                      "id": {
+                                                                                                            "type": "string"
+                                                                                                      },
+                                                                                                      "if_else": {
+                                                                                                            "type": "object",
+                                                                                                            "properties": {
+                                                                                                                  "conditions": {
+                                                                                                                        "type": "array",
+                                                                                                                        "items": {
+                                                                                                                              "type": "object",
+                                                                                                                              "additionalProperties": true
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "else_path": {
+                                                                                                                        "type": "array",
+                                                                                                                        "items": {
+                                                                                                                              "type": "object",
+                                                                                                                              "additionalProperties": true
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "then_path": {
+                                                                                                                        "type": "array",
+                                                                                                                        "items": {
+                                                                                                                              "type": "object",
+                                                                                                                              "additionalProperties": true
+                                                                                                                        }
+                                                                                                                  }
+                                                                                                            },
+                                                                                                            "required": [
+                                                                                                                  "conditions",
+                                                                                                                  "then_path",
+                                                                                                                  "else_path"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "level": {
+                                                                                                            "type": "object",
+                                                                                                            "properties": {
+                                                                                                                  "ack_mode": {
+                                                                                                                        "type": "string",
+                                                                                                                        "enum": [
+                                                                                                                              "all",
+                                                                                                                              "first"
+                                                                                                                        ]
+                                                                                                                  },
+                                                                                                                  "round_robin_config": {
+                                                                                                                        "type": "object",
+                                                                                                                        "properties": {
+                                                                                                                              "enabled": {
+                                                                                                                                    "type": "object",
+                                                                                                                                    "additionalProperties": true
+                                                                                                                              },
+                                                                                                                              "rotate_after_seconds": {
+                                                                                                                                    "type": "object",
+                                                                                                                                    "additionalProperties": true
+                                                                                                                              }
+                                                                                                                        },
+                                                                                                                        "required": [
+                                                                                                                              "enabled"
+                                                                                                                        ]
+                                                                                                                  },
+                                                                                                                  "targets": {
+                                                                                                                        "type": "array",
+                                                                                                                        "items": {
+                                                                                                                              "type": "object",
+                                                                                                                              "additionalProperties": true
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "time_to_ack_interval_condition": {
+                                                                                                                        "type": "string",
+                                                                                                                        "enum": [
+                                                                                                                              "active",
+                                                                                                                              "inactive"
+                                                                                                                        ]
+                                                                                                                  },
+                                                                                                                  "time_to_ack_seconds": {
+                                                                                                                        "type": "number"
+                                                                                                                  },
+                                                                                                                  "time_to_ack_weekday_interval_config_id": {
+                                                                                                                        "type": "string"
+                                                                                                                  }
+                                                                                                            },
+                                                                                                            "required": [
+                                                                                                                  "targets"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "notify_channel": {
+                                                                                                            "type": "object",
+                                                                                                            "properties": {
+                                                                                                                  "targets": {
+                                                                                                                        "type": "array",
+                                                                                                                        "items": {
+                                                                                                                              "type": "object",
+                                                                                                                              "additionalProperties": true
+                                                                                                                        }
+                                                                                                                  },
+                                                                                                                  "time_to_ack_interval_condition": {
+                                                                                                                        "type": "string",
+                                                                                                                        "enum": [
+                                                                                                                              "active",
+                                                                                                                              "inactive"
+                                                                                                                        ]
+                                                                                                                  },
+                                                                                                                  "time_to_ack_seconds": {
+                                                                                                                        "type": "number"
+                                                                                                                  },
+                                                                                                                  "time_to_ack_weekday_interval_config_id": {
+                                                                                                                        "type": "string"
+                                                                                                                  }
+                                                                                                            },
+                                                                                                            "required": [
+                                                                                                                  "targets"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "repeat": {
+                                                                                                            "type": "object",
+                                                                                                            "properties": {
+                                                                                                                  "repeat_times": {
+                                                                                                                        "type": "number"
+                                                                                                                  },
+                                                                                                                  "to_node": {
+                                                                                                                        "type": "string"
+                                                                                                                  }
+                                                                                                            },
+                                                                                                            "required": [
+                                                                                                                  "to_node",
+                                                                                                                  "repeat_times"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "type": {
+                                                                                                            "type": "string",
+                                                                                                            "enum": [
+                                                                                                                  "if_else",
+                                                                                                                  "repeat",
+                                                                                                                  "level",
+                                                                                                                  "notify_channel"
+                                                                                                            ]
+                                                                                                      }
+                                                                                                },
+                                                                                                "required": [
+                                                                                                      "id",
+                                                                                                      "type"
+                                                                                                ]
+                                                                                          }
+                                                                                    }
+                                                                              },
+                                                                              "required": [
+                                                                                    "conditions",
+                                                                                    "then_path",
+                                                                                    "else_path"
+                                                                              ]
+                                                                        },
+                                                                        "level": {
+                                                                              "type": "object",
+                                                                              "properties": {
+                                                                                    "ack_mode": {
+                                                                                          "type": "string",
+                                                                                          "enum": [
+                                                                                                "all",
+                                                                                                "first"
+                                                                                          ]
+                                                                                    },
+                                                                                    "round_robin_config": {
+                                                                                          "type": "object",
+                                                                                          "properties": {
+                                                                                                "enabled": {
+                                                                                                      "type": "boolean"
+                                                                                                },
+                                                                                                "rotate_after_seconds": {
+                                                                                                      "type": "number"
+                                                                                                }
+                                                                                          },
+                                                                                          "required": [
+                                                                                                "enabled"
+                                                                                          ]
+                                                                                    },
+                                                                                    "targets": {
+                                                                                          "type": "array",
+                                                                                          "items": {
+                                                                                                "type": "object",
+                                                                                                "properties": {
+                                                                                                      "id": {
+                                                                                                            "type": "string"
+                                                                                                      },
+                                                                                                      "schedule_mode": {
+                                                                                                            "type": "string",
+                                                                                                            "enum": [
+                                                                                                                  "currently_on_call",
+                                                                                                                  "all_users_for_rota",
+                                                                                                                  "all_users",
+                                                                                                                  ""
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "type": {
+                                                                                                            "type": "string",
+                                                                                                            "enum": [
+                                                                                                                  "schedule",
+                                                                                                                  "user",
+                                                                                                                  "slack_channel",
+                                                                                                                  "msteams_channel"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "urgency": {
+                                                                                                            "type": "string",
+                                                                                                            "enum": [
+                                                                                                                  "high",
+                                                                                                                  "low"
+                                                                                                            ]
+                                                                                                      }
+                                                                                                },
+                                                                                                "required": [
+                                                                                                      "type",
+                                                                                                      "id",
+                                                                                                      "urgency"
+                                                                                                ]
+                                                                                          }
+                                                                                    },
+                                                                                    "time_to_ack_interval_condition": {
+                                                                                          "type": "string",
+                                                                                          "enum": [
+                                                                                                "active",
+                                                                                                "inactive"
+                                                                                          ]
+                                                                                    },
+                                                                                    "time_to_ack_seconds": {
+                                                                                          "type": "number"
+                                                                                    },
+                                                                                    "time_to_ack_weekday_interval_config_id": {
+                                                                                          "type": "string"
+                                                                                    }
+                                                                              },
+                                                                              "required": [
+                                                                                    "targets"
+                                                                              ]
+                                                                        },
+                                                                        "notify_channel": {
+                                                                              "type": "object",
+                                                                              "properties": {
+                                                                                    "targets": {
+                                                                                          "type": "array",
+                                                                                          "items": {
+                                                                                                "type": "object",
+                                                                                                "properties": {
+                                                                                                      "id": {
+                                                                                                            "type": "string"
+                                                                                                      },
+                                                                                                      "schedule_mode": {
+                                                                                                            "type": "string",
+                                                                                                            "enum": [
+                                                                                                                  "currently_on_call",
+                                                                                                                  "all_users_for_rota",
+                                                                                                                  "all_users",
+                                                                                                                  ""
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "type": {
+                                                                                                            "type": "string",
+                                                                                                            "enum": [
+                                                                                                                  "schedule",
+                                                                                                                  "user",
+                                                                                                                  "slack_channel",
+                                                                                                                  "msteams_channel"
+                                                                                                            ]
+                                                                                                      },
+                                                                                                      "urgency": {
+                                                                                                            "type": "string",
+                                                                                                            "enum": [
+                                                                                                                  "high",
+                                                                                                                  "low"
+                                                                                                            ]
+                                                                                                      }
+                                                                                                },
+                                                                                                "required": [
+                                                                                                      "type",
+                                                                                                      "id",
+                                                                                                      "urgency"
+                                                                                                ]
+                                                                                          }
+                                                                                    },
+                                                                                    "time_to_ack_interval_condition": {
+                                                                                          "type": "string",
+                                                                                          "enum": [
+                                                                                                "active",
+                                                                                                "inactive"
+                                                                                          ]
+                                                                                    },
+                                                                                    "time_to_ack_seconds": {
+                                                                                          "type": "number"
+                                                                                    },
+                                                                                    "time_to_ack_weekday_interval_config_id": {
+                                                                                          "type": "string"
+                                                                                    }
+                                                                              },
+                                                                              "required": [
+                                                                                    "targets"
+                                                                              ]
+                                                                        },
+                                                                        "repeat": {
+                                                                              "type": "object",
+                                                                              "properties": {
+                                                                                    "repeat_times": {
+                                                                                          "type": "number"
+                                                                                    },
+                                                                                    "to_node": {
+                                                                                          "type": "string"
+                                                                                    }
+                                                                              },
+                                                                              "required": [
+                                                                                    "to_node",
+                                                                                    "repeat_times"
+                                                                              ]
+                                                                        },
+                                                                        "type": {
+                                                                              "type": "string",
+                                                                              "enum": [
+                                                                                    "if_else",
+                                                                                    "repeat",
+                                                                                    "level",
+                                                                                    "notify_channel"
+                                                                              ]
+                                                                        }
+                                                                  },
+                                                                  "required": [
+                                                                        "id",
+                                                                        "type"
+                                                                  ]
+                                                            }
+                                                      }
+                                                },
+                                                "required": [
+                                                      "conditions",
+                                                      "then_path",
+                                                      "else_path"
+                                                ]
+                                          },
+                                          "level": {
+                                                "type": "object",
+                                                "properties": {
+                                                      "ack_mode": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                  "all",
+                                                                  "first"
+                                                            ]
+                                                      },
+                                                      "round_robin_config": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                  "enabled": {
+                                                                        "type": "boolean"
+                                                                  },
+                                                                  "rotate_after_seconds": {
+                                                                        "type": "number"
+                                                                  }
+                                                            },
+                                                            "required": [
+                                                                  "enabled"
+                                                            ]
+                                                      },
+                                                      "targets": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                        "id": {
+                                                                              "type": "string"
+                                                                        },
+                                                                        "schedule_mode": {
+                                                                              "type": "string",
+                                                                              "enum": [
+                                                                                    "currently_on_call",
+                                                                                    "all_users_for_rota",
+                                                                                    "all_users",
+                                                                                    ""
+                                                                              ]
+                                                                        },
+                                                                        "type": {
+                                                                              "type": "string",
+                                                                              "enum": [
+                                                                                    "schedule",
+                                                                                    "user",
+                                                                                    "slack_channel",
+                                                                                    "msteams_channel"
+                                                                              ]
+                                                                        },
+                                                                        "urgency": {
+                                                                              "type": "string",
+                                                                              "enum": [
+                                                                                    "high",
+                                                                                    "low"
+                                                                              ]
+                                                                        }
+                                                                  },
+                                                                  "required": [
+                                                                        "type",
+                                                                        "id",
+                                                                        "urgency"
+                                                                  ]
+                                                            }
+                                                      },
+                                                      "time_to_ack_interval_condition": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                  "active",
+                                                                  "inactive"
+                                                            ]
+                                                      },
+                                                      "time_to_ack_seconds": {
+                                                            "type": "number"
+                                                      },
+                                                      "time_to_ack_weekday_interval_config_id": {
+                                                            "type": "string"
+                                                      }
+                                                },
+                                                "required": [
+                                                      "targets"
+                                                ]
+                                          },
+                                          "notify_channel": {
+                                                "type": "object",
+                                                "properties": {
+                                                      "targets": {
+                                                            "type": "array",
+                                                            "items": {
+                                                                  "type": "object",
+                                                                  "properties": {
+                                                                        "id": {
+                                                                              "type": "string"
+                                                                        },
+                                                                        "schedule_mode": {
+                                                                              "type": "string",
+                                                                              "enum": [
+                                                                                    "currently_on_call",
+                                                                                    "all_users_for_rota",
+                                                                                    "all_users",
+                                                                                    ""
+                                                                              ]
+                                                                        },
+                                                                        "type": {
+                                                                              "type": "string",
+                                                                              "enum": [
+                                                                                    "schedule",
+                                                                                    "user",
+                                                                                    "slack_channel",
+                                                                                    "msteams_channel"
+                                                                              ]
+                                                                        },
+                                                                        "urgency": {
+                                                                              "type": "string",
+                                                                              "enum": [
+                                                                                    "high",
+                                                                                    "low"
+                                                                              ]
+                                                                        }
+                                                                  },
+                                                                  "required": [
+                                                                        "type",
+                                                                        "id",
+                                                                        "urgency"
+                                                                  ]
+                                                            }
+                                                      },
+                                                      "time_to_ack_interval_condition": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                  "active",
+                                                                  "inactive"
+                                                            ]
+                                                      },
+                                                      "time_to_ack_seconds": {
+                                                            "type": "number"
+                                                      },
+                                                      "time_to_ack_weekday_interval_config_id": {
+                                                            "type": "string"
+                                                      }
+                                                },
+                                                "required": [
+                                                      "targets"
+                                                ]
+                                          },
+                                          "repeat": {
+                                                "type": "object",
+                                                "properties": {
+                                                      "repeat_times": {
+                                                            "type": "number"
+                                                      },
+                                                      "to_node": {
+                                                            "type": "string"
+                                                      }
+                                                },
+                                                "required": [
+                                                      "to_node",
+                                                      "repeat_times"
+                                                ]
+                                          },
+                                          "type": {
+                                                "type": "string",
+                                                "enum": [
+                                                      "if_else",
+                                                      "repeat",
+                                                      "level",
+                                                      "notify_channel"
+                                                ]
+                                          }
+                                    },
+                                    "required": [
+                                          "id",
+                                          "type"
+                                    ]
+                              }
                         },
                         "team_ids": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "array",
+                              "items": {
+                                    "type": "string"
+                              }
                         },
                         "working_hours": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "array",
+                              "items": {
+                                    "type": "object",
+                                    "properties": {
+                                          "id": {
+                                                "type": "string"
+                                          },
+                                          "name": {
+                                                "type": "string"
+                                          },
+                                          "timezone": {
+                                                "type": "string"
+                                          },
+                                          "weekday_intervals": {
+                                                "type": "array",
+                                                "items": {
+                                                      "type": "object",
+                                                      "properties": {
+                                                            "end_time": {
+                                                                  "type": "string"
+                                                            },
+                                                            "start_time": {
+                                                                  "type": "string"
+                                                            },
+                                                            "weekday": {
+                                                                  "type": "string",
+                                                                  "enum": [
+                                                                        "monday",
+                                                                        "tuesday",
+                                                                        "wednesday",
+                                                                        "thursday",
+                                                                        "friday",
+                                                                        "saturday",
+                                                                        "sunday"
+                                                                  ]
+                                                            }
+                                                      },
+                                                      "required": [
+                                                            "weekday",
+                                                            "start_time",
+                                                            "end_time"
+                                                      ]
+                                                }
+                                          }
+                                    },
+                                    "required": [
+                                          "id",
+                                          "name",
+                                          "timezone",
+                                          "weekday_intervals"
+                                    ]
+                              }
                         }
                   },
                   "required": [

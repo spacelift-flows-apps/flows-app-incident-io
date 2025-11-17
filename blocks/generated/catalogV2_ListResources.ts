@@ -48,7 +48,37 @@ const catalogV2_ListResources: AppBlock = {
                   "type": "array",
                   "items": {
                         "type": "object",
-                        "additionalProperties": true
+                        "properties": {
+                              "category": {
+                                    "type": "string",
+                                    "enum": [
+                                          "primitive",
+                                          "custom",
+                                          "external"
+                                    ]
+                              },
+                              "description": {
+                                    "type": "string"
+                              },
+                              "label": {
+                                    "type": "string"
+                              },
+                              "type": {
+                                    "type": "string"
+                              },
+                              "value_docstring": {
+                                    "type": "string"
+                              }
+                        },
+                        "required": [
+                              "type",
+                              "label",
+                              "description",
+                              "value_docstring",
+                              "category",
+                              "config",
+                              "is_user_link"
+                        ]
                   }
             }
       },

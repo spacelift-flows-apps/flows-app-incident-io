@@ -87,19 +87,126 @@ const alertsV2_ListIncidentAlerts: AppBlock = {
                   "type": "array",
                   "items": {
                         "type": "object",
-                        "additionalProperties": true
+                        "properties": {
+                              "alert": {
+                                    "type": "object",
+                                    "properties": {
+                                          "alert_source_id": {
+                                                "type": "string"
+                                          },
+                                          "created_at": {
+                                                "type": "string"
+                                          },
+                                          "deduplication_key": {
+                                                "type": "string"
+                                          },
+                                          "description": {
+                                                "type": "string"
+                                          },
+                                          "id": {
+                                                "type": "string"
+                                          },
+                                          "resolved_at": {
+                                                "type": "string"
+                                          },
+                                          "source_url": {
+                                                "type": "string"
+                                          },
+                                          "status": {
+                                                "type": "string",
+                                                "enum": [
+                                                      "firing",
+                                                      "resolved"
+                                                ]
+                                          },
+                                          "title": {
+                                                "type": "string"
+                                          },
+                                          "updated_at": {
+                                                "type": "string"
+                                          }
+                                    },
+                                    "required": [
+                                          "id",
+                                          "title",
+                                          "deduplication_key",
+                                          "alert_source_id",
+                                          "source_type",
+                                          "status",
+                                          "created_at",
+                                          "updated_at"
+                                    ]
+                              },
+                              "alert_route_id": {
+                                    "type": "string"
+                              },
+                              "id": {
+                                    "type": "string"
+                              },
+                              "incident": {
+                                    "type": "object",
+                                    "properties": {
+                                          "external_id": {
+                                                "type": "number"
+                                          },
+                                          "id": {
+                                                "type": "string"
+                                          },
+                                          "name": {
+                                                "type": "string"
+                                          },
+                                          "reference": {
+                                                "type": "string"
+                                          },
+                                          "status_category": {
+                                                "type": "string",
+                                                "enum": [
+                                                      "triage",
+                                                      "declined",
+                                                      "merged",
+                                                      "canceled",
+                                                      "active",
+                                                      "post-incident",
+                                                      "closed",
+                                                      "paused"
+                                                ]
+                                          },
+                                          "summary": {
+                                                "type": "string"
+                                          },
+                                          "visibility": {
+                                                "type": "string",
+                                                "enum": [
+                                                      "public",
+                                                      "private"
+                                                ]
+                                          }
+                                    },
+                                    "required": [
+                                          "id",
+                                          "external_id",
+                                          "name",
+                                          "reference",
+                                          "visibility",
+                                          "status_category"
+                                    ]
+                              }
+                        },
+                        "required": [
+                              "id",
+                              "alert",
+                              "incident"
+                        ]
                   }
             },
             "pagination_meta": {
                   "type": "object",
                   "properties": {
                         "after": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "string"
                         },
                         "page_size": {
-                              "type": "object",
-                              "additionalProperties": true
+                              "type": "number"
                         }
                   },
                   "required": [

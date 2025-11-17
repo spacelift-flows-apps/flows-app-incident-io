@@ -48,7 +48,30 @@ const alertAttributesV2_List: AppBlock = {
                   "type": "array",
                   "items": {
                         "type": "object",
-                        "additionalProperties": true
+                        "properties": {
+                              "array": {
+                                    "type": "boolean"
+                              },
+                              "id": {
+                                    "type": "string"
+                              },
+                              "name": {
+                                    "type": "string"
+                              },
+                              "required": {
+                                    "type": "boolean"
+                              },
+                              "type": {
+                                    "type": "string"
+                              }
+                        },
+                        "required": [
+                              "id",
+                              "name",
+                              "type",
+                              "array",
+                              "required"
+                        ]
                   }
             }
       },

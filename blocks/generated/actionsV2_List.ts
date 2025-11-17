@@ -69,7 +69,186 @@ const actionsV2_List: AppBlock = {
                   "type": "array",
                   "items": {
                         "type": "object",
-                        "additionalProperties": true
+                        "properties": {
+                              "assignee": {
+                                    "type": "object",
+                                    "properties": {
+                                          "email": {
+                                                "type": "string"
+                                          },
+                                          "id": {
+                                                "type": "string"
+                                          },
+                                          "name": {
+                                                "type": "string"
+                                          },
+                                          "role": {
+                                                "type": "string",
+                                                "enum": [
+                                                      "viewer",
+                                                      "responder",
+                                                      "administrator",
+                                                      "owner",
+                                                      "unset"
+                                                ]
+                                          },
+                                          "slack_user_id": {
+                                                "type": "string"
+                                          }
+                                    },
+                                    "required": [
+                                          "role",
+                                          "id",
+                                          "slack_role",
+                                          "name",
+                                          "deprecated_base_role",
+                                          "organisation_id"
+                                    ]
+                              },
+                              "completed_at": {
+                                    "type": "string"
+                              },
+                              "created_at": {
+                                    "type": "string"
+                              },
+                              "creator": {
+                                    "type": "object",
+                                    "properties": {
+                                          "alert": {
+                                                "type": "object",
+                                                "properties": {
+                                                      "id": {
+                                                            "type": "string"
+                                                      },
+                                                      "title": {
+                                                            "type": "string"
+                                                      }
+                                                },
+                                                "required": [
+                                                      "id",
+                                                      "title",
+                                                      "deduplication_key",
+                                                      "alert_source_id",
+                                                      "source_type",
+                                                      "status",
+                                                      "created_at",
+                                                      "updated_at"
+                                                ]
+                                          },
+                                          "api_key": {
+                                                "type": "object",
+                                                "properties": {
+                                                      "id": {
+                                                            "type": "string"
+                                                      },
+                                                      "name": {
+                                                            "type": "string"
+                                                      }
+                                                },
+                                                "required": [
+                                                      "id",
+                                                      "name",
+                                                      "roles",
+                                                      "created_by"
+                                                ]
+                                          },
+                                          "user": {
+                                                "type": "object",
+                                                "properties": {
+                                                      "email": {
+                                                            "type": "string"
+                                                      },
+                                                      "id": {
+                                                            "type": "string"
+                                                      },
+                                                      "name": {
+                                                            "type": "string"
+                                                      },
+                                                      "role": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                  "viewer",
+                                                                  "responder",
+                                                                  "administrator",
+                                                                  "owner",
+                                                                  "unset"
+                                                            ]
+                                                      },
+                                                      "slack_user_id": {
+                                                            "type": "string"
+                                                      }
+                                                },
+                                                "required": [
+                                                      "role",
+                                                      "id",
+                                                      "slack_role",
+                                                      "name",
+                                                      "deprecated_base_role",
+                                                      "organisation_id"
+                                                ]
+                                          },
+                                          "workflow": {
+                                                "type": "object",
+                                                "properties": {
+                                                      "id": {
+                                                            "type": "string"
+                                                      },
+                                                      "name": {
+                                                            "type": "string"
+                                                      }
+                                                },
+                                                "required": [
+                                                      "id",
+                                                      "name",
+                                                      "organisation_id",
+                                                      "trigger",
+                                                      "once_for",
+                                                      "version",
+                                                      "expressions",
+                                                      "condition_groups",
+                                                      "steps",
+                                                      "include_private_incidents",
+                                                      "runs_on_incident_modes",
+                                                      "continue_on_step_error",
+                                                      "runs_on_incidents",
+                                                      "state"
+                                                ]
+                                          }
+                                    },
+                                    "additionalProperties": true
+                              },
+                              "description": {
+                                    "type": "string"
+                              },
+                              "id": {
+                                    "type": "string"
+                              },
+                              "incident_id": {
+                                    "type": "string"
+                              },
+                              "status": {
+                                    "type": "string",
+                                    "enum": [
+                                          "outstanding",
+                                          "completed",
+                                          "deleted",
+                                          "not_doing"
+                                    ]
+                              },
+                              "updated_at": {
+                                    "type": "string"
+                              }
+                        },
+                        "required": [
+                              "id",
+                              "incident_id",
+                              "creator",
+                              "description",
+                              "status",
+                              "created_at",
+                              "updated_at",
+                              "organisation_id"
+                        ]
                   }
             }
       },
