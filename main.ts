@@ -1,7 +1,7 @@
-import { defineApp, http, kv } from "@slflows/sdk/v1";
+import { defineApp, http } from "@slflows/sdk/v1";
 import { blocks } from "./blocks/index";
 import {
-  verifyWebhookSecret,
+  verifyWebhookSignature,
   handleWebhookEndpoint,
 } from "./httpHandlerHelpers";
 
@@ -18,37 +18,25 @@ To connect your incident.io account:
 3. Give it a descriptive name (e.g., "Flows Integration")
 4. Select appropriate permissions for your use case
 5. **Important**: Copy the API key immediately - it will only be shown once!
+6. Paste your API key in the "API Key" field below
 
-### Step 2: Configure the App
-
-1. Paste your API key in the "API Key" field below
-2. Click "Confirm" to complete the installation
-3. Wait for the app to reach "ready" status
-
-### Step 3: Configure Webhook (Optional - for Webhook Subscriptions)
+### Step 2: Configure Webhook (Required for Webhook Subscriptions)
 
 To receive real-time events from incident.io:
 
-1. After the app is ready, copy the **Webhook URL** from the app signals
-2. Visit [incident.io Dashboard → Webhooks](https://app.incident.io/settings/webhooks)
-3. Click "Create webhook"
-4. Paste the Webhook URL (includes authentication secret as query parameter)
-5. Select which event types you want to receive
-6. Save the webhook configuration
+1. Visit [incident.io Dashboard → Webhooks](https://app.incident.io/settings/webhooks)
+2. Click "Add Endpoint"
+3. **Endpoint URL**: Enter <copyable>\`{appEndpointUrl}/webhook\`</copyable>
+4. **Subscribe to events**: Leave blank, so all events are sent to the Flows app.
+5. Click "Create"
+6. **Copy the Signing Secret**: On the webhook endpoint details page, find and copy the "Signing Secret" (starts with \`whsec_\`)
+7. Paste the Signing Secret in the "Webhook Signing Secret" field below
 
-### Step 4: Add Webhook Subscription Blocks
+**Note**: The signing secret is used to verify that webhooks genuinely come from incident.io and haven't been tampered with.
 
-- Add webhook subscription blocks (e.g., "Public Incident - Incident Created V2") to your flow
-- These blocks will emit events when matching webhooks are received
-- Each subscription block filters to its specific event type automatically
+### Step 3: Confirm Installation
 
-## About the Blocks
-
-This app includes:
-- **130 API Blocks**: Auto-generated from the incident.io OpenAPI specification, covering all API endpoints
-- **130 Webhook Subscription Blocks**: For receiving real-time events (incidents, actions, follow-ups, alerts, etc.)
-
-For more information, visit the [incident.io API documentation](https://api-docs.incident.io/).`,
+Click "Confirm" to complete the installation.`,
 
   blocks,
 
@@ -66,6 +54,21 @@ For more information, visit the [incident.io API documentation](https://api-docs
       required: true,
       sensitive: true,
     },
+    webhookSigningSecret: {
+      name: "Webhook Signing Secret",
+      description: `Signing secret from your incident.io webhook endpoint (starts with whsec_)
+
+**To get this:**
+1. Go to [incident.io Dashboard → Webhooks](https://app.incident.io/settings/webhooks)
+2. Create a webhook endpoint pointing to this app's webhook URL
+3. Copy the "Signing Secret" from the webhook endpoint settings
+4. Paste it here
+
+**Required only if using webhook subscription blocks**`,
+      type: "string",
+      required: false,
+      sensitive: true,
+    },
     baseUrl: {
       name: "Base URL",
       description: "API base URL (leave default unless using a custom instance)",
@@ -75,78 +78,34 @@ For more information, visit the [incident.io API documentation](https://api-docs
     },
   },
 
-  signals: {
-    webhookUrl: {
-      name: "Webhook URL",
-      description:
-        "The URL to configure in incident.io webhooks (includes authentication secret)",
-    },
-  },
-
-  async onSync(input) {
-    const { apiKey } = input.app.config;
-
-    if (!apiKey) {
-      return {
-        newStatus: "failed",
-        customStatusDescription: "API key is required",
-      };
-    }
-
-    // Generate webhook secret if not already exists
-    const storedSecret = await kv.app.get("webhookSecret");
-    let webhookSecret: string;
-
-    if (!storedSecret?.value) {
-      webhookSecret = generateWebhookSecret();
-      await kv.app.set({
-        key: "webhookSecret",
-        value: webhookSecret,
-      });
-      console.log("Generated new webhook secret");
-    } else {
-      webhookSecret = storedSecret.value as string;
-    }
-
-    // Build webhook URL with secret as query parameter
-    const webhookUrl = `${input.app.http.url}/webhook?secret=${webhookSecret}`;
-
-    return {
-      newStatus: "ready",
-      signalUpdates: {
-        webhookUrl,
-      },
-    };
-  },
-
   http: {
     async onRequest(input) {
       const requestPath = input.request.path;
 
       // Handle webhook endpoint
       if (requestPath === "/webhook" || requestPath.endsWith("/webhook")) {
-        const storedSecret = await kv.app.get("webhookSecret");
+        const { webhookSigningSecret } = input.app.config;
 
-        if (!storedSecret?.value) {
-          console.error("Webhook secret not configured");
+        if (!webhookSigningSecret) {
+          console.error("Webhook signing secret not configured");
           await http.respond(input.request.requestId, {
             statusCode: 500,
-            body: { error: "Webhook not configured" },
+            body: { error: "Webhook signing secret not configured" },
           });
           return;
         }
 
-        // Verify webhook secret
-        const isValid = verifyWebhookSecret(
+        // Verify webhook signature
+        const isValid = await verifyWebhookSignature(
           input.request,
-          storedSecret.value as string
+          webhookSigningSecret as string
         );
 
         if (!isValid) {
-          console.warn("Invalid webhook secret");
+          console.warn("Invalid webhook signature");
           await http.respond(input.request.requestId, {
             statusCode: 403,
-            body: { error: "Invalid webhook secret" },
+            body: { error: "Invalid webhook signature" },
           });
           return;
         }
@@ -165,14 +124,3 @@ For more information, visit the [incident.io API documentation](https://api-docs
     },
   },
 });
-
-/**
- * Generates a secure random webhook secret
- */
-function generateWebhookSecret(): string {
-  const randomBytes = new Uint8Array(32);
-  crypto.getRandomValues(randomBytes);
-  return Array.from(randomBytes, (byte) =>
-    byte.toString(16).padStart(2, "0")
-  ).join("");
-}
