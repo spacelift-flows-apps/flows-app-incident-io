@@ -746,7 +746,7 @@ export default ${blockName};
 }
 
 // Main execution
-const swaggerPath = path.resolve("./local/swagger.json");
+const swaggerPath = path.resolve("./openapi/swagger.json");
 const outputDir = path.resolve("./blocks/generated");
 
 const generator = new BlockGenerator(swaggerPath);

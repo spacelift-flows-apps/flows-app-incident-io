@@ -68,7 +68,7 @@ This pattern allows multiple subscription blocks to receive the same webhook eve
 
 All blocks are generated from the incident.io OpenAPI specification using `scripts/generateBlocks.ts`. The generator:
 
-- Parses the OpenAPI 3.0 spec from `local/swagger.json`
+- Parses the OpenAPI 3.0 spec from `openapi/swagger.json`
 - Creates TypeScript blocks for all REST API endpoints
 - Generates webhook subscription blocks from the `x-webhooks` section
 - Maps OpenAPI schemas to Flows input/output types
@@ -76,10 +76,12 @@ All blocks are generated from the incident.io OpenAPI specification using `scrip
 To regenerate blocks after API updates:
 
 ```bash
-# Download latest OpenAPI spec to local/swagger.json, then:
-npx tsx scripts/generateBlocks.ts
+# Download latest OpenAPI spec to openapi/swagger.json, then:
+npm run generate
 ```
 
 The generator creates blocks in:
 - `blocks/generated/` - API blocks (129)
 - `blocks/webhooks/` - Webhook subscriptions (19)
+
+You can fetch the openapi schema on https://api-docs.incident.io, at the very top of the page.

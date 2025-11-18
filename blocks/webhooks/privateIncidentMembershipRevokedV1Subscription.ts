@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const privateIncidentMembershipRevokedV1Subscription: AppBlock = {
   name: "Private Incident - Membership Revoked V1",
   description: `This webhook is emitted whenever a user's access to a private incident is revoked.`,
-  category: "Webhooks",
+  category: "Webhook Receivers",
 
   async onInternalMessage(input) {
     const event = input.message.body;

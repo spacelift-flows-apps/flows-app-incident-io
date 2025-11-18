@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const publicIncidentFollowUpUpdatedV1Subscription: AppBlock = {
   name: "Public Incident - Follow Up Updated V1",
   description: `This webhook is emitted whenever a follow-up is updated.`,
-  category: "Webhooks",
+  category: "Webhook Receivers",
 
   async onInternalMessage(input) {
     const event = input.message.body;
