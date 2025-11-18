@@ -12,9 +12,9 @@ import { webhookSubscriptions } from "./webhooks/index";
  * Includes both auto-generated API blocks and webhook subscription blocks
  */
 export const blocks = {
-  // Auto-generated API blocks (129 blocks)
+  // Auto-generated API blocks
   ...generatedBlocks,
 
-  // Auto-generated webhook subscription blocks (130 blocks)
+  // Auto-generated webhook subscription blocks
   ...webhookSubscriptions,
 } as const;

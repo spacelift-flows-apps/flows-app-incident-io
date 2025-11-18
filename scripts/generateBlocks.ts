@@ -231,7 +231,7 @@ class BlockGenerator {
 
   private generateBlockName(operation: Operation, method: string, path: string): string {
     if (operation.operationId) {
-      // Convert "Incidents V2#ListIncidents" to "incidentsV2ListIncidents"
+      // Convert "Incidents V2#ListIncidents" to "incidentsV2_ListIncidents"
       // This ensures uniqueness across different API versions
       const fullId = operation.operationId
         .replace(/ /g, "")  // Remove spaces
@@ -619,9 +619,22 @@ export default ${blockName};
   }
 
   private generateIndex(outputDir: string, blocks: Array<{ name: string; importPath: string }>) {
-    // Create unique import aliases by appending index
-    const imports = blocks.map((b, idx) => `import ${b.name}_${idx} from "${b.importPath}";`).join("\n");
-    const exports = blocks.map((b, idx) => `  ${b.name}_${idx},`).join("\n");
+    // Generate imports (use block name as import alias)
+    const imports = blocks.map(b => `import ${b.name} from "${b.importPath}";`).join("\n");
+
+    // Generate exports using ES6 shorthand (blockName: blockName becomes just blockName)
+    const usedKeys = new Set<string>();
+    const exports = blocks.map(b => {
+      const key = b.name;
+
+      // Check for collisions (should never happen since block names are unique)
+      if (usedKeys.has(key)) {
+        throw new Error(`Duplicate export key detected: ${key}. Block names must be unique.`);
+      }
+      usedKeys.add(key);
+
+      return `  ${key},`;
+    }).join("\n");
 
     const content = `${imports}
 
@@ -635,8 +648,22 @@ ${exports}
   }
 
   private generateWebhookIndex(outputDir: string, blocks: Array<{ name: string; importPath: string }>) {
+    // Generate imports (block names are unique for webhooks)
     const imports = blocks.map(b => `import ${b.name} from "./${b.name}";`).join("\n");
-    const exports = blocks.map(b => `  ${b.name},`).join("\n");
+
+    // Generate exports using ES6 shorthand
+    const usedKeys = new Set<string>();
+    const exports = blocks.map(b => {
+      const key = b.name;
+
+      // Check for collisions (should never happen with webhook subscriptions)
+      if (usedKeys.has(key)) {
+        throw new Error(`Duplicate export key detected: ${key}. Webhook subscription names should be unique.`);
+      }
+      usedKeys.add(key);
+
+      return `  ${key},`;
+    }).join("\n");
 
     const content = `${imports}
 
