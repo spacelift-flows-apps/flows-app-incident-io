@@ -71,7 +71,8 @@ Click "Confirm" to complete the installation.`,
     },
     baseUrl: {
       name: "Base URL",
-      description: "API base URL (leave default unless using a custom instance)",
+      description:
+        "API base URL (leave default unless using a custom instance)",
       type: "string",
       required: false,
       default: "https://api.incident.io",
@@ -98,7 +99,7 @@ Click "Confirm" to complete the installation.`,
         // Verify webhook signature
         const isValid = await verifyWebhookSignature(
           input.request,
-          webhookSigningSecret as string
+          webhookSigningSecret as string,
         );
 
         if (!isValid) {

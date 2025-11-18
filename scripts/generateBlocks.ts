@@ -140,7 +140,7 @@ class BlockGenerator {
     // Count webhook paths for debugging
     const allPaths = Object.keys(this.spec.paths);
     console.log(`Total paths in spec: ${allPaths.length}`);
-    const webhookPaths = allPaths.filter(p => p.startsWith("/x-webhooks/"));
+    const webhookPaths = allPaths.filter((p) => p.startsWith("/x-webhooks/"));
     console.log(`Found ${webhookPaths.length} webhook paths in spec`);
     if (webhookPaths.length > 0) {
       console.log(`First webhook path: ${webhookPaths[0]}`);
@@ -149,7 +149,9 @@ class BlockGenerator {
     // Generate webhook subscription blocks from x-webhooks section
     if (this.spec["x-webhooks"]) {
       console.log("Processing webhook subscriptions...");
-      for (const [pathStr, pathItem] of Object.entries(this.spec["x-webhooks"])) {
+      for (const [pathStr, pathItem] of Object.entries(
+        this.spec["x-webhooks"],
+      )) {
         // Only process paths starting with /x-webhooks/, not /x-audit-logs/
         if (!pathStr.startsWith("/x-webhooks/")) {
           continue;
@@ -165,7 +167,11 @@ class BlockGenerator {
             fs.mkdirSync(webhooksDir, { recursive: true });
             const blockPath = path.join(webhooksDir, `${blockName}.ts`);
 
-            this.generateWebhookSubscriptionBlock(blockPath, eventType, operation);
+            this.generateWebhookSubscriptionBlock(
+              blockPath,
+              eventType,
+              operation,
+            );
 
             webhookBlocks.push({
               name: blockName,
@@ -174,7 +180,10 @@ class BlockGenerator {
 
             console.log(`✓ Generated webhook subscription ${blockName}`);
           } catch (error: any) {
-            console.warn(`⚠ Failed to generate webhook block for ${pathStr}:`, error.message);
+            console.warn(
+              `⚠ Failed to generate webhook block for ${pathStr}:`,
+              error.message,
+            );
           }
         }
       }
@@ -208,7 +217,10 @@ class BlockGenerator {
 
           console.log(`✓ Generated ${blockName}`);
         } catch (error: any) {
-          console.warn(`⚠ Failed to generate block for ${method.toUpperCase()} ${pathStr}:`, error.message);
+          console.warn(
+            `⚠ Failed to generate block for ${method.toUpperCase()} ${pathStr}:`,
+            error.message,
+          );
         }
       }
     }
@@ -226,23 +238,29 @@ class BlockGenerator {
       this.generateWebhookIndex(webhooksDir, webhookBlocks);
     }
 
-    console.log(`\n✅ Generated ${apiBlocks.length} API blocks and ${webhookBlocks.length} webhook subscription blocks`);
+    console.log(
+      `\n✅ Generated ${apiBlocks.length} API blocks and ${webhookBlocks.length} webhook subscription blocks`,
+    );
   }
 
-  private generateBlockName(operation: Operation, method: string, path: string): string {
+  private generateBlockName(
+    operation: Operation,
+    method: string,
+    path: string,
+  ): string {
     if (operation.operationId) {
       // Convert "Incidents V2#ListIncidents" to "incidentsV2_ListIncidents"
       // This ensures uniqueness across different API versions
       const fullId = operation.operationId
-        .replace(/ /g, "")  // Remove spaces
-        .replace(/#/, "_")  // Replace # with _
-        .replace(/-/g, "");  // Remove hyphens
+        .replace(/ /g, "") // Remove spaces
+        .replace(/#/, "_") // Replace # with _
+        .replace(/-/g, ""); // Remove hyphens
 
       return fullId.charAt(0).toLowerCase() + fullId.slice(1);
     }
 
     // Fallback: use method and path
-    const pathParts = path.split("/").filter(p => p && !p.startsWith("{"));
+    const pathParts = path.split("/").filter((p) => p && !p.startsWith("{"));
     const name = pathParts.join("_") + "_" + method;
     return name.replace(/[^a-zA-Z0-9]/g, "_");
   }
@@ -260,17 +278,23 @@ class BlockGenerator {
         .replace(/([A-Z])/g, " $1")
         .trim()
         .split(" ")
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
         .join(" ");
     }
 
     return `${method.toUpperCase()} ${path}`;
   }
 
-  private generateBlock(filePath: string, pathStr: string, method: string, operation: Operation) {
+  private generateBlock(
+    filePath: string,
+    pathStr: string,
+    method: string,
+    operation: Operation,
+  ) {
     const blockName = path.basename(filePath, ".ts");
     const humanName = this.humanizeName(operation, method);
-    const description = operation.description?.split("\n")[0].trim() || humanName;
+    const description =
+      operation.description?.split("\n")[0].trim() || humanName;
 
     // Use the first tag as the category, fallback to "API"
     const category = operation.tags?.[0] || "API";
@@ -337,14 +361,20 @@ export default ${blockName};
     fs.writeFileSync(filePath, content);
   }
 
-  private generateInputConfig(pathStr: string, method: string, operation: Operation): Record<string, any> {
+  private generateInputConfig(
+    pathStr: string,
+    method: string,
+    operation: Operation,
+  ): Record<string, any> {
     const config: Record<string, any> = {};
 
     // Add path parameters
     const pathParams = pathStr.match(/\{([^}]+)\}/g) || [];
     for (const param of pathParams) {
       const paramName = param.slice(1, -1);
-      const paramDef = operation.parameters?.find(p => p.name === paramName && p.in === "path");
+      const paramDef = operation.parameters?.find(
+        (p) => p.name === paramName && p.in === "path",
+      );
 
       config[paramName] = {
         name: this.humanizeParamName(paramName),
@@ -355,7 +385,8 @@ export default ${blockName};
     }
 
     // Add query parameters
-    const queryParams = operation.parameters?.filter(p => p.in === "query") || [];
+    const queryParams =
+      operation.parameters?.filter((p) => p.in === "query") || [];
     for (const param of queryParams) {
       config[param.name] = {
         name: this.humanizeParamName(param.name),
@@ -367,13 +398,15 @@ export default ${blockName};
 
     // Add request body properties
     if (operation.requestBody && method !== "get") {
-      const schema = operation.requestBody.content?.["application/json"]?.schema;
+      const schema =
+        operation.requestBody.content?.["application/json"]?.schema;
       if (schema) {
         const bodyProps = this.extractSchemaProperties(schema);
         for (const [propName, propSchema] of Object.entries(bodyProps)) {
           config[propName] = {
             name: this.humanizeParamName(propName),
-            description: propSchema.description || `Request body field: ${propName}`,
+            description:
+              propSchema.description || `Request body field: ${propName}`,
             type: this.schemaToFlowsType(propSchema),
             required: schema.required?.includes(propName) || false,
           };
@@ -407,7 +440,11 @@ export default ${blockName};
     return {};
   }
 
-  private generateRequestCode(pathStr: string, method: string, operation: Operation): string {
+  private generateRequestCode(
+    pathStr: string,
+    method: string,
+    operation: Operation,
+  ): string {
     const lines: string[] = [];
 
     // Build URL with path parameters
@@ -415,25 +452,35 @@ export default ${blockName};
     const pathParams = pathStr.match(/\{([^}]+)\}/g) || [];
     for (const param of pathParams) {
       const paramName = param.slice(1, -1);
-      lines.push(`url = url.replace("${param}", encodeURIComponent(String(input.event.inputConfig.${paramName})));`);
+      lines.push(
+        `url = url.replace("${param}", encodeURIComponent(String(input.event.inputConfig.${paramName})));`,
+      );
     }
 
     // Add query parameters
-    const queryParams = operation.parameters?.filter(p => p.in === "query") || [];
+    const queryParams =
+      operation.parameters?.filter((p) => p.in === "query") || [];
     if (queryParams.length > 0) {
       lines.push(`const queryParams = new URLSearchParams();`);
       for (const param of queryParams) {
-        lines.push(`if (input.event.inputConfig.${param.name} !== undefined) {`);
-        lines.push(`  queryParams.append("${param.name}", String(input.event.inputConfig.${param.name}));`);
+        lines.push(
+          `if (input.event.inputConfig.${param.name} !== undefined) {`,
+        );
+        lines.push(
+          `  queryParams.append("${param.name}", String(input.event.inputConfig.${param.name}));`,
+        );
         lines.push(`}`);
       }
-      lines.push(`if (queryParams.toString()) url += "?" + queryParams.toString();`);
+      lines.push(
+        `if (queryParams.toString()) url += "?" + queryParams.toString();`,
+      );
     }
 
     // Build request body (only for non-GET requests)
     if (method !== "get") {
       if (operation.requestBody) {
-        const schema = operation.requestBody.content?.["application/json"]?.schema;
+        const schema =
+          operation.requestBody.content?.["application/json"]?.schema;
         if (schema) {
           const bodyProps = this.extractSchemaProperties(schema);
           const propNames = Object.keys(bodyProps);
@@ -441,8 +488,12 @@ export default ${blockName};
           if (propNames.length > 0) {
             lines.push(`const body: Record<string, any> = {};`);
             for (const propName of propNames) {
-              lines.push(`if (input.event.inputConfig.${propName} !== undefined) {`);
-              lines.push(`  body.${propName} = input.event.inputConfig.${propName};`);
+              lines.push(
+                `if (input.event.inputConfig.${propName} !== undefined) {`,
+              );
+              lines.push(
+                `  body.${propName} = input.event.inputConfig.${propName};`,
+              );
               lines.push(`}`);
             }
           } else {
@@ -462,7 +513,10 @@ export default ${blockName};
   }
 
   private generateOutputType(operation: Operation): any {
-    const successResponse = operation.responses?.["200"] || operation.responses?.["201"] || operation.responses?.["204"];
+    const successResponse =
+      operation.responses?.["200"] ||
+      operation.responses?.["201"] ||
+      operation.responses?.["204"];
 
     if (!successResponse) {
       return { type: "object", additionalProperties: true };
@@ -548,8 +602,13 @@ export default ${blockName};
       case "object":
         if (schema.properties) {
           const properties: Record<string, any> = {};
-          for (const [propName, propSchema] of Object.entries(schema.properties)) {
-            properties[propName] = this.schemaToOutputType(propSchema, depth + 1);
+          for (const [propName, propSchema] of Object.entries(
+            schema.properties,
+          )) {
+            properties[propName] = this.schemaToOutputType(
+              propSchema,
+              depth + 1,
+            );
           }
           return {
             type: "object",
@@ -605,7 +664,7 @@ export default ${blockName};
   private humanizeParamName(name: string): string {
     return name
       .split("_")
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(" ");
   }
 
@@ -618,23 +677,32 @@ export default ${blockName};
       .substring(0, 200);
   }
 
-  private generateIndex(outputDir: string, blocks: Array<{ name: string; importPath: string }>) {
+  private generateIndex(
+    outputDir: string,
+    blocks: Array<{ name: string; importPath: string }>,
+  ) {
     // Generate imports (use block name as import alias)
-    const imports = blocks.map(b => `import ${b.name} from "${b.importPath}";`).join("\n");
+    const imports = blocks
+      .map((b) => `import ${b.name} from "${b.importPath}";`)
+      .join("\n");
 
     // Generate exports using ES6 shorthand (blockName: blockName becomes just blockName)
     const usedKeys = new Set<string>();
-    const exports = blocks.map(b => {
-      const key = b.name;
+    const exports = blocks
+      .map((b) => {
+        const key = b.name;
 
-      // Check for collisions (should never happen since block names are unique)
-      if (usedKeys.has(key)) {
-        throw new Error(`Duplicate export key detected: ${key}. Block names must be unique.`);
-      }
-      usedKeys.add(key);
+        // Check for collisions (should never happen since block names are unique)
+        if (usedKeys.has(key)) {
+          throw new Error(
+            `Duplicate export key detected: ${key}. Block names must be unique.`,
+          );
+        }
+        usedKeys.add(key);
 
-      return `  ${key},`;
-    }).join("\n");
+        return `  ${key},`;
+      })
+      .join("\n");
 
     const content = `${imports}
 
@@ -647,23 +715,32 @@ ${exports}
     console.log(`✓ Generated index.ts`);
   }
 
-  private generateWebhookIndex(outputDir: string, blocks: Array<{ name: string; importPath: string }>) {
+  private generateWebhookIndex(
+    outputDir: string,
+    blocks: Array<{ name: string; importPath: string }>,
+  ) {
     // Generate imports (block names are unique for webhooks)
-    const imports = blocks.map(b => `import ${b.name} from "./${b.name}";`).join("\n");
+    const imports = blocks
+      .map((b) => `import ${b.name} from "./${b.name}";`)
+      .join("\n");
 
     // Generate exports using ES6 shorthand
     const usedKeys = new Set<string>();
-    const exports = blocks.map(b => {
-      const key = b.name;
+    const exports = blocks
+      .map((b) => {
+        const key = b.name;
 
-      // Check for collisions (should never happen with webhook subscriptions)
-      if (usedKeys.has(key)) {
-        throw new Error(`Duplicate export key detected: ${key}. Webhook subscription names should be unique.`);
-      }
-      usedKeys.add(key);
+        // Check for collisions (should never happen with webhook subscriptions)
+        if (usedKeys.has(key)) {
+          throw new Error(
+            `Duplicate export key detected: ${key}. Webhook subscription names should be unique.`,
+          );
+        }
+        usedKeys.add(key);
 
-      return `  ${key},`;
-    }).join("\n");
+        return `  ${key},`;
+      })
+      .join("\n");
 
     const content = `${imports}
 
@@ -681,15 +758,20 @@ ${exports}
     const name = eventType
       .replace(/[._]/g, " ")
       .split(" ")
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join("");
     return name.charAt(0).toLowerCase() + name.slice(1) + "Subscription";
   }
 
-  private generateWebhookSubscriptionBlock(filePath: string, eventType: string, operation: Operation) {
+  private generateWebhookSubscriptionBlock(
+    filePath: string,
+    eventType: string,
+    operation: Operation,
+  ) {
     const blockName = path.basename(filePath, ".ts");
     const humanName = this.humanizeWebhookName(eventType);
-    const description = operation.description || `Subscription for ${eventType} webhook events`;
+    const description =
+      operation.description || `Subscription for ${eventType} webhook events`;
 
     // Get the schema for the webhook payload
     const outputType = this.generateOutputType(operation);
@@ -735,12 +817,14 @@ export default ${blockName};
   private humanizeWebhookName(eventType: string): string {
     // Convert "public_incident.incident_created_v2" to "Public Incident - Incident Created V2"
     const parts = eventType.split(".");
-    const humanized = parts.map(part => {
-      return part
-        .split("_")
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(" ");
-    }).join(" - ");
+    const humanized = parts
+      .map((part) => {
+        return part
+          .split("_")
+          .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(" ");
+      })
+      .join(" - ");
     return humanized;
   }
 }

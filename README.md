@@ -58,6 +58,7 @@ Each subscription block filters events by `event_type` and emits matching webhoo
 The app exposes a single HTTP endpoint (`/webhook`) that receives all webhooks from incident.io.
 
 When a webhook arrives:
+
 1. Request signature is verified using Svix signing standard (HMAC-SHA256)
 2. Event is routed to matching subscription blocks via internal messaging
 3. Subscription blocks check the `event_type` and emit events for downstream processing
@@ -81,6 +82,7 @@ npm run generate
 ```
 
 The generator creates blocks in:
+
 - `blocks/generated/` - API blocks (129)
 - `blocks/webhooks/` - Webhook subscriptions (19)
 

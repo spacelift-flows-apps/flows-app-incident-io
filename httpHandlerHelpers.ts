@@ -7,7 +7,7 @@ import * as nodecrypto from "node:crypto";
  */
 export async function verifyWebhookSignature(
   request: HTTPRequest,
-  signingSecret: string
+  signingSecret: string,
 ): Promise<boolean> {
   // Extract headers (incident.io uses webhook- prefix)
   const webhookId = request.headers["Webhook-Id"];
@@ -28,7 +28,7 @@ export async function verifyWebhookSignature(
       "Webhook timestamp validation failed (too old or too new):",
       timestamp,
       "current:",
-      nowSeconds
+      nowSeconds,
     );
     return false;
   }
@@ -53,13 +53,13 @@ export async function verifyWebhookSignature(
       secretBuffer,
       { name: "HMAC", hash: "SHA-256" },
       false,
-      ["sign"]
+      ["sign"],
     );
 
     const mac = await crypto.subtle.sign(
       "HMAC",
       key,
-      encoder.encode(signedContent)
+      encoder.encode(signedContent),
     );
 
     // Convert to base64
@@ -81,7 +81,7 @@ export async function verifyWebhookSignature(
         if (
           nodecrypto.timingSafeEqual(
             encoder.encode(expectedSignature),
-            encoder.encode(signature)
+            encoder.encode(signature),
           )
         ) {
           return true;
@@ -91,10 +91,15 @@ export async function verifyWebhookSignature(
       }
     }
 
-    console.warn("Webhook signature verification failed - no matching signature");
+    console.warn(
+      "Webhook signature verification failed - no matching signature",
+    );
     return false;
   } catch (error: any) {
-    console.error("Error during webhook signature verification:", error.message);
+    console.error(
+      "Error during webhook signature verification:",
+      error.message,
+    );
     return false;
   }
 }
@@ -107,7 +112,7 @@ function eventTypeToBlockTypeId(eventType: string): string {
   const name = eventType
     .replace(/[._]/g, " ")
     .split(" ")
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join("");
   return name.charAt(0).toLowerCase() + name.slice(1) + "Subscription";
 }
@@ -117,7 +122,7 @@ function eventTypeToBlockTypeId(eventType: string): string {
  * Routes events to appropriate subscription blocks based on event_type
  */
 export async function handleWebhookEndpoint(
-  payload: any
+  payload: any,
 ): Promise<{ statusCode: number; body?: any }> {
   console.log("Received incident.io webhook:", payload?.event_type);
 
@@ -138,13 +143,15 @@ export async function handleWebhookEndpoint(
     });
 
     if (subscriptionBlocks.blocks.length === 0) {
-      console.log(`No subscription blocks found for event type: ${payload.event_type}`);
+      console.log(
+        `No subscription blocks found for event type: ${payload.event_type}`,
+      );
       return { statusCode: 200, body: { status: "no_subscribers" } };
     }
 
     // Route to matching subscription blocks
     console.log(
-      `Routing webhook event ${payload.event_type} to ${subscriptionBlocks.blocks.length} subscription block(s)`
+      `Routing webhook event ${payload.event_type} to ${subscriptionBlocks.blocks.length} subscription block(s)`,
     );
 
     await messaging.sendToBlocks({
