@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const severitiesV1_Update: AppBlock = {
   name: "Update Severities V1",
   description: `Update an existing severity`,
-  category: "API",
+  category: "Severities V1",
 
   inputs: {
     default: {

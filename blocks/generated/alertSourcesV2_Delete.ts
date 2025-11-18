@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const alertSourcesV2_Delete: AppBlock = {
   name: "Delete Alert Sources V2",
   description: `Delete an existing alert source in your account.`,
-  category: "API",
+  category: "Alert Sources V2",
 
   inputs: {
     default: {

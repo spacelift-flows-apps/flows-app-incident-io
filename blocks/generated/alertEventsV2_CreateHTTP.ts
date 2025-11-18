@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const alertEventsV2_CreateHTTP: AppBlock = {
   name: "CreateHTTP Alert Events V2",
   description: `Create an alert event using an HTTP source.`,
-  category: "API",
+  category: "Alert Events V2",
 
   inputs: {
     default: {

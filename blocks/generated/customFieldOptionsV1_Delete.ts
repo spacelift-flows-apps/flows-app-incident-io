@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const customFieldOptionsV1_Delete: AppBlock = {
   name: "Delete Custom Field Options V1",
   description: `Delete a custom field option`,
-  category: "API",
+  category: "Custom Field Options V1",
 
   inputs: {
     default: {

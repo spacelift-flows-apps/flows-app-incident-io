@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const schedulesV2_CreateOverride: AppBlock = {
   name: "CreateOverride Schedules V2",
   description: `Create a new schedule override.`,
-  category: "API",
+  category: "Schedules V2",
 
   inputs: {
     default: {

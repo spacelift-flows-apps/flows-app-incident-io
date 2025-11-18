@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const catalogV3_ListEntries: AppBlock = {
   name: "ListEntries Catalog V3",
   description: `List entries for a catalog type.`,
-  category: "API",
+  category: "Catalog V3",
 
   inputs: {
     default: {

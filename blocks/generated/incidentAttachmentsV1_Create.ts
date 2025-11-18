@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const incidentAttachmentsV1_Create: AppBlock = {
   name: "Create Incident Attachments V1",
   description: `Attaches an external resource to an incident`,
-  category: "API",
+  category: "Incident Attachments V1",
 
   inputs: {
     default: {

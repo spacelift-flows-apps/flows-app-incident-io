@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const escalationsV2_CreatePath: AppBlock = {
   name: "CreatePath Escalations V2",
   description: `Create an escalation path.`,
-  category: "API",
+  category: "Escalations V2",
 
   inputs: {
     default: {

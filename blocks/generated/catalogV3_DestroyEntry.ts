@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const catalogV3_DestroyEntry: AppBlock = {
   name: "DestroyEntry Catalog V3",
   description: `Archives a catalog entry.`,
-  category: "API",
+  category: "Catalog V3",
 
   inputs: {
     default: {

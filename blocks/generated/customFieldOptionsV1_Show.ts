@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const customFieldOptionsV1_Show: AppBlock = {
   name: "Show Custom Field Options V1",
   description: `Get a single custom field option`,
-  category: "API",
+  category: "Custom Field Options V1",
 
   inputs: {
     default: {

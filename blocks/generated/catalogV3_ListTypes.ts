@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const catalogV3_ListTypes: AppBlock = {
   name: "ListTypes Catalog V3",
   description: `List all catalog types for an organisation, including those synced from external resources.`,
-  category: "API",
+  category: "Catalog V3",
 
   inputs: {
     default: {

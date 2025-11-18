@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const alertRoutesV2_Update: AppBlock = {
   name: "Update Alert Routes V2",
   description: `Update an existing alert route in your account.`,
-  category: "API",
+  category: "Alert Routes V2",
 
   inputs: {
     default: {

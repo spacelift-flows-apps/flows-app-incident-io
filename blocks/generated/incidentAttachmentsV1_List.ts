@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const incidentAttachmentsV1_List: AppBlock = {
   name: "List Incident Attachments V1",
   description: `List all incident attachments for a given external resource or incident. You must provide either a specific incident ID or a specific external resource type and external ID.`,
-  category: "API",
+  category: "Incident Attachments V1",
 
   inputs: {
     default: {

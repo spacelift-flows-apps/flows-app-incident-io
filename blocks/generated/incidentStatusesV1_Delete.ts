@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const incidentStatusesV1_Delete: AppBlock = {
   name: "Delete Incident Statuses V1",
   description: `Delete an incident status`,
-  category: "API",
+  category: "Incident Statuses V1",
 
   inputs: {
     default: {

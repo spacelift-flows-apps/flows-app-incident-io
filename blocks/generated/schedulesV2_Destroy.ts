@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const schedulesV2_Destroy: AppBlock = {
   name: "Destroy Schedules V2",
   description: `Archives a single schedule.`,
-  category: "API",
+  category: "Schedules V2",
 
   inputs: {
     default: {

@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const usersV2_List: AppBlock = {
   name: "List Users V2",
   description: `List users in your account.`,
-  category: "API",
+  category: "Users V2",
 
   inputs: {
     default: {

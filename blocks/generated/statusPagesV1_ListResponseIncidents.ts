@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const statusPagesV1_ListResponseIncidents: AppBlock = {
   name: "ListResponseIncidents Status Pages V1",
   description: `List the linked Response incidents for a status page incident.`,
-  category: "API",
+  category: "Status Pages V1",
 
   inputs: {
     default: {

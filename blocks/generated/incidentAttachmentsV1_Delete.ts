@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const incidentAttachmentsV1_Delete: AppBlock = {
   name: "Delete Incident Attachments V1",
   description: `Unattaches an external resource from an incident`,
-  category: "API",
+  category: "Incident Attachments V1",
 
   inputs: {
     default: {

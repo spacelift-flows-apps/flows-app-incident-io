@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const catalogV3_UpdateType: AppBlock = {
   name: "UpdateType Catalog V3",
   description: `Updates an existing catalog type. The schema must be updated using the UpdateTypeSchema endpoint.`,
-  category: "API",
+  category: "Catalog V3",
 
   inputs: {
     default: {

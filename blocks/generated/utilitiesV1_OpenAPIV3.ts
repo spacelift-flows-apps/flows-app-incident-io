@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const utilitiesV1_OpenAPIV3: AppBlock = {
   name: "OpenAPIV3 Utilities V1",
   description: `Get the OpenAPI (v3) definition.`,
-  category: "API",
+  category: "Utilities V1",
 
   inputs: {
     default: {

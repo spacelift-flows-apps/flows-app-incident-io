@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const alertsV2_Show: AppBlock = {
   name: "Show Alerts V2",
   description: `Show a single alert for your account`,
-  category: "API",
+  category: "Alerts V2",
 
   inputs: {
     default: {

@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const actionsV2_Show: AppBlock = {
   name: "Show Actions V2",
   description: `Get a single incident action.`,
-  category: "API",
+  category: "Actions V2",
 
   inputs: {
     default: {

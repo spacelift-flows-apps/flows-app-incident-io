@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const customFieldsV2_Create: AppBlock = {
   name: "Create Custom Fields V2",
   description: `Create a new custom field`,
-  category: "API",
+  category: "Custom Fields V2",
 
   inputs: {
     default: {

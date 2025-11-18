@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const incidentMembershipsV1_Create: AppBlock = {
   name: "Create Incident Memberships V1",
   description: `Makes a user a member of a private incident`,
-  category: "API",
+  category: "Incident Memberships V1",
 
   inputs: {
     default: {

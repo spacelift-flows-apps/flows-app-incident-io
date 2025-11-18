@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const followupsV2_Show: AppBlock = {
   name: "Show Follow-ups V2",
   description: `Get a single incident follow-up.`,
-  category: "API",
+  category: "Follow-ups V2",
 
   inputs: {
     default: {

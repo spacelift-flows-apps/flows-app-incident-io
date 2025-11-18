@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const schedulesV2_ListScheduleEntries: AppBlock = {
   name: "ListScheduleEntries Schedules V2",
   description: `Get a list of schedule entries. The endpoint will return all entries that overlap with the given window, if one is provided.`,
-  category: "API",
+  category: "Schedules V2",
 
   inputs: {
     default: {

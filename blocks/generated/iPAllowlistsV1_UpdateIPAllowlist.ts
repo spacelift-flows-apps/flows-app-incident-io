@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const iPAllowlistsV1_UpdateIPAllowlist: AppBlock = {
   name: "UpdateIPAllowlist IPAllowlists V1",
   description: `Update the IP allowlist for your organisation`,
-  category: "API",
+  category: "IPAllowlists V1",
 
   inputs: {
     default: {

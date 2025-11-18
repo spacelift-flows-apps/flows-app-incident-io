@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const actionsV2_List: AppBlock = {
   name: "List Actions V2",
   description: `List all actions for an organisation.`,
-  category: "API",
+  category: "Actions V2",
 
   inputs: {
     default: {

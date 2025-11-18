@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const workflowsV2_DestroyWorkflow: AppBlock = {
   name: "DestroyWorkflow Workflows V2",
   description: `Archives a workflow`,
-  category: "API",
+  category: "Workflows V2",
 
   inputs: {
     default: {

@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const severitiesV1_Show: AppBlock = {
   name: "Show Severities V1",
   description: `Get a single incident severity.`,
-  category: "API",
+  category: "Severities V1",
 
   inputs: {
     default: {

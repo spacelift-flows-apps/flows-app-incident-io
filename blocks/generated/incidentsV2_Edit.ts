@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const incidentsV2_Edit: AppBlock = {
   name: "Edit Incidents V2",
   description: `Edit an existing incident.`,
-  category: "API",
+  category: "Incidents V2",
 
   inputs: {
     default: {

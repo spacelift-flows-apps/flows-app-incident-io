@@ -70,6 +70,39 @@ class BlockGenerator {
   private spec: OpenAPISpec;
   private baseUrl: string;
 
+  // Static list of deprecated paths (as of spec generation)
+  // We maintain this list to avoid breaking existing users when new endpoints are added
+  private static DEPRECATED_PATHS = new Set([
+    "/v1/actions:get",
+    "/v1/actions/{id}:get",
+    "/v1/custom_fields:get",
+    "/v1/custom_fields:post",
+    "/v1/custom_fields/{id}:delete",
+    "/v1/custom_fields/{id}:get",
+    "/v1/custom_fields/{id}:put",
+    "/v1/incident_roles:get",
+    "/v1/incident_roles:post",
+    "/v1/incident_roles/{id}:delete",
+    "/v1/incident_roles/{id}:get",
+    "/v1/incident_roles/{id}:put",
+    "/v1/incidents:get",
+    "/v1/incidents:post",
+    "/v1/incidents/{id}:get",
+    "/v1/openapi.json:get",
+    "/v2/catalog_entries:get",
+    "/v2/catalog_entries:post",
+    "/v2/catalog_entries/{id}:delete",
+    "/v2/catalog_entries/{id}:get",
+    "/v2/catalog_entries/{id}:put",
+    "/v2/catalog_resources:get",
+    "/v2/catalog_types:get",
+    "/v2/catalog_types:post",
+    "/v2/catalog_types/{id}:delete",
+    "/v2/catalog_types/{id}:get",
+    "/v2/catalog_types/{id}:put",
+    "/v2/catalog_types/{id}/actions/update_schema:post",
+  ]);
+
   constructor(specPath: string) {
     const content = fs.readFileSync(specPath, "utf8");
     this.spec = JSON.parse(content);
@@ -81,6 +114,10 @@ class BlockGenerator {
     const lastPaths = pathKeys.slice(-5);
     console.log("Sample first paths:", samplePaths);
     console.log("Sample last paths:", lastPaths);
+  }
+
+  private isDeprecated(path: string, method: string): boolean {
+    return BlockGenerator.DEPRECATED_PATHS.has(`${path}:${method}`);
   }
 
   generate(outputDir: string) {
@@ -144,10 +181,17 @@ class BlockGenerator {
     }
 
     // Generate API blocks from paths
+    let skippedDeprecated = 0;
     for (const [pathStr, pathItem] of Object.entries(this.spec.paths)) {
       // Generate API blocks
       for (const [method, operation] of Object.entries(pathItem)) {
         if (!["get", "post", "put", "delete", "patch"].includes(method)) {
+          continue;
+        }
+
+        // Skip deprecated endpoints
+        if (this.isDeprecated(pathStr, method)) {
+          skippedDeprecated++;
           continue;
         }
 
@@ -167,6 +211,10 @@ class BlockGenerator {
           console.warn(`⚠ Failed to generate block for ${method.toUpperCase()} ${pathStr}:`, error.message);
         }
       }
+    }
+
+    if (skippedDeprecated > 0) {
+      console.log(`\n⏭  Skipped ${skippedDeprecated} deprecated endpoints`);
     }
 
     // Generate index.ts for API blocks
@@ -224,6 +272,9 @@ class BlockGenerator {
     const humanName = this.humanizeName(operation, method);
     const description = operation.description?.split("\n")[0].trim() || humanName;
 
+    // Use the first tag as the category, fallback to "API"
+    const category = operation.tags?.[0] || "API";
+
     // Generate input config
     const inputConfig = this.generateInputConfig(pathStr, method, operation);
 
@@ -238,7 +289,7 @@ class BlockGenerator {
 const ${blockName}: AppBlock = {
   name: "${humanName}",
   description: \`${this.escapeDescription(description)}\`,
-  category: "API",
+  category: "${category}",
 
   inputs: {
     default: {

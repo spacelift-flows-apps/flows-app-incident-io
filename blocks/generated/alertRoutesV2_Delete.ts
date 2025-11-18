@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const alertRoutesV2_Delete: AppBlock = {
   name: "Delete Alert Routes V2",
   description: `Delete an existing alert route in your account.`,
-  category: "API",
+  category: "Alert Routes V2",
 
   inputs: {
     default: {

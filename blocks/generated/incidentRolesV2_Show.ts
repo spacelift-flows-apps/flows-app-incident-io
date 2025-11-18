@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const incidentRolesV2_Show: AppBlock = {
   name: "Show Incident Roles V2",
   description: `Get a single incident role.`,
-  category: "API",
+  category: "Incident Roles V2",
 
   inputs: {
     default: {

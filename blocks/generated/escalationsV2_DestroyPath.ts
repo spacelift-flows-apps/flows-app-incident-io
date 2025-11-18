@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const escalationsV2_DestroyPath: AppBlock = {
   name: "DestroyPath Escalations V2",
   description: `Archives an escalation path.`,
-  category: "API",
+  category: "Escalations V2",
 
   inputs: {
     default: {

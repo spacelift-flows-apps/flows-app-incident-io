@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const escalationsV2_Show: AppBlock = {
   name: "Show Escalations V2",
   description: `Show a specific escalation.`,
-  category: "API",
+  category: "Escalations V2",
 
   inputs: {
     default: {

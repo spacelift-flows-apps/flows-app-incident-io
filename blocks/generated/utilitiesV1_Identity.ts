@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const utilitiesV1_Identity: AppBlock = {
   name: "Identity Utilities V1",
   description: `Test if your API key is valid, and which roles it has.`,
-  category: "API",
+  category: "Utilities V1",
 
   inputs: {
     default: {

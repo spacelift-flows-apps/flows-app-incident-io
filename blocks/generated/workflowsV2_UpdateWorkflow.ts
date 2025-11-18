@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const workflowsV2_UpdateWorkflow: AppBlock = {
   name: "UpdateWorkflow Workflows V2",
   description: `Updates a workflow`,
-  category: "API",
+  category: "Workflows V2",
 
   inputs: {
     default: {

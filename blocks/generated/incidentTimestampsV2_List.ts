@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const incidentTimestampsV2_List: AppBlock = {
   name: "List Incident Timestamps V2",
   description: `List all incident timestamps for an organisation.`,
-  category: "API",
+  category: "Incident Timestamps V2",
 
   inputs: {
     default: {

@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const catalogV3_CreateEntry: AppBlock = {
   name: "CreateEntry Catalog V3",
   description: `Create an entry within the catalog. We support a maximum of 50,000 entries per type.`,
-  category: "API",
+  category: "Catalog V3",
 
   inputs: {
     default: {

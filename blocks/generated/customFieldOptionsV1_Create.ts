@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const customFieldOptionsV1_Create: AppBlock = {
   name: "Create Custom Field Options V1",
   description: `Create a custom field option. If the sort key is not supplied, it'll default to 1000, so the option appears near the end of the list.`,
-  category: "API",
+  category: "Custom Field Options V1",
 
   inputs: {
     default: {

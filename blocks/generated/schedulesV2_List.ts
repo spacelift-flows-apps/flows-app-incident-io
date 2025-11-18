@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const schedulesV2_List: AppBlock = {
   name: "List Schedules V2",
   description: `List configured schedules.`,
-  category: "API",
+  category: "Schedules V2",
 
   inputs: {
     default: {

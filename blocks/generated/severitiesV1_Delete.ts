@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const severitiesV1_Delete: AppBlock = {
   name: "Delete Severities V1",
   description: `Delete a severity`,
-  category: "API",
+  category: "Severities V1",
 
   inputs: {
     default: {

@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const alertAttributesV2_Destroy: AppBlock = {
   name: "Destroy Alert Attributes V2",
   description: `Destroy an alert attribute.`,
-  category: "API",
+  category: "Alert Attributes V2",
 
   inputs: {
     default: {

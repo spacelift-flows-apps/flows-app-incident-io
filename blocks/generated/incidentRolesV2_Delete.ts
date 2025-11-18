@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const incidentRolesV2_Delete: AppBlock = {
   name: "Delete Incident Roles V2",
   description: `Removes an existing role`,
-  category: "API",
+  category: "Incident Roles V2",
 
   inputs: {
     default: {

@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const alertAttributesV2_Create: AppBlock = {
   name: "Create Alert Attributes V2",
   description: `Create a new alert attribute.`,
-  category: "API",
+  category: "Alert Attributes V2",
 
   inputs: {
     default: {

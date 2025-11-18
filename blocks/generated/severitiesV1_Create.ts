@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const severitiesV1_Create: AppBlock = {
   name: "Create Severities V1",
   description: `Create a new severity`,
-  category: "API",
+  category: "Severities V1",
 
   inputs: {
     default: {

@@ -3,7 +3,7 @@ import { AppBlock, events } from "@slflows/sdk/v1";
 const incidentMembershipsV1_Revoke: AppBlock = {
   name: "Revoke Incident Memberships V1",
   description: `Revoke a user's membership of a private incident`,
-  category: "API",
+  category: "Incident Memberships V1",
 
   inputs: {
     default: {
