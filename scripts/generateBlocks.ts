@@ -699,7 +699,7 @@ ${exports}
 const ${blockName}: AppBlock = {
   name: "${humanName}",
   description: \`${this.escapeDescription(description)}\`,
-  category: "Webhooks",
+  category: "Webhook Receivers",
 
   async onInternalMessage(input) {
     const event = input.message.body;
